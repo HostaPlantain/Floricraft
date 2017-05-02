@@ -1,7 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "floricraft:items/petals_raw_dandelion",
-        "layer1": "floricraft:items/salty_overlay"
-    }
-}

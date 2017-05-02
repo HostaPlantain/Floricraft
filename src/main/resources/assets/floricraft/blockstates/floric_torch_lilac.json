@@ -1,9 +1,0 @@
-{
-    "variants": {
-        "facing=up": { "model": "floricraft:floric_torch_lilac" },
-        "facing=east": { "model": "floricraft:floric_torch_lilac_wall" },
-        "facing=south": { "model": "floricraft:floric_torch_lilac_wall", "y": 90 },
-        "facing=west": { "model": "floricraft:floric_torch_lilac_wall", "y": 180 },
-        "facing=north": { "model": "floricraft:floric_torch_lilac_wall", "y": 270 }
-    }
-}

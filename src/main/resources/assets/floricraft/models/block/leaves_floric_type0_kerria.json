@@ -1,6 +1,0 @@
-{
-    "parent": "floricraft:block/leaves_floric_type0",
-    "textures": {
-        "all": "floricraft:blocks/leaves_floric_type0_kerria"
-    }
-}

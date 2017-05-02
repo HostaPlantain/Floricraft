@@ -1,6 +1,0 @@
-{
-    "parent": "floricraft:item/flower_cut",
-    "textures": {
-        "layer0": "floricraft:items/flower_cut_rose"
-    }
-}

@@ -1,6 +1,0 @@
-{
-    "parent": "floricraft:item/bottle_brown_flower",
-    "textures": {
-        "bottle": "floricraft:blocks/bottle_brown_orange"
-    }
-}

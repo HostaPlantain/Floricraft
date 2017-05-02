@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "normal": [
-            { "model": "floricraft:lycoris01" },
-            { "model": "floricraft:lycoris02" }
-        ]
-    }
-}

@@ -1,6 +1,0 @@
-{
-    "parent": "floricraft:item/stack",
-    "textures": {
-        "layer0": "floricraft:blocks/stack_azure_bluet_raw"
-    }
-}

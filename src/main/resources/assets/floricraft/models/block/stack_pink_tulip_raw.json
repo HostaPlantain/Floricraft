@@ -1,6 +1,0 @@
-{
-    "parent": "floricraft:block/stack",
-    "textures": {
-        "side": "floricraft:blocks/stack_pink_tulip_raw"
-    }
-}

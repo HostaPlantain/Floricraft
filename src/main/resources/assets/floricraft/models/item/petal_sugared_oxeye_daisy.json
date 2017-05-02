@@ -1,7 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "floricraft:items/petal_raw_oxeye_daisy",
-        "layer1": "floricraft:items/sugared_overlay"
-    }
-}

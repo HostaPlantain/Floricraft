@@ -1,6 +1,0 @@
-{
-    "parent": "floricraft:block/ornament",
-    "textures": {
-        "side": "floricraft:blocks/flag_garland04"
-    }
-}

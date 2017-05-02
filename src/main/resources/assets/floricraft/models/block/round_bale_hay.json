@@ -1,7 +1,0 @@
-{
-    "parent": "floricraft:block/round_bale",
-    "textures": {
-        "top": "blocks/hay_block_top",
-        "side": "blocks/hay_block_side"
-    }
-}

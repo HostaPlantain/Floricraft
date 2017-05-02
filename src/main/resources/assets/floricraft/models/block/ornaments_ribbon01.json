@@ -1,6 +1,0 @@
-{
-    "parent": "floricraft:block/ornaments_ribbon",
-    "textures": {
-        "ribbon": "blocks/wool_colored_red"
-    }
-}

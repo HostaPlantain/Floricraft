@@ -1,6 +1,0 @@
-{
-    "parent": "block/torch_wall",
-    "textures": {
-        "torch": "floricraft:blocks/floric_torch_azure_bluet"
-    }
-}
