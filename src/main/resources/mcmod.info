@@ -1,0 +1,16 @@
+[
+{
+  "modid": "floricraft",
+  "name": "Floricraft",
+  "description": "Ornamental Horticulture mod.",
+  "version": "beta3.0.0",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Hosta","OkapyXX"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

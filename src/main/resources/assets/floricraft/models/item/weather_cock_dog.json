@@ -1,0 +1,6 @@
+{
+    "parent": "floricraft:item/weather_cock",
+    "textures": {
+        "layer0": "floricraft:items/weather_dog"
+    }
+}

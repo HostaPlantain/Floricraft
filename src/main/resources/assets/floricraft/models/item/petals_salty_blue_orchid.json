@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "floricraft:items/petals_raw_blue_orchid",
+        "layer1": "floricraft:items/salty_overlay"
+    }
+}

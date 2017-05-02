@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "floricraft:items/flower_bouquet_azure_bluet"
+    }
+}

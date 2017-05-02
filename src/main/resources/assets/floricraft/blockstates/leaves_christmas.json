@@ -1,0 +1,50 @@
+{
+    "multipart": [
+        {   "apply": { "model": "spruce_leaves" }},
+        
+        {   "when": { "OR": [{ "north": "false", "variant": "type0" }, { "north": "false", "variant": "type1" }]},
+            "apply": { "model": "floricraft:ornaments_ball01" }
+        },
+        {   "when": { "OR": [{ "east": "false", "variant": "type0" }, { "east": "false", "variant": "type1" }]},
+            "apply": { "model": "floricraft:ornaments_ball01", "y": 90 }
+        },
+        {   "when": { "OR": [{ "south": "false", "variant": "type0" }, { "south": "false", "variant": "type1" }]},
+            "apply": { "model": "floricraft:ornaments_ball01", "y": 180 }
+        },
+        {   "when": { "OR": [{ "west": "false", "variant": "type0" }, { "west": "false", "variant": "type1" }]},
+            "apply": { "model": "floricraft:ornaments_ball01", "y": 270 }
+        },
+        {   "when": { "OR": [{ "up": "false", "variant": "type0" }, { "up": "false", "variant": "type1" }]},
+            "apply": { "model": "floricraft:ornaments_ball01", "x": 270 }
+        },
+        
+        {   "when": { "OR": [{ "north": "false", "variant": "type2" }, { "north": "false", "variant": "type3" }]},
+            "apply": { "model": "floricraft:ornaments_ball_twinkling01" }
+        },
+        {   "when": { "OR": [{ "east": "false", "variant": "type2" }, { "east": "false", "variant": "type3" }]},
+            "apply": { "model": "floricraft:ornaments_ball_twinkling01", "y": 90 }
+        },
+        {   "when": { "OR": [{ "south": "false", "variant": "type2" }, { "south": "false", "variant": "type3" }]},
+            "apply": { "model": "floricraft:ornaments_ball_twinkling01", "y": 180 }
+        },
+        {   "when": { "OR": [{ "west": "false", "variant": "type2" }, { "west": "false", "variant": "type3" }]},
+            "apply": { "model": "floricraft:ornaments_ball_twinkling01", "y": 270 }
+        },
+        {   "when": { "OR": [{ "up": "false", "variant": "type2" }, { "up": "false", "variant": "type3" }]},
+            "apply": { "model": "floricraft:ornaments_ball_twinkling01", "x": 270 }
+        },
+        
+        {   "when": { "OR": [{ "north": "false", "variant": "type1" }, { "north": "false", "variant": "type3" }]},
+            "apply": { "model": "floricraft:ornaments_ribbon01" }
+        },
+        {   "when": { "OR": [{ "east": "false", "variant": "type1" }, { "east": "false", "variant": "type3" }]},
+            "apply": { "model": "floricraft:ornaments_ribbon01", "y": 90 }
+        },
+        {   "when": { "OR": [{ "south": "false", "variant": "type1" }, { "south": "false", "variant": "type3" }]},
+            "apply": { "model": "floricraft:ornaments_ribbon01", "y": 180 }
+        },
+        {   "when": { "OR": [{ "west": "false", "variant": "type1" }, { "west": "false", "variant": "type3" }]},
+            "apply": { "model": "floricraft:ornaments_ribbon01", "y": 270 }
+        }
+    ]
+}

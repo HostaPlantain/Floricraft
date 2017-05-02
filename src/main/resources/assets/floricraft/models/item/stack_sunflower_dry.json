@@ -1,0 +1,6 @@
+{
+    "parent": "floricraft:item/stack",
+    "textures": {
+        "layer0": "floricraft:blocks/stack_sunflower_dry"
+    }
+}

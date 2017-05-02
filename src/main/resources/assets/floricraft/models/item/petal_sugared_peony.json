@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "floricraft:items/petal_raw_peony",
+        "layer1": "floricraft:items/sugared_overlay"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "floricraft:block/sapling_floric_type0",
+    "textures": {
+        "cross": "floricraft:blocks/sapling_floric_type0_sakura"
+    }
+}

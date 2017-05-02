@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "facing=south,variant=raw": { "model": "floricraft:stack_pink_tulip_raw", "y": 90 },
+        "facing=west,variant=raw":  { "model": "floricraft:stack_pink_tulip_raw", "y": 180 },
+        "facing=north,variant=raw": { "model": "floricraft:stack_pink_tulip_raw", "y": 270 },
+        "facing=east,variant=raw":  { "model": "floricraft:stack_pink_tulip_raw" },
+        "facing=south,variant=raw1": { "model": "floricraft:stack_pink_tulip_raw", "y": 90 },
+        "facing=west,variant=raw1":  { "model": "floricraft:stack_pink_tulip_raw", "y": 180 },
+        "facing=north,variant=raw1": { "model": "floricraft:stack_pink_tulip_raw", "y": 270 },
+        "facing=east,variant=raw1":  { "model": "floricraft:stack_pink_tulip_raw" },
+        "facing=south,variant=raw2": { "model": "floricraft:stack_pink_tulip_raw", "y": 90 },
+        "facing=west,variant=raw2":  { "model": "floricraft:stack_pink_tulip_raw", "y": 180 },
+        "facing=north,variant=raw2": { "model": "floricraft:stack_pink_tulip_raw", "y": 270 },
+        "facing=east,variant=raw2":  { "model": "floricraft:stack_pink_tulip_raw" },
+        "facing=south,variant=dry": { "model": "floricraft:stack_pink_tulip_dry", "y": 90 },
+        "facing=west,variant=dry":  { "model": "floricraft:stack_pink_tulip_dry", "y": 180 },
+        "facing=north,variant=dry": { "model": "floricraft:stack_pink_tulip_dry", "y": 270 },
+        "facing=east,variant=dry":  { "model": "floricraft:stack_pink_tulip_dry" }
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "elements": [
+        {
+            "from": [ 4, 4, -1 ], "to": [ 6, 6, 1 ], 
+            "rotation": { "origin": [ 5, 5, 0 ], "axis": "x", "angle": 22.5 },
+            "faces": {
+                "north": { "texture": "#ball1", "uv": [ 0, 0, 8, 8 ] },
+                "east": { "texture": "#ball1", "uv": [ 0, 0, 8, 8 ] },
+                "south": { "texture": "#ball1", "uv": [ 0, 0, 8, 8 ] },
+                "west": { "texture": "#ball1", "uv": [ 0, 0, 8, 8 ] },
+                "up": { "texture": "#ball1", "uv": [ 0, 0, 8, 8 ] },
+                "down": { "texture": "#ball1", "uv": [ 0, 0, 8, 8 ] }
+            }
+        },
+        {
+            "from": [ 11, 2, -1 ], "to": [ 13, 4, 1 ], 
+            "rotation": { "origin": [ 12, 3, 0 ], "axis": "y", "angle": -22.5 },
+            "faces": {
+                "north": { "texture": "#ball2", "uv": [ 8, 0, 16, 8 ] },
+                "east": { "texture": "#ball2", "uv": [ 8, 0, 16, 8 ] },
+                "south": { "texture": "#ball2", "uv": [ 8, 0, 16, 8 ] },
+                "west": { "texture": "#ball2", "uv": [ 8, 0, 16, 8 ] },
+                "up": { "texture": "#ball2", "uv": [ 8, 0, 16, 8 ] },
+                "down": { "texture": "#ball2", "uv": [ 8, 0, 16, 8 ] }
+            }
+        },
+        {
+            "from": [ 9, 12, -1 ], "to": [ 11, 14, 1 ], 
+            "rotation": { "origin": [ 10, 13, 0 ], "axis": "z", "angle": 22.5 },
+            "faces": {
+                "north": { "texture": "#ball3", "uv": [ 0, 8, 8, 16 ] },
+                "east": { "texture": "#ball3", "uv": [ 0, 8, 8, 16 ] },
+                "south": { "texture": "#ball3", "uv": [ 0, 8, 8, 16 ] },
+                "west": { "texture": "#ball3", "uv": [ 0, 8, 8, 16 ] },
+                "up": { "texture": "#ball3", "uv": [ 0, 8, 8, 16 ] },
+                "down": { "texture": "#ball3", "uv": [ 0, 8, 8, 16 ] }
+            }
+        },
+        {
+            "from": [ 1, 10, -1 ], "to": [ 3, 12, 1 ], 
+            "rotation": { "origin": [ 2, 11, 0 ], "axis": "x", "angle": 22.5 },
+            "faces": {
+                "north": { "texture": "#ball4", "uv": [ 8, 8, 16, 16 ] },
+                "east": { "texture": "#ball4", "uv": [ 8, 8, 16, 16 ] },
+                "south": { "texture": "#ball4", "uv": [ 8, 8, 16, 16 ] },
+                "west": { "texture": "#ball4", "uv": [ 8, 8, 16, 16 ] },
+                "up": { "texture": "#ball4", "uv": [ 8, 8, 16, 16 ] },
+                "down": { "texture": "#ball4", "uv": [ 8, 8, 16, 16 ] }
+            }
+        }
+    ]
+}
