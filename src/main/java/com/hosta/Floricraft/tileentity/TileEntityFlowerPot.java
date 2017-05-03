@@ -20,7 +20,7 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
 
 	public void onClick(EntityPlayer player, ItemStack stackIn, EnumHand hand)
     {
-        if(this.getDisplayedItem() == null && stackIn != null)
+        if(this.getDisplayedItem() == null && stackIn != null && !stackIn.isEmpty())
         {
             Item item = stackIn.getItem();
             if (item instanceof ItemBlock)
@@ -34,11 +34,11 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
            		{
            			this.setDisplayedItem(stackIn.splitStack(1));
            			
-           			if (!this.worldObj.isRemote)
+           			if (!this.world.isRemote)
                 	{
-                		if (stackIn.stackSize == 0)
+                		if (stackIn.getCount() == 0)
                 		{
-                			player.setHeldItem(hand, null);
+                			player.setHeldItem(hand, ItemStack.EMPTY);
                 		}
                 		else
                 		{
@@ -48,9 +48,9 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
             	}
             }
         }
-        else if (this.getDisplayedItem() != null && stackIn == null)
+        else if (this.getDisplayedItem() != null && (stackIn == null || stackIn.isEmpty()))
         {
-        	if (!this.worldObj.isRemote)
+        	if (!this.world.isRemote)
         	{
         		ItemHandlerHelper.giveItemToPlayer(player, this.inventory);
         	}
@@ -79,12 +79,16 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
 	    super.readFromNBT(nbt);
 
 	    NBTTagCompound stackTag = nbt.getCompoundTag("Item");
-	    this.setDisplayedItem(ItemStack.loadItemStackFromNBT(stackTag));
+	    this.setDisplayedItem(new ItemStack(stackTag));
 	}
 
 	public ItemStack getDisplayedItem()
 	{
-		return inventory;
+		if (inventory != null && !inventory.isEmpty())
+		{
+			return inventory;
+		}
+		return null;
 	}
 
 	public Block getDisplayedBlock()

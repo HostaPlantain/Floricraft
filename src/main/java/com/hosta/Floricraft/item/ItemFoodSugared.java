@@ -1,7 +1,5 @@
 package com.hosta.Floricraft.item;
 
-import java.util.List;
-
 import com.hosta.Floricraft.helper.PotionHelper;
 import com.hosta.Floricraft.init.FloricraftInit;
 
@@ -9,6 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -43,7 +42,7 @@ public class ItemFoodSugared extends ItemBasicFood {
 	}
 	
 	@Override
-	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> items)
+	public void getSubItems(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for(int i = 0; i < ItemMetaFlower.max_meta; i++)
 		{

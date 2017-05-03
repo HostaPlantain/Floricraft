@@ -24,7 +24,7 @@ public class PacketNBT implements IMessage{
 	    	PacketBuffer buf = new PacketBuffer(bufIn);
 	    	try
 	    	{
-				this.nbt = buf.readNBTTagCompoundFromBuffer();
+				this.nbt = buf.readCompoundTag();
 			}
 	    	catch (IOException e)
 	    	{
@@ -36,6 +36,6 @@ public class PacketNBT implements IMessage{
 		public void toBytes(ByteBuf bufIn)
 		{
 	    	PacketBuffer buf = new PacketBuffer(bufIn);
-	    	buf.writeNBTTagCompoundToBuffer(nbt);
+	    	buf.writeCompoundTag(nbt);
 		}
 	}

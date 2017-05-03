@@ -1,6 +1,5 @@
 package com.hosta.Floricraft.block;
 
-import java.util.List;
 import java.util.Random;
 
 import com.hosta.Floricraft.Floricraft;
@@ -19,6 +18,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -27,7 +28,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockStackMeta extends BlockStack implements IMetaBlockName{
 	
-    public static final PropertyEnum<EnumDrying> DRYING = PropertyEnum.create("variant", EnumDrying.class);	
+	public static final PropertyEnum<EnumDrying> DRYING = PropertyEnum.create("variant", EnumDrying.class);	
     
 	public BlockStackMeta(String name, Material materialIn)
     {
@@ -38,18 +39,18 @@ public class BlockStackMeta extends BlockStack implements IMetaBlockName{
     
 	@Override
     @SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> items)
+	public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		items.add(new ItemStack(item, 1, 0));
 		items.add(new ItemStack(item, 1, 3));
 	}
 	
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand)
 	{
-		return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(DRYING, EnumDrying.getEnumByMeta(meta));
+		return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand).withProperty(DRYING, EnumDrying.getEnumByMeta(meta));
 	}
-	
+
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
@@ -75,7 +76,7 @@ public class BlockStackMeta extends BlockStack implements IMetaBlockName{
     }
     
     @Override
-    protected ItemStack createStackedBlock(IBlockState state)
+    protected ItemStack getSilkTouchDrop(IBlockState state)
     {
     	return new ItemStack(Item.getItemFromBlock(this), 1, damageDropped(state));
     }

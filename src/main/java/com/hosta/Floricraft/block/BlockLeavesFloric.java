@@ -22,7 +22,7 @@ public class BlockLeavesFloric extends BlockBasicLeaves {
 	@Override
 	protected int getSaplingDropChance(IBlockState state)
 	{
-		return 200;
+		return 100;
 	}
 	
     @Override
@@ -42,7 +42,7 @@ public class BlockLeavesFloric extends BlockBasicLeaves {
     {
     	super.randomDisplayTick(stateIn, worldIn, blockPos, rand);
     	
-    	int flower = ItemMetaFlower.getMetaFromName(createStackedBlock(stateIn).getUnlocalizedName().substring(getUnlocalizedName().length() + 1));
+    	int flower = ItemMetaFlower.getMetaFromName(getSilkTouchDrop(stateIn).getUnlocalizedName().substring(getUnlocalizedName().length() + 1));
     	if (flower >= 0 && rand.nextInt(3) == 0 && worldIn.isAirBlock(blockPos.down()) && worldIn.isAirBlock(blockPos.down(2)))
     	{
     		double[] pos = new double[] {blockPos.getX() + rand.nextDouble(), blockPos.getY(), blockPos.getZ() + rand.nextDouble()};

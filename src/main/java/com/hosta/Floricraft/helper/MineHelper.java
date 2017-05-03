@@ -27,7 +27,7 @@ public class MineHelper {
 			
 			ItemStack firework = setFirework(rand.nextInt(3), j == 1, j == 2, 0, color);
 			
-			worldIn.spawnEntityInWorld(new EntityFireworkRocket(worldIn, x, y, z, firework));
+			worldIn.spawnEntity(new EntityFireworkRocket(worldIn, x, y, z, firework));
 		}
 	}
 	

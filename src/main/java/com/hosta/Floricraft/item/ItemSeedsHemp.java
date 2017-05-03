@@ -27,7 +27,7 @@ public class ItemSeedsHemp extends ItemSeeds {
 	}
 	
 	@Override
-	public EnumActionResult onItemUse(ItemStack stackIn, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
 	{
         net.minecraft.block.state.IBlockState state = worldIn.getBlockState(pos);
         ItemStack stack = playerIn.getHeldItem(hand);

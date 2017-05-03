@@ -14,7 +14,7 @@ public class PotionHelper {
 		if(potion.isBadEffect())
 		{
 			PotionEffect potionEffect;
-			if(potionEffectIn.getAmplifier() != 0 && entity.worldObj.rand.nextInt() == 1)
+			if(potionEffectIn.getAmplifier() != 0 && entity.world.rand.nextInt() == 1)
 			{
 				potionEffect = new PotionEffect(potion, potionEffectIn.getDuration(), potionEffectIn.getAmplifier() - 1, potionEffectIn.getIsAmbient(), potionEffectIn.doesShowParticles());
 			}
@@ -31,7 +31,7 @@ public class PotionHelper {
 		}
 	}
 	
-	public static void addEffectToPlayerOnly(Entity entity, Potion potion, int amplifier)
+	public static void addEffectToPlayer(Entity entity, Potion potion, int amplifier)
 	{
 		if (entity instanceof EntityPlayer)
 		{

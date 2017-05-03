@@ -187,7 +187,7 @@ public class RecipeHandler {
 	{
 		//GameRegistry.addSmelting(FloricraftInit.vase_raw, new ItemStack(FloricraftInit.vase_rare, 1, 15), 0);
 	}
-	
+
 	public static void registerBrewingRecipes()
 	{
 		for(int i = 0; i < ItemMetaFlower.max_meta; i++)

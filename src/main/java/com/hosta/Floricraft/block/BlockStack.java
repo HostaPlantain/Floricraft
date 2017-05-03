@@ -62,13 +62,13 @@ public class BlockStack  extends BlockBasicHorizontal{
             	return STACK_AABB[3];
         }
     }
-    
+
     @Nullable
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
     {
         return NULL_AABB;
     }
-    
+
     @Override
     protected BlockStateContainer createBlockState()
     {
@@ -96,9 +96,9 @@ public class BlockStack  extends BlockBasicHorizontal{
     }
     
     @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos blockPos, Block blockIn)
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
-    	checkAndDropBlock(worldIn, blockPos, state);
+    	checkAndDropBlock(worldIn, pos, state);
     }
     
     protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state)

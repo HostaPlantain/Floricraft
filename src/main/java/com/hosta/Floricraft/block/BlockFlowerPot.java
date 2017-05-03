@@ -8,7 +8,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -47,16 +46,16 @@ public class BlockFlowerPot extends BlockBasicContainer {
     	{
     		if (planter.getDisplayedItem() != null)
     		{
-    			world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), planter.getDisplayedItem()));
+    			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), planter.getDisplayedItem()));
     		}
     	}
 	    super.breakBlock(world, pos, blockstate);
 	}
 	
 	@Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, ItemStack heldItemIn, EnumFacing side, float hitX, float hitY, float hitZ)
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-    	TileEntityFlowerPot planter = getTileEntityPlanter(worldIn, pos);
+		TileEntityFlowerPot planter = getTileEntityPlanter(worldIn, pos);
     	if(planter != null)
         {
     		planter.onClick(playerIn, playerIn.getHeldItem(hand), hand);

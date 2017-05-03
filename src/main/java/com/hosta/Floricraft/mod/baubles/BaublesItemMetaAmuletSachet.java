@@ -66,14 +66,14 @@ public class BaublesItemMetaAmuletSachet extends ItemMetaSachet implements IBaub
 		}
 		else if (stack.getItemDamage() == this.getMaxDamage())
 		{
-			EntityItem entityItem = new EntityItem(player.worldObj, player.posX, player.posY, player.posZ, new ItemStack(FloricraftInit.SACHET));
+			EntityItem entityItem = new EntityItem(player.world, player.posX, player.posY, player.posZ, new ItemStack(FloricraftInit.SACHET));
 			
 			player.renderBrokenItemStack(stack);
 			BaublesApi.getBaubles(player).removeStackFromSlot(itemSlot);
 			
-			if (!player.worldObj.isRemote)
+			if (!player.world.isRemote)
 			{
-				player.worldObj.spawnEntityInWorld(entityItem);
+				player.world.spawnEntity(entityItem);
 			}
 		}
 	}

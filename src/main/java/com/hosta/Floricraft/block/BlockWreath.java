@@ -1,7 +1,5 @@
 package com.hosta.Floricraft.block;
 
-import java.util.List;
-
 import com.hosta.Floricraft.handler.EnumHandler.EnumVariant;
 
 import net.minecraft.block.material.Material;
@@ -15,6 +13,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -23,7 +23,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockWreath extends BlockStack implements IMetaBlockName{
-	
+
 	protected static final AxisAlignedBB AABB[] =new AxisAlignedBB[] {new AxisAlignedBB(0.0D, 0.0D, 0.9375D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0625D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.0625D), new AxisAlignedBB(0.9375D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D)};
     public static final PropertyEnum<EnumVariant> VARIANT = PropertyEnum.create("variant", EnumVariant.class);	
     
@@ -35,7 +35,7 @@ public class BlockWreath extends BlockStack implements IMetaBlockName{
     
 	@Override
     @SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> items)
+	public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for(int i = 0; i < EnumVariant.getMaxMeta(); i++)
         {
@@ -44,11 +44,11 @@ public class BlockWreath extends BlockStack implements IMetaBlockName{
 	}
 	
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand)
 	{
-		return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(VARIANT, EnumVariant.getEnumByMeta(meta));
+		return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand).withProperty(VARIANT, EnumVariant.getEnumByMeta(meta));
 	}
-	
+
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
@@ -74,7 +74,7 @@ public class BlockWreath extends BlockStack implements IMetaBlockName{
     }
     
     @Override
-    protected ItemStack createStackedBlock(IBlockState state)
+    protected ItemStack getSilkTouchDrop(IBlockState state)
     {
     	return new ItemStack(Item.getItemFromBlock(this), 1, damageDropped(state));
     }

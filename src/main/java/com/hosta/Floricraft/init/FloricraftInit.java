@@ -54,6 +54,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
@@ -216,8 +217,8 @@ public class FloricraftInit{
 	public static void init()
 	{
 		//ClothArmor
-		CLOTH.customCraftingMaterial = HEMP_CLOTH;
-		APRON.customCraftingMaterial = HEMP_CLOTH;
+		CLOTH.repairMaterial = new ItemStack(HEMP_CLOTH);
+		APRON.repairMaterial = new ItemStack(HEMP_CLOTH);
 	}
 	
 	public static void registers()

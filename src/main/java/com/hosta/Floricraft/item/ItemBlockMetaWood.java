@@ -39,7 +39,7 @@ public class ItemBlockMetaWood extends ItemBlock {
     {
     	return super.getUnlocalizedName() + "." + getSpecialName(new ItemStack(this.block));
     }
-
+    
     public String getSpecialName(ItemStack stack)
 	{
     	return getSpecialName(this.block, stack.getItemDamage());

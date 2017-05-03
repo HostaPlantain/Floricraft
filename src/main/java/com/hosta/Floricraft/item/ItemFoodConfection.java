@@ -1,7 +1,5 @@
 package com.hosta.Floricraft.item;
 
-import java.util.List;
-
 import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.helper.PotionHelper;
 import com.hosta.Floricraft.init.Registerer;
@@ -12,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -40,7 +39,7 @@ public class ItemFoodConfection extends ItemBasicFood {
 	}
 	
 	@Override
-	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> items)
+	public void getSubItems(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for(int i = 0; i < ItemFoodConfection.max_meta; i++)
 		{

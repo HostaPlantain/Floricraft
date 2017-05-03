@@ -30,7 +30,7 @@ public class WorldGenSimpleRoad {
 	{
 		return (slope * x) + (MathHelper.cos((x) / scaleWidth) * scaleHight);
 	}
-	
+
 	public void setSegment(int posX)
 	{
 		this.path = getSegment(posX, 3);
@@ -41,7 +41,7 @@ public class WorldGenSimpleRoad {
 		this.waterway = getSegmentSide(posX, 3, 2);
 		this.fence = getSegmentSide(posX, 3, 3);
 	}
-	
+
 	private float[] getSegmentSide(int posX, int width, int side)
 	{
 		float[] way1 = getSegment(posX - side, width);
@@ -49,7 +49,7 @@ public class WorldGenSimpleRoad {
 		
 		return new float[] {getRared(Math.min(way1[0], way2[0]) - side), getRared(Math.max(way1[1], way2[1]) + side)};
 	}
-	
+
 	private float[] getSegment(int posX, int width)
 	{
 		float z = function(posX);
@@ -65,7 +65,7 @@ public class WorldGenSimpleRoad {
 			z = function(posX + pos + 1);
 			
 			pos += 0.5f;
-			float hight = MathHelper.sqrt_float((widthHalf * widthHalf) - (pos * pos));
+			float hight = MathHelper.sqrt((widthHalf * widthHalf) - (pos * pos));
 			pos += 0.5f;
 
 			segment[0]  = Math.min(Math.min(z1, z) - hight, segment[0]);
@@ -74,7 +74,7 @@ public class WorldGenSimpleRoad {
 		
 		return segment;
 	}
-	
+
 	public boolean isOnRoad(int posZ)
 	{
 		return isOnPath(posZ, fence[0], fence[1]);
@@ -91,7 +91,7 @@ public class WorldGenSimpleRoad {
 		float rared = raw % rare;
 		return rared <= 0 ? rared + rare : rared;
 	}
-	
+
 	public boolean genPath(World world, BlockPos pos)
 	{
 		if (isOnPath(pos.getZ(), this.path[0], this.path[1]))

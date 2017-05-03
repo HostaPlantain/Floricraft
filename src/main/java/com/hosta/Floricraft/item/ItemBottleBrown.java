@@ -24,13 +24,14 @@ public class ItemBottleBrown extends ItemGlassBottle {
 	}
 	
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand)
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
     {
 		RayTraceResult raytraceresult = this.rayTrace(worldIn, playerIn, true);
+        ItemStack itemstack = playerIn.getHeldItem(handIn);
 
         if (raytraceresult == null)
         {
-            return new ActionResult<ItemStack>(EnumActionResult.PASS, itemStackIn);
+            return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
         }
         else
         {
@@ -41,11 +42,11 @@ public class ItemBottleBrown extends ItemGlassBottle {
                 if (worldIn.getBlockState(blockpos).getMaterial() == Material.WATER)
                 {
                     worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, this.turnBottleIntoItem(itemStackIn, playerIn, new ItemStack(FloricraftInit.BOTTLE_BROWN_WATER)));
+                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, this.turnBottleIntoItem(itemstack, playerIn, new ItemStack(FloricraftInit.BOTTLE_BROWN_WATER)));
                 }
             }
 
-            return new ActionResult<ItemStack>(EnumActionResult.PASS, itemStackIn);
+            return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
         }
     }
 }

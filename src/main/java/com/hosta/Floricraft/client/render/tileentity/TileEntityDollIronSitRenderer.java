@@ -7,11 +7,10 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
 public class TileEntityDollIronSitRenderer extends TileEntitySpecialRenderer<TileEntityDollIronSit>{
-	
+
 	static final double R = Math.PI / 8;
 
 	@Override
@@ -26,9 +25,9 @@ public class TileEntityDollIronSitRenderer extends TileEntitySpecialRenderer<Til
     {
 		ItemStack itemstack = entityDoll.getDisplayedItem();
 
-        if (itemstack != null)
+        if (itemstack != null && !itemstack.isEmpty())
         {
-        	itemstack.stackSize = 1;
+        	itemstack.setCount(1);
             
             GlStateManager.pushMatrix();
             GlStateManager.disableLighting();
@@ -64,14 +63,8 @@ public class TileEntityDollIronSitRenderer extends TileEntitySpecialRenderer<Til
                 	break;
             }
             
-            float f = 180.0F;
-            if (!(itemstack.getItem() instanceof ItemBlock))
-            {
-            	f = 360.0F;
-            }
-            
             GlStateManager.translate(x + 0.5D + sin, y + 0.5D, z + 0.5D + cos);
-            GlStateManager.rotate(f - (float)i * 22.5F, 0.0F, 1.0F, 0.0F);
+            GlStateManager.rotate(180.0F - (float)i * 22.5F, 0.0F, 1.0F, 0.0F);
             GlStateManager.scale(0.5F, 0.5F, 0.5F);
 
             GlStateManager.pushAttrib();

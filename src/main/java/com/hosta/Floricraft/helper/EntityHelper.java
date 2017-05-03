@@ -9,7 +9,7 @@ public class EntityHelper {
 	
 	public static void antiEntityFrom(Entity entity, Class<?> antiClass, int amplifier)
 	{
-		entity.worldObj.getEntitiesWithinAABBExcludingEntity(entity, entity.getEntityBoundingBox().expand(16, 4, 16)).forEach(anti -> antiEntity(anti, antiClass, entity, amplifier));
+		entity.world.getEntitiesWithinAABBExcludingEntity(entity, entity.getEntityBoundingBox().expand(16, 4, 16)).forEach(anti -> antiEntity(anti, antiClass, entity, amplifier));
 	}
 	
 	public static void antiEntity(Entity antiEntity, Class<?> antiClass, Entity entity, int amplifier)
@@ -42,7 +42,7 @@ public class EntityHelper {
 	public static void spawnEntityParticle(Entity entity, EnumParticleTypes particle)
 	{
 		double[] pos = randomPosInEntityBoundingBox(entity);
-		entity.worldObj.spawnParticle(particle, pos[0], pos[1], pos[2], 0.0D, 0.0D, 0.0D, new int[0]);
+		entity.world.spawnParticle(particle, pos[0], pos[1], pos[2], 0.0D, 0.0D, 0.0D, new int[0]);
 	}
 	
 	public static double[] randomPosInEntityBoundingBox(Entity entity)

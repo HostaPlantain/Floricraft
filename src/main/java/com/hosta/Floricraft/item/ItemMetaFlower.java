@@ -1,7 +1,5 @@
 package com.hosta.Floricraft.item;
 
-import java.util.List;
-
 import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.init.Registerer;
 
@@ -9,6 +7,7 @@ import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -25,7 +24,7 @@ public class ItemMetaFlower extends ItemBasic {
 	
 	@Override
     @SideOnly(Side.CLIENT)
-	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> items)
+	public void getSubItems(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for(int i = 0; i < ItemMetaFlower.max_meta; i++)
 		{

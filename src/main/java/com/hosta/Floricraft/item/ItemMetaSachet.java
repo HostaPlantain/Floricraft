@@ -59,7 +59,7 @@ public class ItemMetaSachet extends ToolBasic {
     
 	protected void checkAndAddEffectPlayer(ItemStack stack, Item sachet, EntityPlayer player, Potion potion, int amplifier)
 	{
-    	if(!player.worldObj.isRemote && stack.getItem() == sachet)
+    	if(!player.world.isRemote && stack.getItem() == sachet)
     	{
     		PotionHelper.addPotionEffect(player, potion, amplifier);
     	}

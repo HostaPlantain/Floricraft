@@ -58,7 +58,7 @@ public class ParticleFloric extends ParticleBasic {
     		this.motionZ = MathHelper.sin(value) * 0.01D;
 		}
 	}
-
+		
 	@Override
     public int getFXLayer()
     {
@@ -68,7 +68,7 @@ public class ParticleFloric extends ParticleBasic {
     @Override
     public void onUpdate()
     {
-    	this.isCollided = this.posY == this.prevPosY && this.particleAge > 10;
+    	this.onGround = this.posY == this.prevPosY && this.particleAge > 10;
     	
     	this.prevPosX = this.posX;
         this.prevPosY = this.posY;
@@ -79,14 +79,14 @@ public class ParticleFloric extends ParticleBasic {
             this.setExpired();
         }
         
-        double[] wind = WindHelper.getWind(this.worldObj);
+        double[] wind = WindHelper.getWind(this.world);
 
-        IBlockState onBlock = this.worldObj.getBlockState(new BlockPos(this.posX, this.posY, this.posZ));
+        IBlockState onBlock = this.world.getBlockState(new BlockPos(this.posX, this.posY, this.posZ));
         if (onBlock.getMaterial().isLiquid())
         {
         	double waterLevel = (double)(1.0F - BlockLiquid.getLiquidHeightPercent(((Integer)onBlock.getValue(BlockLiquid.LEVEL)).intValue()));
-        	boolean isAbove = (double)MathHelper.floor_double(this.posY) + waterLevel + 0.1D < this.posY;
-        	boolean isBelow = (double)MathHelper.floor_double(this.posY) + waterLevel > this.posY || this.worldObj.getBlockState(new BlockPos(this.posX, this.posY + 1, this.posZ)).getMaterial().isLiquid();
+        	boolean isAbove = (double)MathHelper.floor(this.posY) + waterLevel + 0.1D < this.posY;
+        	boolean isBelow = (double)MathHelper.floor(this.posY) + waterLevel > this.posY || this.world.getBlockState(new BlockPos(this.posX, this.posY + 1, this.posZ)).getMaterial().isLiquid();
         	
         	wind[0] *= isBelow ? 0.0D : 0.1D;
         	wind[1] = 0.0D;
@@ -95,7 +95,7 @@ public class ParticleFloric extends ParticleBasic {
             this.motionY = isAbove || isBelow ? motionY < 0.0D ? motionY : - (double)this.particleGravity * 0.05D : 0.0D;
             this.motionZ = 0.0D;
         }
-        else if (!this.isCollided)
+        else if (!this.onGround)
         {
         	if (this.particleAge < 10)
 	        {
@@ -132,13 +132,13 @@ public class ParticleFloric extends ParticleBasic {
             this.particleAge += 4;
         }
         
-        this.moveEntity(this.motionX + wind[0], this.motionY + wind[1], this.motionZ + wind[2]);
+        this.move(this.motionX + wind[0], this.motionY + wind[1], this.motionZ + wind[2]);
     }
     
     @SideOnly(Side.CLIENT)
     public static class Factory implements IParticleFactory
     {
-    	public Particle getEntityFX(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_)
+    	public Particle createParticle(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_)
     	{
     		return new ParticleFloric(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn, worldIn.rand.nextInt(ItemMetaFlower.max_meta));
     	}

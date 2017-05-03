@@ -14,6 +14,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -30,14 +31,14 @@ public class BlockRoundBaleSilage extends BlockRoundBale implements IMetaBlockNa
 	
 	@Override
     @SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> items)
+	public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for(int i = 0; i < 4; i++)
 		{
 			items.add(new ItemStack(item, 1, i));
 		}
 	}
-	
+
     @Override
     public int damageDropped(IBlockState state)
     {
@@ -45,7 +46,7 @@ public class BlockRoundBaleSilage extends BlockRoundBale implements IMetaBlockNa
     }
 	
     @Override
-    protected ItemStack createStackedBlock(IBlockState state)
+    protected ItemStack getSilkTouchDrop(IBlockState state)
     {
         return new ItemStack(Item.getItemFromBlock(this), 1, damageDropped(state));
     }

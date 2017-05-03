@@ -26,19 +26,19 @@ public class TileEntityDoll extends TileEntityBasicWithRender implements ITickab
 	
 	private ItemStack inventory;
 	
-    public void onClick(EntityPlayer player, ItemStack stackIn, EnumHand hand)
+	public void onClick(EntityPlayer player, ItemStack stackIn, EnumHand hand)
     {
-        if (this.getDisplayedItem() == null && stackIn != null)
+        if (this.getDisplayedItem() == null && stackIn != null && !stackIn.isEmpty())
         {
-            if (!this.worldObj.isRemote)
+            if (!this.world.isRemote)
             {
-            	player.setHeldItem(hand, null);
+            	player.setHeldItem(hand, ItemStack.EMPTY);
             }
             this.setDisplayedItem(stackIn);
         }
-        else if (this.getDisplayedItem() != null && stackIn == null)
+        else if (this.getDisplayedItem() != null && (stackIn == null || stackIn.isEmpty()))
         {
-        	if (!this.worldObj.isRemote)
+        	if (!this.world.isRemote)
         	{
         		ItemHandlerHelper.giveItemToPlayer(player, this.inventory);
         	}
@@ -67,13 +67,13 @@ public class TileEntityDoll extends TileEntityBasicWithRender implements ITickab
 	    super.readFromNBT(nbt);
 
 	    NBTTagCompound stackTag = nbt.getCompoundTag("Item");
-	    this.setDisplayedItem(ItemStack.loadItemStackFromNBT(stackTag));
+	    this.setDisplayedItem(new ItemStack(stackTag));
 	}
 	
 	@Override
 	public void update()
 	{
-		if (!this.worldObj.isRemote && inventory != null)
+		if (!this.world.isRemote && inventory != null)
 		{
 			Item item = inventory.getItem();
 			if (item instanceof ItemMetaSachet)
@@ -88,15 +88,14 @@ public class TileEntityDoll extends TileEntityBasicWithRender implements ITickab
 	    			checkAndAddEffectPlayer(item, FloricraftInit.SACHET_ANTI_SPIDER, FloricraftInit.POTION_ANTI_SPIDER, 0);
 	    			checkAndAddEffectPlayer(item, FloricraftInit.SACHET_ANTI_ENDERMAN, FloricraftInit.POTION_ANTI_ENDERMAN, 0);
 	    			
-	    			if (((int)this.worldObj.getTotalWorldTime()) % 40 == 0)
+	    			if (((int)this.world.getTotalWorldTime()) % 40 == 0)
 	    			{
-	    				inventory.attemptDamageItem(1, worldObj.rand);
+	    				inventory.attemptDamageItem(1, world.rand);
 	    			}
 	    		}
 	    		else
 	    		{
 	    			this.setDisplayedItem(new ItemStack(FloricraftInit.SACHET));
-	    			//Need to Send a Packet to Players
 	    		}
 			}
 			else if (item instanceof ItemBlock)
@@ -118,13 +117,17 @@ public class TileEntityDoll extends TileEntityBasicWithRender implements ITickab
 		{
 			AxisAlignedBB aabb = this.getAxisAlignedBB().expand(16, 4, 16);
 			List<Entity> list = this.getWorld().getEntitiesWithinAABBExcludingEntity(null, aabb);
-			list.forEach(entity -> PotionHelper.addEffectToPlayerOnly(entity, potion, amplifier));
+			list.forEach(entity -> PotionHelper.addEffectToPlayer(entity, potion, amplifier));
 		}
 	}
 	
 	public ItemStack getDisplayedItem()
 	{
-		return inventory;
+		if (inventory != null && !inventory.isEmpty())
+		{
+			return inventory;
+		}
+		return null;
 	}
 
     public void setDisplayedItem(ItemStack stack)

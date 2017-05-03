@@ -41,6 +41,6 @@ public class EnchantmentFloric extends EnchantmentBasic {
 		super.onEntityDamaged(user, target, level);
 		
 		PotionHelper.addPotionEffect(user, FloricraftInit.POTION_FLORIC, level - 1, 200);
-		Floricraft.proxy.spawnFloricParticle(target.worldObj, EntityHelper.randomPosInEntityBoundingBox(target), 12, 1);
+		Floricraft.proxy.spawnFloricParticle(target.world, EntityHelper.randomPosInEntityBoundingBox(target), 12, 1);
 	}
 }

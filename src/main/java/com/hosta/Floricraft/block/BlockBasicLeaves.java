@@ -18,6 +18,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
@@ -37,7 +39,7 @@ public class BlockBasicLeaves extends BlockLeaves{
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list)
+    public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list)
     {
 		for(int i = 0; i < EnumVariant.getMaxMeta(); i++)
         {
@@ -45,12 +47,11 @@ public class BlockBasicLeaves extends BlockLeaves{
         }
     }
 
-	@SuppressWarnings("deprecation")
 	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand)
 	{
 		meta |= 4;
-		return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
+		return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
 	}
 	
     @Override
@@ -87,9 +88,9 @@ public class BlockBasicLeaves extends BlockLeaves{
     {
     	return state.getValue(VARIANT).getMeta();
     }
-    
+
     @Override
-    protected ItemStack createStackedBlock(IBlockState state)
+    protected ItemStack getSilkTouchDrop(IBlockState state)
     {
     	return new ItemStack(Item.getItemFromBlock(this), 1, damageDropped(state));
     }

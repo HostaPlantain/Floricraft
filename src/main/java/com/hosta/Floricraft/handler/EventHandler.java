@@ -56,7 +56,7 @@ public class EventHandler {
 		if (text != null)
 		{
 			EntityPlayer player = event.player;
-			player.addChatMessage(new TextComponentTranslation("message.event." + text));
+			player.sendMessage(new TextComponentTranslation("message.event." + text));
 			
 			NBTTagCompound nbt =new NBTTagCompound();
 			nbt.setString("Text", text);
@@ -86,7 +86,7 @@ public class EventHandler {
 	@SubscribeEvent
 	public void onEntityDeath(LivingDeathEvent event)
 	{
-		if(!event.getEntity().worldObj.isRemote)
+		if(!event.getEntity().world.isRemote)
 		{
 			final EntityLivingBase entity = event.getEntityLiving();
 			if(entity instanceof EntityZombie)
@@ -96,11 +96,11 @@ public class EventHandler {
 				final BlockPos pos = zombi.getPosition();
 				final BlockPos posDown = pos.down();
 			
-				if(zombi.worldObj.getBlockState(posDown) == Blocks.DIRT.getDefaultState())
+				if(zombi.world.getBlockState(posDown) == Blocks.DIRT.getDefaultState())
 				{
-					if(zombi.worldObj.getBlockState(pos) == Blocks.AIR.getDefaultState())
+					if(zombi.world.getBlockState(pos) == Blocks.AIR.getDefaultState())
 					{
-						zombi.worldObj.setBlockState(pos, FloricraftInit.LYCORIS.getDefaultState());
+						zombi.world.setBlockState(pos, FloricraftInit.LYCORIS.getDefaultState());
 					}
 				}
 			}
@@ -139,7 +139,7 @@ public class EventHandler {
 			{
 				entity.heal(1.0f);
 			}
-			
+
 			Collection<PotionEffect> collection = entity.getActivePotionEffects();
 			List<PotionEffect> list = Ordering.natural().sortedCopy(collection);
 			list.forEach(potionEffect -> PotionHelper.decreaseBadPotionEffect(entity, potionEffect));
@@ -155,7 +155,7 @@ public class EventHandler {
 			int amplifier = entity.getActivePotionEffect(FloricraftInit.POTION_TEMPTATION).getAmplifier();
 			EntityAnimal nearest = null;
 			AxisAlignedBB aabb = entity.getEntityBoundingBox().expand(8 + (amplifier * 4), 4 + (amplifier * 2), 8 + (amplifier * 4));
-			nearest = (EntityAnimal)entity.worldObj.findNearestEntityWithinAABB(EntityAnimal.class, aabb, entity);
+			nearest = (EntityAnimal)entity.world.findNearestEntityWithinAABB(EntityAnimal.class, aabb, entity);
 			
 			if(nearest != null)
 			{
@@ -168,7 +168,7 @@ public class EventHandler {
 			int amplifier = entity.getActivePotionEffect(FloricraftInit.POTION_TEMPTED).getAmplifier();
 			EntityPlayer temptation = null;
 			AxisAlignedBB aabb = entity.getEntityBoundingBox().expand(8 + (amplifier * 4), 4 + (amplifier * 2), 8 + (amplifier * 4));
-			temptation = (EntityPlayer)entity.worldObj.findNearestEntityWithinAABB(EntityPlayer.class, aabb, entity);
+			temptation = (EntityPlayer)entity.world.findNearestEntityWithinAABB(EntityPlayer.class, aabb, entity);
 			
 			if(temptation != null && temptation.isPotionActive(FloricraftInit.POTION_TEMPTATION) && entity instanceof EntityLiving)
 			{
@@ -226,7 +226,7 @@ public class EventHandler {
 			{
 				BlockPos topPos = new BlockPos(event.getChunkX() * 16 + x, 0, event.getChunkZ() * 16 + z);
 				World world = event.getWorld();
-				Biome biome = world.getBiomeGenForCoords(topPos);
+				Biome biome = world.getBiome(topPos);
 				
 				if (biome instanceof BiomeBasicWithPath)
 				{

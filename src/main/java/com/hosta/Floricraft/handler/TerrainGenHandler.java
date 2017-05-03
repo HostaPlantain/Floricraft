@@ -14,7 +14,7 @@ public class TerrainGenHandler {
 	public void onPopulateChunk(PopulateChunkEvent.Populate event)
 	{
 		BlockPos pos = new BlockPos(event.getChunkX() * 16 + 8, 0, event.getChunkZ() * 16 + 8);
-		Biome biome = event.getWorld().getBiomeGenForCoords(pos);
+		Biome biome = event.getWorld().getBiome(pos);
 		if (biome instanceof BiomeBasicWithPath)
 		{
 			if (event.getType() == PopulateChunkEvent.Populate.EventType.ANIMALS || event.getType() == PopulateChunkEvent.Populate.EventType.LAKE || event.getType() == PopulateChunkEvent.Populate.EventType.LAVA)

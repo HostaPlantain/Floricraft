@@ -10,7 +10,7 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeBasicWithPath extends BiomeBasic {
 
-	HashMap<BlockPos, int[]> hightMap = new HashMap<BlockPos, int[]>();
+HashMap<BlockPos, int[]> hightMap = new HashMap<BlockPos, int[]>();
 	
 	public BiomeBasicWithPath(BiomeProperties properties)
 	{

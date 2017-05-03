@@ -21,6 +21,6 @@ public class TileEntityBasic extends TileEntity {
 	@SuppressWarnings("deprecation")
 	public AxisAlignedBB getAxisAlignedBB()
 	{
-		return this.getBlock().getBoundingBox(getBlockstate(), worldObj, pos).offset(pos);
+		return this.getBlock().getBoundingBox(getBlockstate(), world, pos).offset(pos);
 	}
 }

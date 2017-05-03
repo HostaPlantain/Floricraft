@@ -1,7 +1,5 @@
 package com.hosta.Floricraft.block;
 
-import java.util.List;
-
 import com.hosta.Floricraft.handler.EnumHandler.EnumWeatherCock;
 import com.hosta.Floricraft.tileentity.TileEntityWeatherCock;
 
@@ -15,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -36,7 +35,7 @@ public class BlockWeatherCock extends BlockBasicContainer implements IMetaBlockN
 
 	@Override
     @SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> items)
+	public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for(int i = 0; i < EnumWeatherCock.getMaxMeta(); i++)
 		{
@@ -86,6 +85,7 @@ public class BlockWeatherCock extends BlockBasicContainer implements IMetaBlockN
 	{
 		return new BlockStateContainer(this, new IProperty[] {WEATHER_COCK});
 	}
+	
     @Override
     public int damageDropped(IBlockState state)
     {
@@ -93,7 +93,7 @@ public class BlockWeatherCock extends BlockBasicContainer implements IMetaBlockN
     }
 	
     @Override
-    protected ItemStack createStackedBlock(IBlockState state)
+    protected ItemStack getSilkTouchDrop(IBlockState state)
     {
         return new ItemStack(Item.getItemFromBlock(this), 1, damageDropped(state));
     }
