@@ -1,0 +1,12 @@
+{
+    "parent": "floricraft:block/doll",
+    "textures": {
+        "head": "floricraft:blocks/iron_golem_head",
+        "chest": "floricraft:blocks/iron_golem_chest",
+        "armR": "floricraft:blocks/iron_golem_arm_r",
+        "armL": "floricraft:blocks/iron_golem_arm_l",
+        "hip": "floricraft:blocks/iron_golem_hip",
+        "leg": "floricraft:blocks/iron_golem_leg",
+        "particle": "blocks/iron_block"
+    }
+}

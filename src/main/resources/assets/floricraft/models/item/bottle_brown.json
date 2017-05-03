@@ -1,0 +1,28 @@
+{
+    "parent": "block/block",
+    "elements": [
+        {   "from": [ 6, 3, 6 ],
+            "to": [ 10, 8, 10 ],
+            "shade": false,
+            "faces": {
+                "north":  { "uv": [ 0, 4, 4, 9 ], "texture": "#bottle"},
+                "east":  { "uv": [ 4, 4, 8, 9 ], "texture": "#bottle"},
+                "south":  { "uv": [ 8, 4, 12, 9 ], "texture": "#bottle"},
+                "west":  { "uv": [ 12, 4, 16, 9 ], "texture": "#bottle"},
+                "up":  { "uv": [ 0, 0, 4, 4 ], "texture": "#bottle"},
+                "down":  { "uv": [ 0, 9, 4, 13 ], "texture": "#bottle"}
+            }
+        }
+    ],
+    "display": {
+        "gui": {
+            "rotation": [ 25, 200, 0 ]
+        },
+        "firstperson_righthand": {
+            "translation": [ 0.4, 0.8, 0.4 ]
+        },
+        "firstperson_lefthand": {
+            "translation": [ 0.4, 0.8, 0.4 ]
+        }
+    }
+}

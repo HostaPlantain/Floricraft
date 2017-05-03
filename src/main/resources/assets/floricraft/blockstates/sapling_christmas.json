@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "stage=0,variant=type0": { "model": "floricraft:sapling_christmas01" },
+        "stage=1,variant=type0": { "model": "floricraft:sapling_christmas01" },
+        "stage=0,variant=type1": { "model": "floricraft:sapling_christmas02" },
+        "stage=1,variant=type1": { "model": "floricraft:sapling_christmas02" },
+        "stage=0,variant=type2": { "model": "floricraft:sapling_christmas03" },
+        "stage=1,variant=type2": { "model": "floricraft:sapling_christmas03" },
+        "stage=0,variant=type3": { "model": "floricraft:sapling_christmas04" },
+        "stage=1,variant=type3": { "model": "floricraft:sapling_christmas04" }
+    }
+}

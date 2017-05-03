@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "stage=0,variant=type0": { "model": "floricraft:sapling_floric_type0_sakura" },
+        "stage=1,variant=type0": { "model": "floricraft:sapling_floric_type0_sakura" },
+        "stage=0,variant=type1": { "model": "floricraft:sapling_floric_type0_dogwood" },
+        "stage=1,variant=type1": { "model": "floricraft:sapling_floric_type0_dogwood" },
+        "stage=0,variant=type2": { "model": "floricraft:sapling_floric_type0_kerria" },
+        "stage=1,variant=type2": { "model": "floricraft:sapling_floric_type0_kerria" },
+        "stage=0,variant=type3": { "model": "floricraft:sapling_floric_type0_azalea" },
+        "stage=1,variant=type3": { "model": "floricraft:sapling_floric_type0_azalea" }
+    }
+}

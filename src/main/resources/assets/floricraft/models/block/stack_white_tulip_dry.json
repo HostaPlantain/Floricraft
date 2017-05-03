@@ -1,0 +1,6 @@
+{
+    "parent": "floricraft:block/stack",
+    "textures": {
+        "side": "floricraft:blocks/stack_white_tulip_dry"
+    }
+}

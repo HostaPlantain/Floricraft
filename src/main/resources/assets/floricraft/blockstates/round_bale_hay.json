@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "axis=y,damaged=very_damaged": { "model": "floricraft:round_bale_hay_y" },
+        "axis=z,damaged=very_damaged": { "model": "floricraft:round_bale_hay", "x": 90 },
+        "axis=x,damaged=very_damaged": { "model": "floricraft:round_bale_hay", "x": 90, "y": 90 },
+        "axis=y,damaged=damaged": { "model": "floricraft:round_bale_hay_y" },
+        "axis=z,damaged=damaged": { "model": "floricraft:round_bale_hay", "x": 90 },
+        "axis=x,damaged=damaged": { "model": "floricraft:round_bale_hay", "x": 90, "y": 90 },
+        "axis=y,damaged=slightly_damaged": { "model": "floricraft:round_bale_hay_y" },
+        "axis=z,damaged=slightly_damaged": { "model": "floricraft:round_bale_hay", "x": 90 },
+        "axis=x,damaged=slightly_damaged": { "model": "floricraft:round_bale_hay", "x": 90, "y": 90 },
+        "axis=y,damaged=undamaged": { "model": "floricraft:round_bale_hay_y" },
+        "axis=z,damaged=undamaged": { "model": "floricraft:round_bale_hay", "x": 90 },
+        "axis=x,damaged=undamaged": { "model": "floricraft:round_bale_hay", "x": 90, "y": 90 }
+    }
+}

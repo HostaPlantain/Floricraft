@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=south": { "model": "floricraft:stack_dead", "y": 90 },
+        "facing=west":  { "model": "floricraft:stack_dead", "y": 180 },
+        "facing=north": { "model": "floricraft:stack_dead", "y": 270 },
+        "facing=east":  { "model": "floricraft:stack_dead" }
+    }
+}

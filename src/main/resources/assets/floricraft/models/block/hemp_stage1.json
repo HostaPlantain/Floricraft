@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+        "crop": "floricraft:blocks/hemp_stage1"
+    }
+}

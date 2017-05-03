@@ -1,0 +1,6 @@
+{
+    "parent": "block/torch",
+    "textures": {
+        "torch": "floricraft:blocks/floric_torch_sunflower"
+    }
+}

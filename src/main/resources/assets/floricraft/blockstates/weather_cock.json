@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "cock=cock": { "model": "floricraft:weather_base" },
+        "cock=dog": { "model": "floricraft:weather_base" }
+    }
+}
