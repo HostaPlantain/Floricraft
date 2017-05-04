@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
 
 public class ContainerHolder extends Container {
 	
@@ -18,6 +19,14 @@ public class ContainerHolder extends Container {
 		{
 			inventory = new InventoryHolderSachet(player);
 		}
+		else if (guiID == 2)
+		{
+			inventory = new InventoryHolderFlower(player);
+		}
+		else if (guiID == 3)
+		{
+			inventory = new InventoryHolderFood(player);
+		}
 		
 		int slotCount = getSlotCount();
         inventory.openInventory(player);
@@ -26,7 +35,7 @@ public class ContainerHolder extends Container {
         {
 	        for (int j = 0; j < 9; ++j)
 	        {
-	        	this.addSlotToContainer(new SlotHolder(inventory, j, j * 18 + 8, slotCount * 18 + 2));
+	        	this.addSlotToContainer(new SlotHolder(inventory, j + k * 9, j * 18 + 8, k * 18 + 20));
 	        }
 		}
         for (int k = 0; k < 3; ++k)
@@ -45,6 +54,11 @@ public class ContainerHolder extends Container {
 	public int getSlotCount()
 	{
 		return inventory.getSizeInventory() / 9;
+	}
+
+	public ITextComponent getDisplayName()
+	{
+		return inventory.getDisplayName();
 	}
 	
 	@Override

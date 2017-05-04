@@ -216,6 +216,10 @@ item.sachet_anti_skeleton.name=Anti Skeleton Sachet
 item.sachet_anti_creeper.name=Anti Creeper Sachet
 item.sachet_anti_spider.name=Anti Spider Sachet
 item.sachet_anti_enderman.name=Anti Enderman Sachet
+item.sachet_holder.name=Sachet Holder
+
+item.basket_flower.name=Flower Basket
+item.basket_lunch.name=Lunch Basket
 
 item.seed_hemp.name=Hemp Seed
 tile.crop_hemp.name=Hemp

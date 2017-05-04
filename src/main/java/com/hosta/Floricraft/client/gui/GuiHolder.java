@@ -4,7 +4,6 @@ import org.lwjgl.opengl.GL11;
 
 import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.inventory.ContainerHolder;
-import com.hosta.Floricraft.item.ItemHolder;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,15 +27,8 @@ public class GuiHolder extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int x, int y)
     {
-        if (this.mc.thePlayer.getHeldItemMainhand() != null && this.mc.thePlayer.getHeldItemMainhand().getItem() instanceof ItemHolder)
-        {
-        	this.fontRendererObj.drawString(this.mc.thePlayer.getHeldItemMainhand().getDisplayName(), 8, 6, 4210752);
-        }
-        else if (this.mc.thePlayer.getHeldItemOffhand() != null && this.mc.thePlayer.getHeldItemOffhand().getItem() instanceof ItemHolder)
-        {
-        	this.fontRendererObj.drawString(this.mc.thePlayer.getHeldItemOffhand().getDisplayName(), 8, 6, 4210752);
-        }
-        this.fontRendererObj.drawString("Inventory", 8, this.ySize - 94, 4210752);
+        this.fontRendererObj.drawString(((ContainerHolder) this.inventorySlots).getDisplayName().getFormattedText(), 8, 6, 4210752);
+        this.fontRendererObj.drawString(this.mc.thePlayer.inventory.getDisplayName().getUnformattedText(), 8, this.ySize - 92, 4210752);
     }
  
     @Override

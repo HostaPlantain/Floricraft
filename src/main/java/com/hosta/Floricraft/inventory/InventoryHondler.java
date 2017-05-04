@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
 
 public class InventoryHondler implements IInventory {
 
@@ -38,7 +39,7 @@ public class InventoryHondler implements IInventory {
 	@Override
 	public ITextComponent getDisplayName()
 	{
-		return null;
+		return new TextComponentString(currentItem.getDisplayName());
 	}
 
 	@Override
