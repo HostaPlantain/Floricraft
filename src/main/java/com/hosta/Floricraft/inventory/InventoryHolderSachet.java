@@ -2,14 +2,14 @@ package com.hosta.Floricraft.inventory;
 
 import com.hosta.Floricraft.item.ItemMetaSachet;
 
-import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 
 public class InventoryHolderSachet extends InventoryHondler {
 
-	public InventoryHolderSachet(InventoryPlayer inventory)
+	public InventoryHolderSachet(EntityPlayer player)
 	{
-		super(inventory, 1, 1);
+		super(player, 1, 1);
 	}
 
 	@Override

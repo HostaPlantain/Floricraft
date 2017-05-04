@@ -3,7 +3,6 @@ package com.hosta.Floricraft.inventory;
 import com.hosta.Floricraft.item.ItemHolder;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,15 +12,13 @@ import net.minecraft.util.text.ITextComponent;
 
 public class InventoryHondler implements IInventory {
 
-    private InventoryPlayer inventoryPlayer;
     private ItemStack currentItem;
     private ItemStack[] items;
     private int stackLimit;
  
-	public InventoryHondler(InventoryPlayer inventory, int slotCount, int stackLimit)
+	public InventoryHondler(EntityPlayer player, int slotCount, int stackLimit)
 	{
-		this.inventoryPlayer = inventory;
-		this.currentItem = (inventory.player.getHeldItemMainhand() != null && inventory.player.getHeldItemMainhand().getItem() instanceof ItemHolder) ? inventory.player.getHeldItemMainhand() : inventory.player.getHeldItemOffhand();
+		this.currentItem = (player.getHeldItemMainhand() != null && player.getHeldItemMainhand().getItem() instanceof ItemHolder) ? player.getHeldItemMainhand() : player.getHeldItemOffhand();
 		this.items = new ItemStack[9 * slotCount];
 		this.stackLimit = stackLimit;
 	}
@@ -130,21 +127,18 @@ public class InventoryHondler implements IInventory {
 		if(!currentItem.hasTagCompound())
         {
             currentItem.setTagCompound(new NBTTagCompound());
-            currentItem.getTagCompound().setTag("Items", new NBTTagList());
         }
-        NBTTagList tags = (NBTTagList)currentItem.getTagCompound().getTag("Items");
+		
+        NBTTagList tags = currentItem.getTagCompound().hasKey("Items") ? (NBTTagList)currentItem.getTagCompound().getTag("Items") : new NBTTagList();
  
         for(int i = 0; i < tags.tagCount(); i++)
         {
             NBTTagCompound tagCompound = tags.getCompoundTagAt(i);
-            if (tagCompound.hasKey("Slot"))
-            {
-	            int slot = tagCompound.getByte("Slot");
-	            if(slot >= 0 && slot < items.length)
-	            {
-	                items[slot] = ItemStack.loadItemStackFromNBT(tagCompound);
-	            }
-            }
+            int slot = tagCompound.hasKey("Slot") ? tagCompound.getByte("Slot") : -999;
+	        if(slot >= 0 && slot < items.length)
+	        {
+	        	items[slot] = ItemStack.loadItemStackFromNBT(tagCompound);
+	        }
         }
 	}
 
@@ -162,18 +156,8 @@ public class InventoryHondler implements IInventory {
             }
         }
         
-        ItemStack result = new ItemStack(currentItem.getItem(), 1);
-        result.setTagCompound(new NBTTagCompound());
-        result.getTagCompound().setTag("Items", tagList);
- 
-        if (player.getHeldItemMainhand() != null && player.getHeldItemMainhand().getItem() instanceof ItemHolder)
-        {
-        	inventoryPlayer.mainInventory[inventoryPlayer.currentItem] = result;
-        }
-        else if (player.getHeldItemOffhand() != null && player.getHeldItemOffhand().getItem() instanceof ItemHolder)
-        {
-        	inventoryPlayer.offHandInventory[0] = result;
-        }
+        currentItem.getTagCompound().removeTag("Items");
+        currentItem.getTagCompound().setTag("Items", tagList);
 	}
 
 	@Override

@@ -52,7 +52,6 @@ public class ItemMetaSachet extends ToolBasic {
 			}
 			
 			damageItem(stack, player, itemSlot);
-			
 			super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
 		}
     }
@@ -78,11 +77,13 @@ public class ItemMetaSachet extends ToolBasic {
 		else if (stack.getItemDamage() == this.getMaxDamage())
 		{
 			player.renderBrokenItemStack(stack);
-			player.inventory.setInventorySlotContents(itemSlot, new ItemStack(FloricraftInit.SACHET));
+			
+			stack.setItem(FloricraftInit.SACHET);
+			stack.setItemDamage(0);
 		}
 		else
 		{
-			player.inventory.setInventorySlotContents(itemSlot, new ItemStack(this, 1, 3600));
+			stack.setItemDamage(3600);
 		}
 	}
 }

@@ -16,7 +16,7 @@ public class ContainerHolder extends Container {
 	{
 		if (guiID == 1)
 		{
-			inventory = new InventoryHolderSachet(player.inventory);
+			inventory = new InventoryHolderSachet(player);
 		}
 		
 		int slotCount = getSlotCount();
