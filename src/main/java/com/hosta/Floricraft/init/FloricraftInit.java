@@ -32,6 +32,7 @@ import com.hosta.Floricraft.item.ItemBlockMetaWood;
 import com.hosta.Floricraft.item.ItemBottleBrown;
 import com.hosta.Floricraft.item.ItemFoodConfection;
 import com.hosta.Floricraft.item.ItemFoodSugared;
+import com.hosta.Floricraft.item.ItemHolderSachet;
 import com.hosta.Floricraft.item.ItemMetaFlower;
 import com.hosta.Floricraft.item.ItemMetaSachet;
 import com.hosta.Floricraft.item.ItemSeedsHemp;
@@ -106,6 +107,7 @@ public class FloricraftInit{
 	public static final Item SACHET_ANTI_CREEPER = new ItemMetaSachet("sachet_anti_creeper"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
 	public static final Item SACHET_ANTI_SPIDER = new ItemMetaSachet("sachet_anti_spider"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
 	public static final Item SACHET_ANTI_ENDERMAN = new ItemMetaSachet("sachet_anti_enderman"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
+	public static final Item SACHET_HOLDER = new ItemHolderSachet("sachet_holder");
 	
 	//Crop
 	//Hemp
@@ -261,6 +263,7 @@ public class FloricraftInit{
 		Registerer.register(SACHET_ANTI_CREEPER);
 		Registerer.register(SACHET_ANTI_SPIDER);
 		Registerer.register(SACHET_ANTI_ENDERMAN);
+		Registerer.register(SACHET_HOLDER);
 		
 		//Crop
 		//Hemp
@@ -411,6 +414,7 @@ public class FloricraftInit{
 		Registerer.registerRender(SACHET_ANTI_CREEPER);
 		Registerer.registerRender(SACHET_ANTI_SPIDER);
 		Registerer.registerRender(SACHET_ANTI_ENDERMAN);
+		Registerer.registerRender(SACHET_HOLDER);
 		
 		//Crop
 		//Hemp

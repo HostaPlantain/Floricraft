@@ -33,17 +33,9 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
            		else if (block instanceof IPlantable || block instanceof IShearable)
            		{
            			this.setDisplayedItem(stackIn.splitStack(1));
-           			
            			if (!this.worldObj.isRemote)
                 	{
-                		if (stackIn.stackSize == 0)
-                		{
-                			player.setHeldItem(hand, null);
-                		}
-                		else
-                		{
-                			player.setHeldItem(hand, stackIn);
-                		}
+                		player.setHeldItem(hand, stackIn.stackSize == 0 ? null : stackIn);
             		}
             	}
             }
