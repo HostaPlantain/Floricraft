@@ -1,6 +1,7 @@
 package com.hosta.Floricraft;
 
 import com.hosta.Floricraft.config.ConfigChecker;
+import com.hosta.Floricraft.handler.GuiHandler;
 import com.hosta.Floricraft.handler.RecipeHandler;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.mod.ModChecker;
@@ -14,9 +15,13 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class Floricraft {
+
+	@Mod.Instance(Reference.MOD_ID)
+    public static Floricraft instance;
 	
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
@@ -57,6 +62,8 @@ public class Floricraft {
 		{
 			BaublesFloricraftInit.registerCraftingRecipes();
 		}
+
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 		
 		proxy.registerRenders();
 		proxy.registerModsRenders();

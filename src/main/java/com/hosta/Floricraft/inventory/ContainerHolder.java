@@ -1,0 +1,117 @@
+package com.hosta.Floricraft.inventory;
+
+import com.hosta.Floricraft.inventory.Slot.SlotHolder;
+import com.hosta.Floricraft.inventory.Slot.SlotPlayerHeld;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
+
+public class ContainerHolder extends Container {
+	
+    private InventoryHondler inventory;
+	
+	public ContainerHolder(EntityPlayer player, int guiID)
+	{
+		if (guiID == 1)
+		{
+			inventory = new InventoryHolderSachet(player);
+		}
+		else if (guiID == 2)
+		{
+			inventory = new InventoryHolderFlower(player);
+		}
+		else if (guiID == 3)
+		{
+			inventory = new InventoryHolderFood(player);
+		}
+		
+		int slotCount = getSlotCount();
+        inventory.openInventory(player);
+ 
+        for (int k = 0; k < slotCount; ++k)
+        {
+	        for (int j = 0; j < 9; ++j)
+	        {
+	        	this.addSlotToContainer(new SlotHolder(inventory, j + k * 9, j * 18 + 8, k * 18 + 20));
+	        }
+		}
+        for (int k = 0; k < 3; ++k)
+        {
+            for (int j = 0; j < 9; ++j)
+            {
+                this.addSlotToContainer(new Slot(player.inventory, j + k * 9 + 9, j * 18 + 8, k * 18 + slotCount * 18 + 33));
+            }
+        }
+        for (int j = 0; j < 9; ++j)
+        {
+            this.addSlotToContainer(new SlotPlayerHeld(player.inventory, j, j * 18 + 8, slotCount * 18 + 91));
+        }
+	}
+
+	public int getSlotCount()
+	{
+		return inventory.getSizeInventory() / 9;
+	}
+
+	public ITextComponent getDisplayName()
+	{
+		return inventory.getDisplayName();
+	}
+	
+	@Override
+    public boolean canInteractWith(EntityPlayer playerIn)
+    {
+       return true;
+    }
+ 
+    @Override
+    public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)
+    {
+    	ItemStack itemstack = ItemStack.EMPTY;
+        Slot slot = (Slot)this.inventorySlots.get(index);
+        
+        if (slot != null && slot.getHasStack())
+        {
+            ItemStack itemstack1 = slot.getStack();
+            itemstack = itemstack1.copy();
+ 
+            if (index < this.inventory.getSizeInventory())
+            {
+                if (!this.mergeItemStack(itemstack1, this.inventory.getSizeInventory(), this.inventorySlots.size(), true))
+                {
+                	return ItemStack.EMPTY;
+                }
+            }
+            else if (isBlckList(itemstack1) || !this.mergeItemStack(itemstack1, 0, this.inventory.getSizeInventory(), false))
+            {
+                return ItemStack.EMPTY;
+            }
+            
+            if (itemstack1.getCount() == 0)
+            {
+                slot.putStack(ItemStack.EMPTY);
+            }
+            else
+            {
+                slot.onSlotChanged();
+            }
+        }
+        
+        return itemstack;
+    }
+
+    @Override
+    public void onContainerClosed(EntityPlayer player)
+    {
+        super.onContainerClosed(player);
+        this.inventory.closeInventory(player);
+    }
+    
+    public boolean isBlckList(ItemStack itemStack)
+    {
+		return itemStack != null && !itemStack.isEmpty() && (!inventory.isWhiteList(itemStack.getItem()) || itemStack.getCount() > inventory.getInventoryStackLimit());
+    }
+}

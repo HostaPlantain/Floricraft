@@ -7,6 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.world.World;
 
@@ -52,7 +53,6 @@ public class ItemMetaSachet extends ToolBasic {
 			}
 			
 			damageItem(stack, player, itemSlot);
-			
 			super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
 		}
     }
@@ -78,11 +78,23 @@ public class ItemMetaSachet extends ToolBasic {
 		else if (stack.getItemDamage() == this.getMaxDamage())
 		{
 			player.renderBrokenItemStack(stack);
-			player.inventory.setInventorySlotContents(itemSlot, new ItemStack(FloricraftInit.SACHET));
+
+			ItemStack sachetSac = new ItemStack(FloricraftInit.SACHET);
+			sachetSac.setTagCompound(stack.getTagCompound());
+			if (player.inventory.getStackInSlot(itemSlot) == stack)
+			{
+				player.inventory.setInventorySlotContents(itemSlot, sachetSac);
+			}
+			else
+			{
+				NBTTagCompound nbt = new NBTTagCompound();
+				nbt.setTag("broken", sachetSac.writeToNBT(new NBTTagCompound()));
+				stack.setTagCompound(nbt);
+			}
 		}
 		else
 		{
-			player.inventory.setInventorySlotContents(itemSlot, new ItemStack(this, 1, 3600));
+			stack.setItemDamage(3600);
 		}
 	}
 }
