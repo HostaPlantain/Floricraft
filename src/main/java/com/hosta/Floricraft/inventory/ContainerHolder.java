@@ -1,6 +1,6 @@
 package com.hosta.Floricraft.inventory;
 
-import com.hosta.Floricraft.inventory.Slot.SlotHeldSlot;
+import com.hosta.Floricraft.inventory.Slot.SlotPlayerHeld;
 import com.hosta.Floricraft.inventory.Slot.SlotHolder;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -47,7 +47,7 @@ public class ContainerHolder extends Container {
         }
         for (int j = 0; j < 9; ++j)
         {
-            this.addSlotToContainer(new SlotHeldSlot(player.inventory, j, j * 18 + 8, slotCount * 18 + 91));
+            this.addSlotToContainer(new SlotPlayerHeld(player.inventory, j, j * 18 + 8, slotCount * 18 + 91));
         }
 	}
 
