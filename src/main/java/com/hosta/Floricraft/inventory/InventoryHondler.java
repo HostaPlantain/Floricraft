@@ -1,7 +1,6 @@
 package com.hosta.Floricraft.inventory;
 
 import com.hosta.Floricraft.item.ItemHolder;
-import com.hosta.Floricraft.item.ItemHolderBasket;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -159,11 +158,7 @@ public class InventoryHondler implements IInventory {
         
         currentItem.getTagCompound().removeTag("Items");
         currentItem.getTagCompound().setTag("Items", tagList);
-        
-        if (currentItem.getItem() instanceof ItemHolderBasket)
-        {
-        	currentItem.setItemDamage(meta);
-        }
+        currentItem.setItemDamage(meta);
 	}
 
 	@Override

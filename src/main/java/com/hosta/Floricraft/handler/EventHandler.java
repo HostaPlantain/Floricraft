@@ -12,7 +12,10 @@ import com.hosta.Floricraft.helper.PotionHelper;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.packet.PacketNBTGui;
 import com.hosta.Floricraft.world.biome.BiomeBasicWithPath;
+import com.hosta.Floricraft.world.biome.BiomeFlowerLand;
+import com.hosta.Floricraft.world.gen.feature.WorldGenSimpleRoad;
 
+import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -31,6 +34,8 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
@@ -215,9 +220,80 @@ public class EventHandler {
 	@SubscribeEvent
 	public void onChunkPopulate(PopulateChunkEvent.Post event)
 	{
-		if (!ConfigChecker.getGenBiomeFast())
+		for (int x = 0; x < 16; x++)
 		{
-			BiomeBasicWithPath.genPath(event.getWorld(), event.getChunkX() * 16, event.getChunkZ() * 16);
+			for (int z = 0; z < 16; z++)
+			{
+				BlockPos topPos = new BlockPos(event.getChunkX() * 16 + x, 0, event.getChunkZ() * 16 + z);
+				World world = event.getWorld();
+				Biome biome = world.getBiomeGenForCoords(topPos);
+				
+				if (biome instanceof BiomeBasicWithPath)
+				{
+					WorldGenSimpleRoad[] simpleRoads = {new WorldGenSimpleRoad(2.0f, 5.0f, 5.0f, 300), new WorldGenSimpleRoad(-0.5f, 50.0f, 50.0f, 200)};
+					topPos = world.getTopSolidOrLiquidBlock(topPos);
+					
+					boolean pathFlag = false;
+					for (WorldGenSimpleRoad simpleRoad: simpleRoads)
+					{
+						simpleRoad.setSegment(topPos.getX());
+						if (simpleRoad.isOnRoad(topPos.getZ()))
+						{
+							pathFlag = true;
+						}
+					}
+					
+					if(pathFlag)
+					{
+						boolean genFlag = false;
+						topPos = topPos.down();
+
+						if (!genFlag)
+						{
+							for (WorldGenSimpleRoad simpleRoad: simpleRoads)
+							{
+								genFlag = simpleRoad.genPath(world, topPos);
+							}
+						}
+						if (!genFlag)
+						{
+							for (WorldGenSimpleRoad simpleRoad: simpleRoads)
+							{
+								genFlag = simpleRoad.genGrass(world, topPos);
+							}
+						}
+						if (!genFlag)
+						{
+							for (WorldGenSimpleRoad simpleRoad: simpleRoads)
+							{
+								genFlag = simpleRoad.genWaterway(world, topPos);
+							}
+						}
+						if (!genFlag && z % 16 != 0)
+						{
+							for (WorldGenSimpleRoad simpleRoad: simpleRoads)
+							{
+								genFlag = simpleRoad.genFence(world, topPos);
+							}
+						}
+					}
+					else if (biome instanceof BiomeFlowerLand && x % 4 != 0 && z % 16 != 0)
+					{
+						BiomeFlowerLand biomeFarmer = (BiomeFlowerLand)biome;
+						if (world.getBlockState(topPos.down()).getBlock() == biomeFarmer.farmLand.getBlock() && world.isAirBlock(topPos))
+						{
+							int i = (topPos.getX() / 4) % biomeFarmer.crops.length;
+							i = i < 0 ? i + biomeFarmer.crops.length : i;
+							
+							world.setBlockState(topPos, biomeFarmer.crops[i]);
+							if (biomeFarmer.crops[i].getBlock() instanceof BlockDoublePlant)
+							{
+								world.setBlockState(topPos.up(), biomeFarmer.crops[i].withProperty(BlockDoublePlant.HALF, BlockDoublePlant.EnumBlockHalf.UPPER));
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
