@@ -1,6 +1,7 @@
 package com.hosta.Floricraft.inventory;
 
 import com.hosta.Floricraft.item.ItemHolder;
+import com.hosta.Floricraft.item.ItemHolderBasket;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -115,10 +116,7 @@ public class InventoryHondler implements IInventory {
 	}
 
 	@Override
-	public void markDirty()
-	{
-
-	}
+	public void markDirty()	{	}
 
 	@Override
 	public boolean isEmpty()
@@ -156,6 +154,7 @@ public class InventoryHondler implements IInventory {
 	@Override
 	public void closeInventory(EntityPlayer player)
 	{
+		int meta = 0;
 		NBTTagList tagList = new NBTTagList();
         for(int i = 0; i < items.length; i++)
         {
@@ -164,11 +163,21 @@ public class InventoryHondler implements IInventory {
                 NBTTagCompound compound = new NBTTagCompound();
                 compound.setByte("Slot", (byte)i);
                 tagList.appendTag(items[i].writeToNBT(compound));
+                
+                if(!items[i].isEmpty())
+                {
+                	meta = 1;
+                }
             }
         }
         
         currentItem.getTagCompound().removeTag("Items");
         currentItem.getTagCompound().setTag("Items", tagList);
+        
+        if (currentItem.getItem() instanceof ItemHolderBasket)
+        {
+        	currentItem.setItemDamage(meta);
+        }
 	}
 
 	@Override
@@ -189,10 +198,7 @@ public class InventoryHondler implements IInventory {
 	}
 
 	@Override
-	public void setField(int id, int value)
-	{
-
-	}
+	public void setField(int id, int value)	{	}
 
 	@Override
 	public int getFieldCount()
@@ -201,8 +207,5 @@ public class InventoryHondler implements IInventory {
 	}
 
 	@Override
-	public void clear()
-	{
-
-	}
+	public void clear()	{	}
 }

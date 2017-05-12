@@ -1,6 +1,7 @@
 {
-    "parent": "floricraft:item/basket",
-    "textures": {
+    "parent": "floricraft:item/basket_item",
+	"textures": {
+		"items": "floricraft:items/basket_flower",
         "basket": "floricraft:items/basket"
-    }
+	}
 }

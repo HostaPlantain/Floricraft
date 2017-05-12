@@ -427,8 +427,8 @@ public class FloricraftInit{
 		Registerer.registerRender(SACHET_HOLDER);
 		
 		//Basket
-		Registerer.registerRender(BASKET_FLOWER);
-		Registerer.registerRender(BASKET_LUNCH);
+		ItemHolderBasket.preRegisterRender(BASKET_FLOWER);
+		ItemHolderBasket.preRegisterRender(BASKET_LUNCH);
 
 		//Crop
 		//Hemp
@@ -559,6 +559,10 @@ public class FloricraftInit{
 		EnumDrying.preRegisteryModelBakeryStuff(STACK_PEONY);
 		EnumDrying.preRegisteryModelBakeryStuff(STACK_SAKURA);
 
+		//Basket
+		ItemHolderBasket.preRegisteryModelBakeryStuff(BASKET_FLOWER);
+		ItemHolderBasket.preRegisteryModelBakeryStuff(BASKET_LUNCH);
+		
 		//Weather
 		EnumWeatherCock.preRegisteryModelBakeryStuff(WEATHER_COCK);
 		
