@@ -11,6 +11,7 @@ public class BiomeFlowerLand extends BiomeBasicWithPath {
 	public BiomeFlowerLand(BiomeProperties properties)
 	{
 		super(properties.setTemperature(0.65F));
+		this.spawnableMonsterList.clear();
 	}
 	
 	public BiomeFlowerLand(String name)
