@@ -4,6 +4,7 @@ import com.hosta.Floricraft.client.helper.ClientMineHelper;
 import com.hosta.Floricraft.client.render.color.ColorRegisterer;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityDollIronSitRenderer;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityFlowerPotRenderer;
+import com.hosta.Floricraft.client.render.tileentity.TileEntityPotPourriRenderer;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityWeatherCockRenderer;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.mod.ModChecker;
@@ -11,6 +12,7 @@ import com.hosta.Floricraft.mod.baubles.BaublesFloricraftInit;
 import com.hosta.Floricraft.mod.baubles.NonBaublesFloricraftInit;
 import com.hosta.Floricraft.tileentity.TileEntityDollIronSit;
 import com.hosta.Floricraft.tileentity.TileEntityFlowerPot;
+import com.hosta.Floricraft.tileentity.TileEntityPotPourri;
 import com.hosta.Floricraft.tileentity.TileEntityWeatherCock;
 
 import net.minecraft.world.World;
@@ -24,6 +26,7 @@ public class ClientProxy extends CommonProxy{
 	{
 		FloricraftInit.registerRenders();
 		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPotPourri.class, new TileEntityPotPourriRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDollIronSit.class, new TileEntityDollIronSitRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWeatherCock.class, new TileEntityWeatherCockRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFlowerPot.class, new TileEntityFlowerPotRenderer());

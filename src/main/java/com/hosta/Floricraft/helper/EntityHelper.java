@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class EntityHelper {
 	
@@ -12,21 +13,35 @@ public class EntityHelper {
 		entity.worldObj.getEntitiesWithinAABBExcludingEntity(entity, entity.getEntityBoundingBox().expand(16, 4, 16)).forEach(anti -> antiEntity(anti, antiClass, entity, amplifier));
 	}
 	
-	public static void antiEntity(Entity antiEntity, Class<?> antiClass, Entity entity, int amplifier)
+	private static void antiEntity(Entity antiEntity, Class<?> antiClass, Entity entity, int amplifier)
 	{
 		if (antiEntity.getClass() == antiClass)
 		{
-			amplifier++;
-			double dis = antiEntity.getDistanceSqToEntity(entity);
-			antiEntity.motionX = (antiEntity.posX - entity.posX) * amplifier * 4 / dis;
-			antiEntity.motionZ = (antiEntity.posZ - entity.posZ) * amplifier * 4 / dis;
-			spawnEntityParticle(antiEntity, EnumParticleTypes.VILLAGER_ANGRY);
+			antiEntity(antiEntity, antiEntity.posX - entity.posX, antiEntity.posZ - entity.posZ, ((double) ++amplifier) / 2);
 		}
 	}
 	
-	public static void proEntity(Entity proEntity, Class<?> antiClass, BlockPos pos)
+	public static <T extends Entity> void antiEntityFrom(World world, BlockPos pos, Class<T> antiClass)
 	{
-		if (proEntity.getClass() == antiClass)
+		world.getEntitiesWithinAABB(antiClass, world.getBlockState(pos).getBoundingBox(world, pos).offset(pos).expand(8, 2, 8)).forEach(anti -> antiEntity(anti, pos));
+	}
+
+	private static void antiEntity(Entity antiEntity, BlockPos pos)
+	{
+		antiEntity(antiEntity, antiEntity.posX - pos.getX(), antiEntity.posZ - pos.getZ(), 0.2);
+	}
+	
+	private static void antiEntity(Entity antiEntity, double x, double z, double amplifier)
+	{
+		double dis = Math.sqrt((x * x) + (z *z));
+		antiEntity.motionX = x * amplifier / dis;
+		antiEntity.motionZ = z * amplifier / dis;
+		spawnEntityParticle(antiEntity, EnumParticleTypes.VILLAGER_ANGRY);
+	}
+	
+	public static void proEntity(Entity proEntity, Class<?> proClass, BlockPos pos)
+	{
+		if (proEntity.getClass() == proClass)
 		{
 			double dX = pos.getX() - proEntity.posX;
 			double dZ = pos.getZ() - proEntity.posZ;

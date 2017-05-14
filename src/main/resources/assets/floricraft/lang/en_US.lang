@@ -233,6 +233,8 @@ item.cloth_leggings.name=Cloth Leggings
 item.cloth_boots.name=Cloth Boots
 item.apron_chestplate.name=Apron
 
+tile.potpourri.name=Potpourri
+
 tile.doll_iron_sit.name=Iron Golem Doll
 
 tile.weather_cock.cock.name=Weather Cock

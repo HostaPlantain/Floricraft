@@ -38,7 +38,7 @@ public abstract class TileEntityBasicPlanterRenderer<T extends TileEntityBasicWi
         }
 	}
 
-	public void renderPlant(IBlockState iblockstate,World world, TileEntityPlanter planter, double x, double y, double z, float scale)
+	private void renderPlant(IBlockState iblockstate,World world, TileEntityPlanter planter, double x, double y, double z, float scale)
 	{
 		if (iblockstate.getRenderType() != EnumBlockRenderType.INVISIBLE)
 		{
