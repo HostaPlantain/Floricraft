@@ -37,7 +37,6 @@ public class TileEntityPotPourri extends TileEntityInventoryWithRender implement
 		tick = items[0] != null ? tick + 1 : 0;
 		if (items[0] != null)
 		{
-			++tick;
 			EntityHelper.antiEntityFrom(this.worldObj, this.pos, EntityMob.class);
 		
 			if (tick % 6000 == 0)

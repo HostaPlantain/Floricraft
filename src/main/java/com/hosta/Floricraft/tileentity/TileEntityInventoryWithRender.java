@@ -2,16 +2,17 @@ package com.hosta.Floricraft.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraftforge.items.ItemHandlerHelper;
 
-public abstract class TileEntityInventoryWithRender extends TileEntityBasicWithRender implements IInventory {
+public abstract class TileEntityInventoryWithRender extends TileEntityBasicWithRender implements ISidedInventory {
 
     protected ItemStack[] items;
     private final int STACKLIMIT;
@@ -46,12 +47,7 @@ public abstract class TileEntityInventoryWithRender extends TileEntityBasicWithR
 	            }
 	            else if (this.items[index].getItem() == stackIn.getItem() && this.items[index].stackSize < this.getInventoryStackLimit())
 	            {
-	            	ItemStack itemStack1 = this.items[index].copy();
-	            	itemStack1.stackSize = 1;
-	            	ItemStack itemStack2 = stackIn.copy();
-	            	itemStack2.stackSize = 1;
-	            	
-	            	if (itemStack1.isItemEqual(itemStack2))
+	            	if (this.canCombine(index, stackIn))
 	            	{
 	            		int amount = this.items[index].stackSize;
 		            	this.items[index].stackSize = Math.min(amount + stackIn.stackSize, this.getInventoryStackLimit());
@@ -192,7 +188,7 @@ public abstract class TileEntityInventoryWithRender extends TileEntityBasicWithR
 	@Override
 	public ItemStack removeStackFromSlot(int index)
 	{
-		if (this.items[index] != null)
+		if ((index < 0 || index >= this.items.length) && this.items[index] != null)
         {
             ItemStack itemstack = this.items[index];
             this.items[index] = null;
@@ -206,6 +202,11 @@ public abstract class TileEntityInventoryWithRender extends TileEntityBasicWithR
 	@Override
 	public void setInventorySlotContents(int index, ItemStack stack)
 	{
+		if (index < 0 || index >= this.items.length)
+		{
+			return;
+		}
+		
 		if (stack != null && stack.stackSize > this.getInventoryStackLimit())
         {
         	stack.stackSize = this.getInventoryStackLimit();
@@ -213,15 +214,11 @@ public abstract class TileEntityInventoryWithRender extends TileEntityBasicWithR
 		
 		if (this.items[index] != null && stack != null)
 		{
-			ItemStack itemStack1 = this.items[index].copy();
-	        itemStack1.stackSize = 1;
-	        ItemStack itemStack2 = stack.copy();
-	        itemStack2.stackSize = 1;
-	        
-	        if (itemStack1.isItemEqual(itemStack2) && this.items[index].stackSize + stack.stackSize < this.getInventoryStackLimit())
-	       	{
-	           	this.items[index].stackSize += stack.stackSize;
-	        }
+			if (canCombine(index, stack) && stack.stackSize != 1)
+			{
+				this.items[index] = stack;
+		        this.markDirty();
+			}
 	        else if (this.items[items.length - 1] == null)
 			{
 				for (int i = items.length - 1; i > index; i--)
@@ -229,14 +226,14 @@ public abstract class TileEntityInventoryWithRender extends TileEntityBasicWithR
 					this.items[i] = this.items[i - 1];
 				}
 				this.items[index] = stack;
+		        this.markDirty();
 			}
 		}
-		else
+		else if (stack != null)
 		{
 			this.items[index] = stack;
+	        this.markDirty();
 		}
-        
-        this.markDirty();
 	}
 
 	@Override
@@ -282,4 +279,36 @@ public abstract class TileEntityInventoryWithRender extends TileEntityBasicWithR
 
 	@Override
 	public void clear()	{	}
+
+	@Override
+	public int[] getSlotsForFace(EnumFacing side)
+	{
+		int[] i = new int[items.length];
+		for (int j = 0; j < i.length; j++)
+		{
+			i[j] = j;
+		}
+		return i;
+	}
+
+	@Override
+	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction)
+	{
+		return this.items[index] == null || (this.canCombine(index, itemStackIn) && this.items[index].stackSize + itemStackIn.stackSize <= this.getInventoryStackLimit());
+	}
+
+	@Override
+	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction)
+	{
+		return index == 0;
+	}
+	
+	private boolean canCombine(int index, ItemStack stack)
+	{
+		ItemStack itemStack1 = this.items[index].copy();
+        itemStack1.stackSize = 1;
+        ItemStack itemStack2 = stack.copy();
+        itemStack2.stackSize = 1;
+        return itemStack1.isItemEqual(itemStack2);
+	}
 }
