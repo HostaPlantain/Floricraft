@@ -233,6 +233,8 @@ item.cloth_leggings.name=布のレギンス
 item.cloth_boots.name=布のブーツ
 item.apron_chestplate.name=エプロン
 
+tile.potpourri.name=ポプリ
+
 tile.doll_iron_sit.name=アイアンゴーレム人形
 
 tile.weather_cock.cock.name=風見鶏

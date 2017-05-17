@@ -9,6 +9,7 @@ import com.hosta.Floricraft.block.BlockLeavesChristmasDynamic;
 import com.hosta.Floricraft.block.BlockLeavesChristmasNormal;
 import com.hosta.Floricraft.block.BlockLeavesFloric;
 import com.hosta.Floricraft.block.BlockOreSalt;
+import com.hosta.Floricraft.block.BlockPotPourri;
 import com.hosta.Floricraft.block.BlockRoundBaleHay;
 import com.hosta.Floricraft.block.BlockRoundBaleSilage;
 import com.hosta.Floricraft.block.BlockSalt;
@@ -43,6 +44,7 @@ import com.hosta.Floricraft.packet.PacketNBTGuiHandler;
 import com.hosta.Floricraft.potion.EffectBasic;
 import com.hosta.Floricraft.tileentity.TileEntityDollIronSit;
 import com.hosta.Floricraft.tileentity.TileEntityFlowerPot;
+import com.hosta.Floricraft.tileentity.TileEntityPotPourri;
 import com.hosta.Floricraft.tileentity.TileEntityWeatherCock;
 import com.hosta.Floricraft.world.biome.BiomeFlowerLand;
 
@@ -131,19 +133,15 @@ public class FloricraftInit{
 	public static final Item CLOTH_BOOTS = new ItemArmorCloth("cloth_boots", CLOTH, 1, EntityEquipmentSlot.FEET);
 	public static final ArmorMaterial APRON = EnumHelper.addArmorMaterial("apron", Reference.MOD_ID + ":" + "apron", 3, new int[]{1, 3, 2, 1}, 20, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
 	public static final Item APRON_CHESTPLATE = new ItemArmorCloth("apron_chestplate", APRON, 1, EntityEquipmentSlot.CHEST);
-	
+
 	//PotPourri
-	//public static final Block potpourri = new BlockPotPourri("potpourri", Material.GLASS).setCreativeTab(Floricraft.tabFloricraft);
+	public static final Block POTPOURRI = new BlockPotPourri("potpourri", Material.GLASS);
 	
 	//Doll
 	public static final Block DOLL_IRON_SIT = new BlockDollIronSit("doll_iron_sit");
 	
 	//Wether
 	public static final Block WEATHER_COCK = new BlockWeatherCock("weather_cock");
-	
-	//Vase
-	//public static final Item vase_raw = new Item().setUnlocalizedName("vase_raw").setCreativeTab(Floricraft.tabFloricraft);
-	//public static final Item vase_rare = new ItemMetaColor("vase_rare");
 	
 	//Plater
 	public static final Block FLOWER_POT = new BlockFlowerPot("flower_pot");
@@ -289,20 +287,15 @@ public class FloricraftInit{
 		Registerer.register(CLOTH_LEGGINGS);
 		Registerer.register(CLOTH_BOOTS);
 		Registerer.register(APRON_CHESTPLATE);
-		
+
 		//PotPourri
-		//Register.register(potpourri);
-		//GameRegistry.registerTileEntity(TileEntityPotPourri.class, potpourri.getUnlocalizedName());
+		Registerer.registerWithTileEntity(POTPOURRI, TileEntityPotPourri.class);
 		
 		//Doll
 		Registerer.registerWithTileEntity(DOLL_IRON_SIT, TileEntityDollIronSit.class);
 		
 		//Wether
 		Registerer.registerWithTileEntityWithMeta(WEATHER_COCK, TileEntityWeatherCock.class);
-		
-		//Vase
-		//Register.register(vase_raw);
-		//Register.register(vase_rare);
 		
 		//Plater
 		Registerer.registerWithTileEntity(FLOWER_POT, TileEntityFlowerPot.class);
@@ -445,7 +438,7 @@ public class FloricraftInit{
 		Registerer.registerRender(APRON_CHESTPLATE);
 
 		//PotPourri
-		//Register.registerRender(potpourri);
+		Registerer.registerRender(POTPOURRI);
 		
 		//Doll
 		Registerer.registerRender(DOLL_IRON_SIT);
@@ -453,10 +446,6 @@ public class FloricraftInit{
 		//Weather
 		ItemBlockMeta.preRegisterRender(WEATHER_COCK);
 		
-		//Vase
-		//Register.registerRender(vase_raw);
-		//ItemMetaColor.preRegisterRender(vase_rare);
-
 		//Planter
 		Registerer.registerRender(FLOWER_POT);
 		
