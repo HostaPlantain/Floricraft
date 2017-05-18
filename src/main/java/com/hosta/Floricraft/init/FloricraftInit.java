@@ -1,5 +1,6 @@
 package com.hosta.Floricraft.init;
 
+import com.hosta.Floricraft.Floricraft;
 import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.block.BlockCropHemp;
 import com.hosta.Floricraft.block.BlockDollIronSit;
@@ -22,6 +23,7 @@ import com.hosta.Floricraft.block.BlockWeatherCock;
 import com.hosta.Floricraft.block.BlockWreath;
 import com.hosta.Floricraft.config.ConfigChecker;
 import com.hosta.Floricraft.enchantment.EnchantmentFloric;
+import com.hosta.Floricraft.handler.GuiHandler;
 import com.hosta.Floricraft.handler.EnumHandler.EnumDamaged;
 import com.hosta.Floricraft.handler.EnumHandler.EnumDrying;
 import com.hosta.Floricraft.handler.EnumHandler.EnumVariant;
@@ -373,6 +375,8 @@ public class FloricraftInit{
 		
 		//Network
 		NETWORK_GUI.registerMessage(PacketNBTGuiHandler.class, PacketNBTGui.class, 0, Side.CLIENT);
+		NetworkRegistry.INSTANCE.registerGuiHandler(Floricraft.instance, new GuiHandler());
+
 	}
 
 	public static void registerRenders()

@@ -1,13 +1,13 @@
 package com.hosta.Floricraft;
 
 import com.hosta.Floricraft.config.ConfigChecker;
-import com.hosta.Floricraft.handler.GuiHandler;
 import com.hosta.Floricraft.handler.RecipeHandler;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.mod.ModChecker;
 import com.hosta.Floricraft.mod.baubles.BaublesFloricraftInit;
 import com.hosta.Floricraft.mod.baubles.NonBaublesFloricraftInit;
 import com.hosta.Floricraft.proxy.CommonProxy;
+import com.hosta.Floricraft.world.gen.ore.WorldGenOreOverWorld;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class Floricraft {
@@ -48,6 +48,8 @@ public class Floricraft {
 			NonBaublesFloricraftInit.registers();
 		}
 		
+	    GameRegistry.registerWorldGenerator(new WorldGenOreOverWorld(), 0);
+		
 		proxy.registerEvents();
 	}
 	
@@ -63,8 +65,6 @@ public class Floricraft {
 			BaublesFloricraftInit.registerCraftingRecipes();
 		}
 
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
-		
 		proxy.registerRenders();
 		proxy.registerModsRenders();
 		proxy.registeryModelBakeryStuff();
