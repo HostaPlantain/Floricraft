@@ -376,7 +376,6 @@ public class FloricraftInit{
 		//Network
 		NETWORK_GUI.registerMessage(PacketNBTGuiHandler.class, PacketNBTGui.class, 0, Side.CLIENT);
 		NetworkRegistry.INSTANCE.registerGuiHandler(Floricraft.instance, new GuiHandler());
-
 	}
 
 	public static void registerRenders()
