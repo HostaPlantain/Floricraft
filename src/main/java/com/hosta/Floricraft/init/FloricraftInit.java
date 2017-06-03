@@ -1,5 +1,6 @@
 package com.hosta.Floricraft.init;
 
+import com.hosta.Floricraft.Floricraft;
 import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.block.BlockCropHemp;
 import com.hosta.Floricraft.block.BlockDollIronSit;
@@ -26,6 +27,7 @@ import com.hosta.Floricraft.handler.EnumHandler.EnumDamaged;
 import com.hosta.Floricraft.handler.EnumHandler.EnumDrying;
 import com.hosta.Floricraft.handler.EnumHandler.EnumVariant;
 import com.hosta.Floricraft.handler.EnumHandler.EnumWeatherCock;
+import com.hosta.Floricraft.handler.GuiHandler;
 import com.hosta.Floricraft.item.ItemArmorCloth;
 import com.hosta.Floricraft.item.ItemBasic;
 import com.hosta.Floricraft.item.ItemBlockMeta;
@@ -374,6 +376,7 @@ public class FloricraftInit{
 		
 		//Network
 		NETWORK_GUI.registerMessage(PacketNBTGuiHandler.class, PacketNBTGui.class, 0, Side.CLIENT);
+		NetworkRegistry.INSTANCE.registerGuiHandler(Floricraft.instance, new GuiHandler());
 	}
 
 	public static void registerRenders()
@@ -561,9 +564,6 @@ public class FloricraftInit{
 		//Sakure
 		ItemBlockMetaWood.preRegisteryModelBakeryStuff(LEAVES_FLORIC_TYPE0);
 		ItemBlockMetaWood.preRegisteryModelBakeryStuff(SAPLING_FLORIC_TYPE0);
-		
-		//Vase
-		//ItemMetaColor.preRegisteryModelBakeryStuff(vase_rare);
 		
 		//PotionItem
 		ItemMetaFlower.preRegisteryModelBakeryStuff(BOTTLE_BROWN_FLOWER);

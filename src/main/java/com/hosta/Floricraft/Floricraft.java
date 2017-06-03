@@ -8,6 +8,7 @@ import com.hosta.Floricraft.mod.ModChecker;
 import com.hosta.Floricraft.mod.baubles.BaublesFloricraftInit;
 import com.hosta.Floricraft.mod.baubles.NonBaublesFloricraftInit;
 import com.hosta.Floricraft.proxy.CommonProxy;
+import com.hosta.Floricraft.world.gen.ore.WorldGenOreOverWorld;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -16,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class Floricraft {
@@ -47,6 +49,8 @@ public class Floricraft {
 			NonBaublesFloricraftInit.init();
 			NonBaublesFloricraftInit.registers();
 		}
+
+	    GameRegistry.registerWorldGenerator(new WorldGenOreOverWorld(), 0);
 		
 		proxy.registerEvents();
 	}
