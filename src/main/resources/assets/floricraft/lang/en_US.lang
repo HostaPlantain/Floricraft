@@ -211,11 +211,11 @@ tile.stack_dead.name=Dead Stack
 item.sachet.name=Sachet Sac
 item.sachet_flower.name=Flower Sachet
 item.sachet_temptation.name=Temptation Sachet
-item.sachet_anti_zombie.name=Anti Zombie Sachet
-item.sachet_anti_skeleton.name=Anti Skeleton Sachet
-item.sachet_anti_creeper.name=Anti Creeper Sachet
-item.sachet_anti_spider.name=Anti Spider Sachet
-item.sachet_anti_enderman.name=Anti Enderman Sachet
+item.sachet_anti_zombie.name=Anti-Zombie Sachet
+item.sachet_anti_skeleton.name=Anti-Skeleton Sachet
+item.sachet_anti_creeper.name=Anti-Creeper Sachet
+item.sachet_anti_spider.name=Anti-Spider Sachet
+item.sachet_anti_enderman.name=Anti-Enderman Sachet
 item.sachet_holder.name=Sachet Holder
 
 item.basket_flower.name=Flower Basket
@@ -326,11 +326,11 @@ tile.sapling_christmas.type3.name=Christmas Tree Sapling (WIP)
 
 item.amulet_sachet_flower.name=Flower Sachet Amulet
 item.amulet_sachet_temptation.name=Temptation Sachet Amulet
-item.amulet_sachet_anti_zombie.name=Anti Zombie Sachet Amulet
-item.amulet_sachet_anti_skeleton.name=Anti Skeleton Sachet Amulet
-item.amulet_sachet_anti_creeper.name=Anti Creeper Sachet Amulet
-item.amulet_sachet_anti_spider.name=Anti Spider Sachet Amulet
-item.amulet_sachet_anti_enderman.name=Anti Enderman Sachet Amulet
+item.amulet_sachet_anti_zombie.name=Anti-Zombie Sachet Amulet
+item.amulet_sachet_anti_skeleton.name=Anti-Skeleton Sachet Amulet
+item.amulet_sachet_anti_creeper.name=Anti-Creeper Sachet Amulet
+item.amulet_sachet_anti_spider.name=Anti-Spider Sachet Amulet
+item.amulet_sachet_anti_enderman.name=Anti-Enderman Sachet Amulet
 
 effect.floric=Floric
 effect.temptation=Temptation
