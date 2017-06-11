@@ -6,9 +6,9 @@ import com.hosta.Floricraft.item.ItemMetaFlower;
 import com.hosta.Floricraft.tileentity.TileEntityPotPourri;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 public class TileEntityPotPourriRenderer extends TileEntitySpecialRenderer<TileEntityPotPourri> {
 
 	@Override
-	public void renderTileEntityAt(TileEntityPotPourri te, double x, double y, double z, float partialTicks, int destroyStage)
+	public void renderTileEntityFast(TileEntityPotPourri te, double x, double y, double z, float partialTicks, int destroyStage, float partial, BufferBuilder buffer)
 	{
 		for (int i = 0; i < te.getSizeInventory(); i++)
 		{
@@ -25,7 +25,7 @@ public class TileEntityPotPourriRenderer extends TileEntitySpecialRenderer<TileE
 				renderPetals(te, x, 0.0625F * i + y, z, ItemMetaFlower.getColorIDFromMeta(te.getStackInSlot(i).getItemDamage()), te.getStackInSlot(i).getItem() == FloricraftInit.PETALS_SALTY ? 1 : 0);
 			}
 		}
-		super.renderTileEntityAt(te, x, y, z, partialTicks, destroyStage);
+		super.renderTileEntityFast(te, x, y, z, partialTicks, destroyStage, partial, buffer);
 	}
 	
 	private void renderPetals(TileEntityPotPourri te, double x, double y, double z, int meta, int isSalty)
@@ -35,7 +35,7 @@ public class TileEntityPotPourriRenderer extends TileEntitySpecialRenderer<TileE
         GlStateManager.translate(x, y, z);
         
         Tessellator tessellator = Tessellator.getInstance();
-        VertexBuffer worldRenderer = tessellator.getBuffer();
+        BufferBuilder worldRenderer = tessellator.getBuffer();
         
         worldRenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
         Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(Reference.MOD_ID, "textures/blocks/potpourri_petals.png"));
@@ -46,7 +46,7 @@ public class TileEntityPotPourriRenderer extends TileEntitySpecialRenderer<TileE
         GlStateManager.popMatrix();
 	}
 	
-	private void bindCube(VertexBuffer worldRenderer, double minX, double maxX, double minY, double maxY, double minZ, double maxZ, double minU, double maxU, double minV, double maxV)
+	private void bindCube(BufferBuilder worldRenderer, double minX, double maxX, double minY, double maxY, double minZ, double maxZ, double minU, double maxU, double minV, double maxV)
 	{
         worldRenderer.pos(minX, maxY, minZ).tex(minU, maxV).endVertex();
         worldRenderer.pos(maxX, maxY, minZ).tex(maxU, maxV).endVertex();

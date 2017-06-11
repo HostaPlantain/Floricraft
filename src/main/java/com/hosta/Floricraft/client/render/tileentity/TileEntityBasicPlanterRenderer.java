@@ -8,9 +8,9 @@ import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -46,7 +46,7 @@ public abstract class TileEntityBasicPlanterRenderer<T extends TileEntityBasicWi
 			GlStateManager.pushMatrix();
 			GlStateManager.disableLighting();
 			Tessellator tessellator = Tessellator.getInstance();
-			VertexBuffer vertexbuffer = tessellator.getBuffer();
+			BufferBuilder vertexbuffer = tessellator.getBuffer();
 
 			BlockPos blockpos = planter.getPos();
 			float scaleR = 1.0F - scale;

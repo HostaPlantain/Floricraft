@@ -4,6 +4,7 @@ import com.hosta.Floricraft.helper.WindHelper;
 import com.hosta.Floricraft.tileentity.TileEntityWeatherCock;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -13,7 +14,7 @@ import net.minecraft.item.ItemStack;
 public class TileEntityWeatherCockRenderer extends TileEntitySpecialRenderer<TileEntityWeatherCock> {
 
 	@Override
-	public void renderTileEntityAt(TileEntityWeatherCock te, double x, double y, double z, float partialTicks, int destroyStage)
+	public void renderTileEntityFast(TileEntityWeatherCock te, double x, double y, double z, float partialTicks, int destroyStage, float partial, BufferBuilder buffer)
 	{
 		ItemStack itemstack = new ItemStack(te.getBlock(), 1, te.getBlockMetadata());
         
@@ -37,6 +38,6 @@ public class TileEntityWeatherCockRenderer extends TileEntitySpecialRenderer<Til
         GlStateManager.enableLighting();
         GlStateManager.popMatrix();
         
-		super.renderTileEntityAt(te, x, y, z, partialTicks, destroyStage);
+		super.renderTileEntityFast(te, x, y, z, partialTicks, destroyStage, partial, buffer);
 	}
 }

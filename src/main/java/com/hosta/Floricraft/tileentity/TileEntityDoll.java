@@ -90,7 +90,7 @@ public class TileEntityDoll extends TileEntityBasicWithRender implements ITickab
 	    			
 	    			if (((int)this.world.getTotalWorldTime()) % 40 == 0)
 	    			{
-	    				inventory.attemptDamageItem(1, world.rand);
+	    				inventory.setItemDamage(inventory.getItemDamage() + 1);
 	    			}
 	    		}
 	    		else

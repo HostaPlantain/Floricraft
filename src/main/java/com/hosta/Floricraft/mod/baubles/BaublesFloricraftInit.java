@@ -1,12 +1,8 @@
 package com.hosta.Floricraft.mod.baubles;
 
-import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.init.Registerer;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class BaublesFloricraftInit {
 
@@ -49,7 +45,7 @@ public class BaublesFloricraftInit {
 	}
 	
 	public static void registerCraftingRecipes()
-	{
+	{/*
 		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_FLOWER, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE)});
 		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_TEMPTATION, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_TEMPTATION, 1, OreDictionary.WILDCARD_VALUE)});
 		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_ANTI_ZOMBIE, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_ANTI_ZOMBIE, 1, OreDictionary.WILDCARD_VALUE)});
@@ -57,5 +53,5 @@ public class BaublesFloricraftInit {
 		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_ANTI_CREEPER, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_ANTI_CREEPER, 1, OreDictionary.WILDCARD_VALUE)});
 		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_ANTI_SPIDER, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_ANTI_SPIDER, 1, OreDictionary.WILDCARD_VALUE)});
 		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_ANTI_ENDERMAN, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_ANTI_ENDERMAN, 1, OreDictionary.WILDCARD_VALUE)});
-	}
+	*/}
 }

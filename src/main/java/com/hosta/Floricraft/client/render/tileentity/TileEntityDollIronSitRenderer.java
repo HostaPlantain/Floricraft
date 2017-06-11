@@ -3,6 +3,7 @@ package com.hosta.Floricraft.client.render.tileentity;
 import com.hosta.Floricraft.tileentity.TileEntityDollIronSit;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -14,11 +15,11 @@ public class TileEntityDollIronSitRenderer extends TileEntitySpecialRenderer<Til
 	static final double R = Math.PI / 8;
 
 	@Override
-	public void renderTileEntityAt(TileEntityDollIronSit te, double x, double y, double z, float partialTicks,	int destroyStage)
+	public void renderTileEntityFast(TileEntityDollIronSit te, double x, double y, double z, float partialTicks, int destroyStage, float partial, BufferBuilder buffer)
 	{
 		renderItem(te, x, y, z);
 
-		super.renderTileEntityAt(te, x, y, z, partialTicks, destroyStage);
+		super.renderTileEntityFast(te, x, y, z, partialTicks, destroyStage, partial, buffer);
 	}
 
 	private void renderItem(TileEntityDollIronSit entityDoll, double x, double y, double z)

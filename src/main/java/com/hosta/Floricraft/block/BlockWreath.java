@@ -35,11 +35,11 @@ public class BlockWreath extends BlockStack implements IMetaBlockName{
     
 	@Override
     @SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for(int i = 0; i < EnumVariant.getMaxMeta(); i++)
         {
-			items.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
         }
 	}
 	

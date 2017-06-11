@@ -31,11 +31,11 @@ public class BlockRoundBaleSilage extends BlockRoundBale implements IMetaBlockNa
 	
 	@Override
     @SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for(int i = 0; i < 4; i++)
 		{
-			items.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 

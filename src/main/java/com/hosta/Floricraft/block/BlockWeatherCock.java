@@ -35,11 +35,11 @@ public class BlockWeatherCock extends BlockBasicContainer implements IMetaBlockN
 
 	@Override
     @SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for(int i = 0; i < EnumWeatherCock.getMaxMeta(); i++)
 		{
-			items.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 	

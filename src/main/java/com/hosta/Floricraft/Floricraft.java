@@ -58,7 +58,6 @@ public class Floricraft {
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		RecipeHandler.registerCraftingRecipes();
 		RecipeHandler.registerFurnaceRecipes();
 		RecipeHandler.registerBrewingRecipes();
 		
@@ -79,5 +78,4 @@ public class Floricraft {
 	{
 		
 	}
-	
 }

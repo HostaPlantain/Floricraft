@@ -5,7 +5,6 @@ import com.hosta.Floricraft.init.FloricraftInit;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
@@ -42,11 +41,11 @@ public class ItemFoodSugared extends ItemBasicFood {
 	}
 	
 	@Override
-	public void getSubItems(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for(int i = 0; i < ItemMetaFlower.max_meta; i++)
 		{
-			items.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 	

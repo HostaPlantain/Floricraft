@@ -19,24 +19,12 @@ public class ItemMetaColor extends ItemBasic {
 	}
 	
 	@Override
-	public void getSubItems(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
-		items.add(new ItemStack(item, 1, 0));
-		items.add(new ItemStack(item, 1, 1));
-		items.add(new ItemStack(item, 1, 2));
-		items.add(new ItemStack(item, 1, 3));
-		items.add(new ItemStack(item, 1, 4));
-		items.add(new ItemStack(item, 1, 5));
-		items.add(new ItemStack(item, 1, 6));
-		items.add(new ItemStack(item, 1, 7));
-		items.add(new ItemStack(item, 1, 8));
-		items.add(new ItemStack(item, 1, 9));
-		items.add(new ItemStack(item, 1, 10));
-		items.add(new ItemStack(item, 1, 11));
-		items.add(new ItemStack(item, 1, 12));
-		items.add(new ItemStack(item, 1, 13));
-		items.add(new ItemStack(item, 1, 14));
-		items.add(new ItemStack(item, 1, 15));
+		for(int i = 0; i < 15; i++)
+		{
+			items.add(new ItemStack(this, 1, i));
+		}
 	}
 	
 	@Override

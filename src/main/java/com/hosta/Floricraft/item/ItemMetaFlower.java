@@ -24,11 +24,11 @@ public class ItemMetaFlower extends ItemBasic {
 	
 	@Override
     @SideOnly(Side.CLIENT)
-	public void getSubItems(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for(int i = 0; i < ItemMetaFlower.max_meta; i++)
 		{
-			items.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 	

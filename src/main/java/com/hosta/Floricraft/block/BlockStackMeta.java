@@ -39,10 +39,10 @@ public class BlockStackMeta extends BlockStack implements IMetaBlockName{
     
 	@Override
     @SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> items)
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
-		items.add(new ItemStack(item, 1, 0));
-		items.add(new ItemStack(item, 1, 3));
+		items.add(new ItemStack(this, 1, 0));
+		items.add(new ItemStack(this, 1, 3));
 	}
 	
 	@Override
