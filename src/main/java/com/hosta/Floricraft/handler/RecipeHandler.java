@@ -121,6 +121,9 @@ public class RecipeHandler {
 		GameRegistry.addShapedRecipe(new ItemStack(FloricraftInit.CLOTH_BOOTS, 1), new Object[] {"t t", "c c", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
 		GameRegistry.addRecipe(new ItemStack(FloricraftInit.APRON_CHESTPLATE, 1), new Object[] {"t t", "tct", "tct", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
 
+		//PotPourri
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(FloricraftInit.POTPOURRI, 1), new Object[] {"ppp", "gsg", "ggg", 'p', Blocks.GLASS_PANE, 'g', Blocks.GLASS, 's', "itemSalt"}));
+
 		//doll
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(FloricraftInit.DOLL_IRON_SIT, 1), new Object[] {" p ", "iii", " i ", 'p', Blocks.PUMPKIN, 'i', "ingotIron"}));
 		
