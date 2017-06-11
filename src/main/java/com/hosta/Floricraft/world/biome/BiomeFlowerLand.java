@@ -1,5 +1,7 @@
 package com.hosta.Floricraft.world.biome;
 
+import com.hosta.Floricraft.config.ConfigChecker;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 
@@ -11,7 +13,10 @@ public class BiomeFlowerLand extends BiomeBasicWithPath {
 	public BiomeFlowerLand(BiomeProperties properties)
 	{
 		super(properties.setTemperature(0.65F));
-		this.spawnableMonsterList.clear();
+		if (!ConfigChecker.getCanSpawn())
+		{
+			this.spawnableMonsterList.clear();
+		}
 	}
 	
 	public BiomeFlowerLand(String name)

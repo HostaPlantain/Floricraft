@@ -512,6 +512,7 @@ public class FloricraftInit{
 		
 		//Hemp
 		OreDictionary.registerOre("fiberHemp", HEMP_YARN);
+		OreDictionary.registerOre("fabricHemp", HEMP_CLOTH);
 		OreDictionary.registerOre("seedHemp", SEED_HEMP);
 		
 		//Salt
