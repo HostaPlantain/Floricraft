@@ -124,8 +124,13 @@ public class RecipeHandler {
 		//PotPourri
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(FloricraftInit.POTPOURRI, 1), new Object[] {"ppp", "gsg", "ggg", 'p', Blocks.GLASS_PANE, 'g', Blocks.GLASS, 's', "itemSalt"}));
 
-		//doll
+		//Doll
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(FloricraftInit.DOLL_IRON_SIT, 1), new Object[] {" p ", "iii", " i ", 'p', Blocks.PUMPKIN, 'i', "ingotIron"}));
+
+		//Wether
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(FloricraftInit.WEATHER_COCK, 1), new Object[] {" a ", " i ", "iii", 'a', Items.ARROW, 'i', "ingotIron"}));
+		GameRegistry.addShapelessRecipe(new ItemStack(FloricraftInit.WEATHER_COCK, 1, 0), new Object[] {new ItemStack(FloricraftInit.WEATHER_COCK, 1, 1)});
+		GameRegistry.addShapelessRecipe(new ItemStack(FloricraftInit.WEATHER_COCK, 1, 1), new Object[] {new ItemStack(FloricraftInit.WEATHER_COCK, 1, 0)});
 		
 		//Planter
 		GameRegistry.addShapelessRecipe(new ItemStack(FloricraftInit.FLOWER_POT, 1), new Object[] {Items.FLOWER_POT});
@@ -133,7 +138,7 @@ public class RecipeHandler {
 		//Silage
 		GameRegistry.addRecipe(new ItemStack(FloricraftInit.ROUND_BALE_HAY, 1), new Object[] {"tpt", "php", "tpt", 'h', Blocks.HAY_BLOCK, 't', FloricraftInit.HEMP_TWINE, 'p', Items.PAPER});
 		
-		//salt
+		//Salt
 		registerBlockRecipes(FloricraftInit.BLOCK_SALT, FloricraftInit.DUST_SALT);
 		
 		//Tool
