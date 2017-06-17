@@ -2,6 +2,7 @@ package com.hosta.Floricraft.item;
 
 import com.hosta.Floricraft.helper.PotionHelper;
 import com.hosta.Floricraft.init.FloricraftInit;
+import com.hosta.Floricraft.init.FloricraftTabs;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -41,11 +42,15 @@ public class ItemFoodSugared extends ItemBasicFood {
 	}
 	
 	@Override
+    @SideOnly(Side.CLIENT)
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
-		for(int i = 0; i < ItemMetaFlower.max_meta; i++)
+		if (tab == FloricraftTabs.tabFloricraft)
 		{
-			items.add(new ItemStack(this, 1, i));
+			for(int i = 0; i < ItemMetaFlower.max_meta; i++)
+			{
+				items.add(new ItemStack(this, 1, i));
+			}
 		}
 	}
 	

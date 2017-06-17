@@ -61,7 +61,7 @@ public class EventHandler {
 			MineHelper.spawnFireworksAround(player.getEntityWorld(), player.getPosition(), 3, 8);
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void onCrafting(PlayerEvent.ItemCraftedEvent event)
 	{
