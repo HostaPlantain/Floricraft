@@ -36,8 +36,6 @@ public class Floricraft {
 		FloricraftInit.init();
 		FloricraftInit.registers();
 		FloricraftInit.registeryOres();
-		//FloricraftAchievement.init();
-		//FloricraftAchievement.registers();
 		
 		if (ModChecker.isBaublesLoaded)
 		{
@@ -53,12 +51,13 @@ public class Floricraft {
 	    GameRegistry.registerWorldGenerator(new WorldGenOreOverWorld(), 0);
 		
 		proxy.registerEvents();
+		
+		RecipeHandler.registerCraftingRecipes();
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		RecipeHandler.registerCraftingRecipes();
 		RecipeHandler.registerFurnaceRecipes();
 		RecipeHandler.registerBrewingRecipes();
 		

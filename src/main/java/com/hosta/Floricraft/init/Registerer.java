@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.potion.Potion;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -72,6 +73,11 @@ public class Registerer {
 	public static void register(Biome biome)
 	{
 		GameRegistry.register(biome, new ResourceLocation(Reference.MOD_ID, biome.getBiomeName()));
+	}
+
+	public static void register(IRecipe recipe)
+	{
+		GameRegistry.register(recipe);
 	}
 
 	//Register Render
