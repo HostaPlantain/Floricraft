@@ -1,0 +1,347 @@
+itemGroup.tabFloricraft=Floricraft
+
+item.flower_cut.dandelion.name=Geschnittener Löwenzahn
+item.flower_cut.poppy.name=Geschnittener Mohn
+item.flower_cut.blue_orchid.name=Geschnittene Blaue Orchidee
+item.flower_cut.allium.name=Geschnittener Sternlauch
+item.flower_cut.azure_bluet.name=Geschnittenes Porzellansternchen
+item.flower_cut.red_tulip.name=Geschnittene Rote Tulpe
+item.flower_cut.orange_tulip.name=Geschnittene Orange Tulpe
+item.flower_cut.white_tulip.name=Geschnittene Weiße Tulpe
+item.flower_cut.pink_tulip.name=Geschnittene Rosa Tulpe
+item.flower_cut.oxeye_daisy.name=Geschnittene Margerite
+item.flower_cut.sunflower.name=Geschnittene Sonnenblume
+item.flower_cut.lilac.name=Geschnittener Flieder
+item.flower_cut.rose.name=Geschnittene Rose
+item.flower_cut.peony.name=Geschnittene Pfingstrose
+item.flower_cut.sakura.name=Geschnittene Sakura
+
+item.flower_bouquet.dandelion.name=Löwenzahnstrauß
+item.flower_bouquet.poppy.name=Mohnstrauß
+item.flower_bouquet.blue_orchid.name=Blaue Orchideen-Strauß
+item.flower_bouquet.allium.name=Sternlauchstrauß
+item.flower_bouquet.azure_bluet.name=Porzellansternchenstrauß
+item.flower_bouquet.red_tulip.name=Rote Tulpe-Strauß
+item.flower_bouquet.orange_tulip.name=Orange Tulpe-Strauß
+item.flower_bouquet.white_tulip.name=Weiße Tulpe-Strauß
+item.flower_bouquet.pink_tulip.name=Rosa Tulpe-Strauß
+item.flower_bouquet.oxeye_daisy.name=Margeritenstrauß
+item.flower_bouquet.sunflower.name=Sonnenblumenstrauß
+item.flower_bouquet.lilac.name=Fliederstrauß
+item.flower_bouquet.rose.name=Rosenstrauß
+item.flower_bouquet.peony.name=Pfingstrosenstrauß
+item.flower_bouquet.sakura.name=Sakurastrauß
+
+item.petal_raw.dandelion.name=Rohes Löwenzahn-Blütenblatt
+item.petal_raw.poppy.name=Rohes Mohn-Blütenblatt
+item.petal_raw.blue_orchid.name=Rohes Blaue Orchideen-Blütenblatt
+item.petal_raw.allium.name=Rohes Sternlauch-Blütenblatt
+item.petal_raw.azure_bluet.name=Rohes Porzellansternchen-Blütenblatt
+item.petal_raw.red_tulip.name=Rohes Rotes Tulpen-Blütenblatt
+item.petal_raw.orange_tulip.name=Rohes Oranges Tulpen-Blütenblatt
+item.petal_raw.white_tulip.name=Rohes Weißes Tulpen-Blütenblatt
+item.petal_raw.pink_tulip.name=Rohes Rosa Tulpen-Blütenblatt
+item.petal_raw.oxeye_daisy.name=Rohes Margeriten-Blütenblatt
+item.petal_raw.sunflower.name=Rohes Sonnenblumen-Blütenblatt
+item.petal_raw.lilac.name=Rohes Flieder-Blütenblatt
+item.petal_raw.rose.name=Rohes Rosen-Blütenblatt
+item.petal_raw.peony.name=Rohes Pfingstrosen-Blütenblatt
+item.petal_raw.sakura.name=Rohes Sakura-Blütenblatt
+
+item.petal_dry.dandelion.name=Getrocknetes Löwenzahn-Blütenblatt
+item.petal_dry.poppy.name=Getrocknetes Mohn-Blütenblatt
+item.petal_dry.blue_orchid.name=Getrocknetes Blaue Orchideen-Blütenblatt
+item.petal_dry.allium.name=Getrocknetes Sternlauch-Blütenblatt
+item.petal_dry.azure_bluet.name=Getrocknetes Porzellansternchen-Blütenblatt
+item.petal_dry.red_tulip.name=Getrocknetes Rotes Tulpen-Blütenblatt
+item.petal_dry.orange_tulip.name=Getrocknetes Oranges Tulpen-Blütenblatt
+item.petal_dry.white_tulip.name=Getrocknetes Weißes Tulpen-Blütenblatt
+item.petal_dry.pink_tulip.name=Getrocknetes Rosa Tulpen-Blütenblatt
+item.petal_dry.oxeye_daisy.name=Getrocknetes Margeriten-Blütenblatt
+item.petal_dry.sunflower.name=Getrocknetes Sonnenblumen-Blütenblatt
+item.petal_dry.lilac.name=Getrocknetes Flieder-Blütenblatt
+item.petal_dry.rose.name=Getrocknetes Rosen-Blütenblatt
+item.petal_dry.peony.name=Getrocknetes Pfingstrosen-Blütenblatt
+item.petal_dry.sakura.name=Getrocknetes Sakura-Blütenblatt
+
+item.petal_salty.dandelion.name=Gesalzenes Löwenzahn-Blütenblatt
+item.petal_salty.poppy.name=Gesalzenes Mohn-Blütenblatt
+item.petal_salty.blue_orchid.name=Gesalzenes Blaue Orchideen-Blütenblatt
+item.petal_salty.allium.name=Gesalzenes Sternlauch-Blütenblatt
+item.petal_salty.azure_bluet.name=Gesalzenes Porzellansternchen-Blütenblatt
+item.petal_salty.red_tulip.name=Gesalzenes Rotes Tulpen-Blütenblatt
+item.petal_salty.orange_tulip.name=Gesalzenes Oranges Tulpen-Blütenblatt
+item.petal_salty.white_tulip.name=Gesalzenes Weißes Tulpen-Blütenblatt
+item.petal_salty.pink_tulip.name=Gesalzenes Rosa Tulpen-Blütenblatt
+item.petal_salty.oxeye_daisy.name=Gesalzenes Margeriten-Blütenblatt
+item.petal_salty.sunflower.name=Gesalzenes Sonnenblumen-Blütenblatt
+item.petal_salty.lilac.name=Gesalzenes Flieder-Blütenblatt
+item.petal_salty.rose.name=Gesalzenes Rosen-Blütenblatt
+item.petal_salty.peony.name=Gesalzenes Pfingstrosen-Blütenblatt
+item.petal_salty.sakura.name=Gesalzenes Sakura-Blütenblatt
+
+item.petal_sugared.dandelion.name=Kristallisiertes Löwenzahn-Blütenblatt
+item.petal_sugared.poppy.name=Kristallisiertes Mohn-Blütenblatt
+item.petal_sugared.blue_orchid.name=Kristallisiertes Blaue Orchideen-Blütenblatt
+item.petal_sugared.allium.name=Kristallisiertes Sternlauch-Blütenblatt
+item.petal_sugared.azure_bluet.name=Kristallisiertes Porzellansternchen-Blütenblatt
+item.petal_sugared.red_tulip.name=Kristallisiertes Rotes Tulpen-Blütenblatt
+item.petal_sugared.orange_tulip.name=Kristallisiertes Oranges Tulpen-Blütenblatt
+item.petal_sugared.white_tulip.name=Kristallisiertes Weißes Tulpen-Blütenblatt
+item.petal_sugared.pink_tulip.name=Kristallisiertes Rosa Tulpen-Blütenblatt
+item.petal_sugared.oxeye_daisy.name=Kristallisiertes Margeriten-Blütenblatt
+item.petal_sugared.sunflower.name=Kristallisiertes Sonnenblumen-Blütenblatt
+item.petal_sugared.lilac.name=Kristallisiertes Flieder-Blütenblatt
+item.petal_sugared.rose.name=Kristallisiertes Rosen-Blütenblatt
+item.petal_sugared.peony.name=Kristallisiertes Pfingstrosen-Blütenblatt
+item.petal_sugared.sakura.name=Kristallisiertes Sakura-Blütenblatt
+
+item.petals_raw.dandelion.name=Rohe Löwenzahn-Blütenblätter
+item.petals_raw.poppy.name=Rohe Mohn-Blütenblätter
+item.petals_raw.blue_orchid.name=Rohe Blaue Orchideen-Blütenblätter
+item.petals_raw.allium.name=Rohe Sternlauch-Blütenblätter
+item.petals_raw.azure_bluet.name=Rohe Porzellansternchen-Blütenblätter
+item.petals_raw.red_tulip.name=Rohe Rote Tulpen-Blütenblätter
+item.petals_raw.orange_tulip.name=Rohe Orange Tulpen-Blütenblätter
+item.petals_raw.white_tulip.name=Rohe Weiße Tulpen-Blütenblätter
+item.petals_raw.pink_tulip.name=Rohe Rosa Tulpen-Blütenblätter
+item.petals_raw.oxeye_daisy.name=Rohe Margeriten-Blütenblätter
+item.petals_raw.sunflower.name=Rohe Sonnenblumen-Blütenblätter
+item.petals_raw.lilac.name=Rohe Flieder-Blütenblätter
+item.petals_raw.rose.name=Rohe Rosen-Blütenblätter
+item.petals_raw.peony.name=Rohe Pfingstrosen-Blütenblätter
+item.petals_raw.sakura.name=Rohe Sakura-Blütenblätter
+
+item.petals_dry.dandelion.name=Getrocknete Löwenzahn-Blütenblätter
+item.petals_dry.poppy.name=Getrocknete Mohn-Blütenblätter
+item.petals_dry.blue_orchid.name=Getrocknete Blaue Orchideen-Blütenblätter
+item.petals_dry.allium.name=Getrocknete Sternlauch-Blütenblätter
+item.petals_dry.azure_bluet.name=Getrocknete Porzellansternchen-Blütenblätter
+item.petals_dry.red_tulip.name=Getrocknete Rote Tulpen-Blütenblätter
+item.petals_dry.orange_tulip.name=Getrocknete Orange Tulpen-Blütenblätter
+item.petals_dry.white_tulip.name=Getrocknete Weiße Tulpen-Blütenblätter
+item.petals_dry.pink_tulip.name=Getrocknete Rosa Tulpen-Blütenblätter
+item.petals_dry.oxeye_daisy.name=Getrocknete Margeriten-Blütenblätter
+item.petals_dry.sunflower.name=Getrocknete Sonnenblumen-Blütenblätter
+item.petals_dry.lilac.name=Getrocknete Flieder-Blütenblätter
+item.petals_dry.rose.name=Getrocknete Rosen-Blütenblätter
+item.petals_dry.peony.name=Getrocknete Pfingstrosen-Blütenblätter
+item.petals_dry.sakura.name=Getrocknete Sakura-Blütenblätter
+
+item.petals_salty.dandelion.name=Gesalzene Löwenzahn-Blütenblätter
+item.petals_salty.poppy.name=Gesalzene Mohn-Blütenblätter
+item.petals_salty.blue_orchid.name=Gesalzene Blaue Orchideen-Blütenblätter
+item.petals_salty.allium.name=Gesalzene Sternlauch-Blütenblätter
+item.petals_salty.azure_bluet.name=Gesalzene Porzellansternchen-Blütenblätter
+item.petals_salty.red_tulip.name=Gesalzene Rote Tulpen-Blütenblätter
+item.petals_salty.orange_tulip.name=Gesalzene Orange Tulpen-Blütenblätter
+item.petals_salty.white_tulip.name=Gesalzene Weiße Tulpen-Blütenblätter
+item.petals_salty.pink_tulip.name=Gesalzene Rosa Tulpen-Blütenblätter
+item.petals_salty.oxeye_daisy.name=Gesalzene Margeriten-Blütenblätter
+item.petals_salty.sunflower.name=Gesalzene Sonnenblumen-Blütenblätter
+item.petals_salty.lilac.name=Gesalzene Flieder-Blütenblätter
+item.petals_salty.rose.name=Gesalzene Rosen-Blütenblätter
+item.petals_salty.peony.name=Gesalzene Pfingstrosen-Blütenblätter
+item.petals_salty.sakura.name=Gesalzene Sakura-Blütenblätter
+
+item.petals_sugared.dandelion.name=Kristallisierte Löwenzahn-Blütenblätter
+item.petals_sugared.poppy.name=Kristallisierte Mohn-Blütenblätter
+item.petals_sugared.blue_orchid.name=Kristallisierte Blaue Orchideen-Blütenblätter
+item.petals_sugared.allium.name=Kristallisierte Sternlauch-Blütenblätter
+item.petals_sugared.azure_bluet.name=Kristallisierte Porzellansternchen-Blütenblätter
+item.petals_sugared.red_tulip.name=Kristallisierte Rote Tulpen-Blütenblätter
+item.petals_sugared.orange_tulip.name=Kristallisierte Orange Tulpen-Blütenblätter
+item.petals_sugared.white_tulip.name=Kristallisierte Weiße Tulpen-Blütenblätter
+item.petals_sugared.pink_tulip.name=Kristallisierte Rosa Tulpen-Blütenblätter
+item.petals_sugared.oxeye_daisy.name=Kristallisierte Margeriten-Blütenblätter
+item.petals_sugared.sunflower.name=Kristallisierte Sonnenblumen-Blütenblätter
+item.petals_sugared.lilac.name=Kristallisierte Flieder-Blütenblätter
+item.petals_sugared.rose.name=Kristallisierte Rosen-Blütenblätter
+item.petals_sugared.peony.name=Kristallisierte Pfingstrosen-Blütenblätter
+item.petals_sugared.sakura.name=Kristallisierte Sakura-Blütenblätter
+
+tile.stack_dandelion.raw.name=Roher Löwenzahnhaufen
+tile.stack_dandelion.dry.name=Getrockneter Löwenzahnhaufen
+
+tile.stack_poppy.raw.name=Roher Mohnhaufen
+tile.stack_poppy.dry.name=Getrockneter Mohnhaufen
+
+tile.stack_blue_orchid.raw.name=Roher Blaue Orchideen-Haufen
+tile.stack_blue_orchid.dry.name=Getrockneter Blaue Orchideen-Haufen
+
+tile.stack_allium.raw.name=Roher Sternlauchhaufen
+tile.stack_allium.dry.name=Getrockneter Sternlauchhaufen
+
+tile.stack_azure_bluet.raw.name=Roher Porzellansternchenhaufen
+tile.stack_azure_bluet.dry.name=Getrockneter Porzellansternchenhaufen
+
+tile.stack_red_tulip.raw.name=Roher Rote Tulpen-Haufen
+tile.stack_red_tulip.dry.name=Getrockneter Rote Tulpen-Haufen
+
+tile.stack_orange_tulip.raw.name=Roher Orange Tulpen-Haufen
+tile.stack_orange_tulip.dry.name=Getrockneter Orange Tulpen-Haufen
+
+tile.stack_white_tulip.raw.name=Roher Weiße Tulpen-Haufen
+tile.stack_white_tulip.dry.name=Getrockneter Weiße Tulpen-Haufen
+
+tile.stack_pink_tulip.raw.name=Roher Rosa Tulpen-Haufen
+tile.stack_pink_tulip.dry.name=Getrockneter Rosa Tulpen-Haufen
+
+tile.stack_oxeye_daisy.raw.name=Roher Margeritenhaufen
+tile.stack_oxeye_daisy.dry.name=Getrockneter Margeritenhaufen
+
+tile.stack_sunflower.raw.name=Roher Sonnenblumenhaufen
+tile.stack_sunflower.dry.name=Getrockneter Sonnenblumenhaufen
+
+tile.stack_lilac.raw.name=Roher Fliederhaufen
+tile.stack_lilac.dry.name=Getrockneter Fliederhaufen
+
+tile.stack_rose.raw.name=Roher Rosenhaufen
+tile.stack_rose.dry.name=Getrockneter Rosenhaufen
+
+tile.stack_peony.raw.name=Roher Pfingstrosenhaufen
+tile.stack_peony.dry.name=Getrockneter Pfingstrosenhaufen
+
+tile.stack_sakura.raw.name=Roher Sakurahaufen
+tile.stack_sakura.dry.name=Getrockneter Sakurahaufen
+
+tile.stack_dead.name=Toter Haufen
+
+item.sachet.name=Beutelsack
+item.sachet_flower.name=Blumenbeutel
+item.sachet_temptation.name=Versuchungsbeutel
+item.sachet_anti_zombie.name=Anti-Zombie-Beutel
+item.sachet_anti_skeleton.name=Anti-Skelett-Beutel
+item.sachet_anti_creeper.name=Anti-Creeper-Beutel
+item.sachet_anti_spider.name=Anti-Spinnen-Beutel
+item.sachet_anti_enderman.name=Anti-Enderman-Beutel
+item.sachet_holder.name=Beutelhalter
+
+item.basket_flower.name=Blumenkorb
+item.basket_lunch.name=Picknickkorb
+
+item.seed_hemp.name=Hanfsamen
+tile.crop_hemp.name=Hanf
+item.hemp_yarn.name=Hanfgarn
+item.hemp_twine.name=Hanffaden
+item.hemp_cloth.name=Hanfstoff
+
+item.cloth_helmet.name=Stoffhelm
+item.cloth_chestplate.name=Stoffbrustplatte
+item.cloth_leggings.name=Stoffbeinschutz
+item.cloth_boots.name=Stoffstiefel
+item.apron_chestplate.name=Schürze
+
+tile.potpourri.name=Potpourri
+
+tile.doll_iron_sit.name=Eisengolem-Puppe
+
+tile.weather_cock.cock.name=Wetterhahn
+tile.weather_cock.dog.name=Wetterhund
+
+tile.flower_pot.name=Besserer Blumentopf
+
+tile.floric_torch_dandelion.name=Florische Fackel (Löwenzahn)
+tile.floric_torch_poppy.name=Florische Fackel (Mohn)
+tile.floric_torch_blue_orchid.name=Florische Fackel (Blaue Orchidee)
+tile.floric_torch_allium.name=Florische Fackel (Sternlauch)
+tile.floric_torch_azure_bluet.name=Florische Fackel (Porzellansternchen)
+tile.floric_torch_red_tulip.name=Florische Fackel (Rote Tulpe)
+tile.floric_torch_orange_tulip.name=Florische Fackel (Orange Tulpe)
+tile.floric_torch_white_tulip.name=Florische Fackel (Weiße Tulpe)
+tile.floric_torch_pink_tulip.name=Florische Fackel (Rosa Tulpe)
+tile.floric_torch_oxeye_daisy.name=Florische Fackel (Margerite)
+tile.floric_torch_sunflower.name=Florische Fackel (Sonnenblume)
+tile.floric_torch_lilac.name=Florische Fackel (Flieder)
+tile.floric_torch_rose.name=Florische Fackel (Rose)
+tile.floric_torch_peony.name=Florische Fackel (Pfingstrose)
+tile.floric_torch_sakura.name=Florische Fackel (Sakura)
+
+tile.round_bale_hay.name=Runder Ballen
+tile.round_bale_silage.very_damaged.name=Stark beschädigte Silage
+tile.round_bale_silage.damaged.name=Beschädigte Silage
+tile.round_bale_silage.slightly_damaged.name=Leicht beschädigte Silage
+tile.round_bale_silage.undamaged.name=Silage
+
+tile.lycoris.name=Lycoris
+
+tile.leaves_floric_type0.sakura.name=Sakurablätter
+tile.leaves_floric_type0.dogwood.name=Hartriegelblätter
+tile.leaves_floric_type0.kerria.name=Kerrienblätter
+tile.leaves_floric_type0.azalea.name=Rhododendronblätter
+
+tile.sapling_floric_type0.sakura.name=Sakurasetzling
+tile.sapling_floric_type0.dogwood.name=Hartriegelsetzling
+tile.sapling_floric_type0.kerria.name=Kerriensetzling
+tile.sapling_floric_type0.azalea.name=Rhododendronsetzling
+
+tile.ore_salt.name=Salzerz
+item.dust_salt.name=Salz
+tile.block_salt.name=Salzblock
+
+item.purner.name=Gartenschere
+
+item.bottle_brown_empty.name=Braune Flasche
+item.bottle_brown_water.name=Braune Wasserflasche
+
+item.bottle_brown_flower.dandelion.name=Ätherisches Öl (Löwenzahn)
+item.bottle_brown_flower.poppy.name=Ätherisches Öl (Mohn)
+item.bottle_brown_flower.blue_orchid.name=Ätherisches Öl (Blaue Orchidee)
+item.bottle_brown_flower.allium.name=Ätherisches Öl (Sternlauch)
+item.bottle_brown_flower.azure_bluet.name=Ätherisches Öl (Porzellansternchen)
+item.bottle_brown_flower.red_tulip.name=Ätherisches Öl (Tulpe)
+item.bottle_brown_flower.orange_tulip.name=Ätherisches Öl (Tulpe)
+item.bottle_brown_flower.white_tulip.name=Ätherisches Öl (Tulpe)
+item.bottle_brown_flower.pink_tulip.name=Ätherisches Öl (Tulpe)
+item.bottle_brown_flower.oxeye_daisy.name=Ätherisches Öl (Margerite)
+item.bottle_brown_flower.sunflower.name=Ätherisches Öl (Sonnenblume)
+item.bottle_brown_flower.lilac.name=Ätherisches Öl (Flieder)
+item.bottle_brown_flower.rose.name=Ätherisches Öl (Rose)
+item.bottle_brown_flower.peony.name=Ätherisches Öl (Pfingstrose)
+item.bottle_brown_flower.sakura.name=Ätherisches Öl (Sakura)
+
+item.confection_event.type0.name=Lebkuchenmann
+item.confection_event.type1.name=Zuckerstange
+item.confection_event.type2.name=Weihnachtsbaum-Plätzchen
+
+tile.leaves_christmas.type0.name=Weihnachtsblätter
+tile.leaves_christmas.type1.name=Weihnachtsblätter mit Schleife
+tile.leaves_christmas.type2.name=Funkelnde Weihnachtsblätter
+tile.leaves_christmas.type3.name=Funkelnde Weihnachtsblätter mit Schleife
+
+tile.leaves_christmas_dynamic.name=Dynamische Weihnachtsblätter
+tile.leaves_christmas_dynamic_unlit.name=Unbeleuchtete dynamische Weihnachtsblätter
+tile.leaves_christmas_unlit.name=Unbeleuchtete Weihnachtsblätter
+
+tile.ornament_christmas.type0.name=Weihnachtskranz
+tile.ornament_christmas.type1.name=Weihnachtssocke
+tile.ornament_christmas.type2.name=Weihnachtsflaggen-Girlande
+tile.ornament_christmas.type3.name=Bunte Fahnen-Girlande
+
+tile.sapling_christmas.type0.name=Weihnachtsbaumsetzling
+tile.sapling_christmas.type1.name=Funkelnder Weihnachtsbaumsetzling
+tile.sapling_christmas.type2.name=Dynamischer Weihnachtsbaumsetzling
+tile.sapling_christmas.type3.name=Weihnachtsbaumsetzling (WIP)
+
+item.amulet_sachet_flower.name=Blumen-Amulettbeutel
+item.amulet_sachet_temptation.name=Versuchungs-Amulettbeutel
+item.amulet_sachet_anti_zombie.name=Anti-Zombie-Amulettbeutel
+item.amulet_sachet_anti_skeleton.name=Anti-Skelett-Amulettbeutel
+item.amulet_sachet_anti_creeper.name=Anti-Creeper-Amulettbeutel
+item.amulet_sachet_anti_spider.name=Anti-Spinnen-Amulettbeutel
+item.amulet_sachet_anti_enderman.name=Anti-Enderman-Amulettbeutel
+
+effect.floric=Florisch
+effect.temptation=Versuchung
+effect.tempted=Versucht
+effect.anti_zombie=Anti-Zombie
+effect.anti_skeleton=Anti-Skelett
+effect.anti_creeper=Anti-Creeper
+effect.anti_spider=Anti-Spinne
+effect.anti_enderman=Anti-Enderman
+
+enchantment.floric=Florisch
+
+message.event.new_year=Frohes neues Jahr!
+message.event.christmas=Fröhliche Weihnachten!
+message.event.welcome=Willkommen zurück!
