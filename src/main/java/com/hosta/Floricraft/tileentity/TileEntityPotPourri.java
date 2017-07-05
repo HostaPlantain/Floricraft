@@ -3,7 +3,7 @@ package com.hosta.Floricraft.tileentity;
 import com.hosta.Floricraft.helper.EntityHelper;
 import com.hosta.Floricraft.init.FloricraftInit;
 
-import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ITickable;
@@ -37,7 +37,7 @@ public class TileEntityPotPourri extends TileEntityInventoryWithRender implement
 		tick = items[0] != null ? tick + 1 : 0;
 		if (items[0] != null)
 		{
-			EntityHelper.antiEntityFrom(this.worldObj, this.pos, EntityMob.class);
+			EntityHelper.antiEntityFrom(this.worldObj, this.pos, EntityLiving.class, true);
 		
 			if (tick % 6000 == 0)
 			{

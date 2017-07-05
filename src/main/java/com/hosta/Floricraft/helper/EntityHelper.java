@@ -1,6 +1,7 @@
 package com.hosta.Floricraft.helper;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -21,14 +22,24 @@ public class EntityHelper {
 		}
 	}
 	
-	public static <T extends Entity> void antiEntityFrom(World world, BlockPos pos, Class<T> antiClass)
+	public static <T extends Entity> void antiEntityFrom(World world, BlockPos pos, Class<T> antiClass, boolean antiMobOnly)
 	{
-		world.getEntitiesWithinAABB(antiClass, world.getBlockState(pos).getBoundingBox(world, pos).offset(pos).expand(8, 2, 8)).forEach(anti -> antiEntity(anti, pos));
+		world.getEntitiesWithinAABB(antiClass, world.getBlockState(pos).getBoundingBox(world, pos).offset(pos).expand(8, 2, 8)).forEach(anti -> antiEntity(anti, pos, antiMobOnly));
 	}
 
-	private static void antiEntity(Entity antiEntity, BlockPos pos)
+	private static void antiEntity(Entity antiEntity, BlockPos pos, boolean antiMobOnly)
 	{
-		antiEntity(antiEntity, antiEntity.posX - pos.getX(), antiEntity.posZ - pos.getZ(), 0.2);
+		if (antiMobOnly)
+		{
+			if (antiEntity instanceof IMob)
+			{
+				antiEntity(antiEntity, antiEntity.posX - pos.getX(), antiEntity.posZ - pos.getZ(), 0.2);
+			}
+		}
+		else
+		{
+			antiEntity(antiEntity, antiEntity.posX - pos.getX(), antiEntity.posZ - pos.getZ(), 0.2);
+		}
 	}
 	
 	private static void antiEntity(Entity antiEntity, double x, double z, double amplifier)

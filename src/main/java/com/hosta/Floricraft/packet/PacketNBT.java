@@ -9,33 +9,33 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 public class PacketNBT implements IMessage{
 
-	    public NBTTagCompound nbt;
+	public NBTTagCompound nbt;
 
-	    public PacketNBT() { }
-	    
-	    public PacketNBT(NBTTagCompound nbt)
-	    {
-	        this.nbt = nbt;
-	    }
+	public PacketNBT() { }
 
-		@Override
-		public void fromBytes(ByteBuf bufIn)
+	public PacketNBT(NBTTagCompound nbt)
+	{
+		this.nbt = nbt;
+	}
+
+	@Override
+	public void fromBytes(ByteBuf bufIn)
+	{
+		PacketBuffer buf = new PacketBuffer(bufIn);
+		try
 		{
-	    	PacketBuffer buf = new PacketBuffer(bufIn);
-	    	try
-	    	{
-				this.nbt = buf.readNBTTagCompoundFromBuffer();
-			}
-	    	catch (IOException e)
-	    	{
-				e.printStackTrace();
-			}
+			this.nbt = buf.readNBTTagCompoundFromBuffer();
 		}
-
-		@Override
-		public void toBytes(ByteBuf bufIn)
+		catch (IOException e)
 		{
-	    	PacketBuffer buf = new PacketBuffer(bufIn);
-	    	buf.writeNBTTagCompoundToBuffer(nbt);
+			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public void toBytes(ByteBuf bufIn)
+	{
+		PacketBuffer buf = new PacketBuffer(bufIn);
+		buf.writeNBTTagCompoundToBuffer(nbt);
+	}
+}

@@ -51,23 +51,24 @@ public class Floricraft {
 	    GameRegistry.registerWorldGenerator(new WorldGenOreOverWorld(), 0);
 		
 		proxy.registerEvents();
+		
+		proxy.registerRenders();
+		proxy.registerModsRenders();
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
 		RecipeHandler.registerCraftingRecipes();
-		RecipeHandler.registerFurnaceRecipes();
+		//RecipeHandler.registerFurnaceRecipes();
 		RecipeHandler.registerBrewingRecipes();
 		
 		if (ModChecker.isBaublesLoaded)
 		{
 			BaublesFloricraftInit.registerCraftingRecipes();
 		}
-
-		proxy.registerRenders();
-		proxy.registerModsRenders();
-		proxy.registeryModelBakeryStuff();
+		
+		proxy.registerLeaveRenders();
 	}
 	
 	@EventHandler

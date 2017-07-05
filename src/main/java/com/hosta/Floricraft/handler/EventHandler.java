@@ -12,6 +12,7 @@ import com.hosta.Floricraft.helper.PotionHelper;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.packet.PacketNBTGui;
 import com.hosta.Floricraft.world.biome.BiomeBasicWithPath;
+import com.hosta.Floricraft.world.gen.feature.WorldGenSchematic;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -39,6 +40,9 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 public class EventHandler {
 
+	//Stracture
+	public static final WorldGenSchematic HOUSE_HOSTA = new WorldGenSchematic("house_hosta");
+	
 	@SubscribeEvent
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)
 	{
@@ -219,5 +223,20 @@ public class EventHandler {
 		{
 			BiomeBasicWithPath.genPath(event.getWorld(), event.getChunkX() * 16, event.getChunkZ() * 16);
 		}
+		/*
+		if (event.getChunkX() % 8 == 0 && event.getChunkZ() % 8 == 0 && event.getWorld().rand.nextInt(32) == 1)
+		{
+			BlockPos pos = new BlockPos (event.getChunkX() * 16, 0, event.getChunkZ() * 16);
+			Biome biome = event.getWorld().getBiomeGenForCoords(pos);
+			
+			if (biome.getHeightVariation() < 1.0f && biome.getBaseHeight() > 0.0f)
+			{
+				if (HOUSE_HOSTA.generate(event.getWorld(), event.getWorld().rand, event.getWorld().getTopSolidOrLiquidBlock(pos).down(5)))
+				{
+					
+				}
+			}
+		}
+		*/
 	}
 }

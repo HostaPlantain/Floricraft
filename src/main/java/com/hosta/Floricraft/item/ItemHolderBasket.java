@@ -1,17 +1,14 @@
 package com.hosta.Floricraft.item;
 
 import com.hosta.Floricraft.Floricraft;
-import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.init.Registerer;
 
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -51,15 +48,5 @@ public class ItemHolderBasket extends ItemHolder {
 	{
 		Registerer.registerRender(item, 0, item.getUnlocalizedName().substring(5) + getNameFromMeta(0));
 		Registerer.registerRender(item, 1, item.getUnlocalizedName().substring(5) + getNameFromMeta(1));
-	}
-	
-	public static void preRegisteryModelBakeryStuff(Item item)
-	{
-		ModelBakery.registerItemVariants
-		(
-				item,
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + getNameFromMeta(0)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + getNameFromMeta(1))
-		);
 	}
 }

@@ -6,8 +6,10 @@ import java.util.Random;
 import com.hosta.Floricraft.Floricraft;
 import com.hosta.Floricraft.handler.EnumHandler.EnumDrying;
 import com.hosta.Floricraft.init.FloricraftInit;
+import com.hosta.Floricraft.init.Registerer;
 import com.hosta.Floricraft.item.ItemMetaFlower;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -130,5 +132,13 @@ public class BlockStackMeta extends BlockStack implements IMetaBlockName{
 	public String getSpecialName(ItemStack stack)
 	{
 		return EnumDrying.getSpecialName(stack.getItemDamage() % EnumDrying.getMaxMeta());
+	}
+
+	public static void preRegisterRender(Block block)
+	{
+		for(int i = 0; i < 16 ; i++)
+		{
+			Registerer.registerRender(block, i, block.getUnlocalizedName().substring(5) + "_" + ((IMetaBlockName)block).getSpecialName(new ItemStack(block, 1 , i % 4 != 3 ? 0 : 3)));
+		}
 	}
 }

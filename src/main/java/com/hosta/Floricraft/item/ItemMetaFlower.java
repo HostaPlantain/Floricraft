@@ -2,14 +2,11 @@ package com.hosta.Floricraft.item;
 
 import java.util.List;
 
-import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.init.Registerer;
 
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -109,28 +106,5 @@ public class ItemMetaFlower extends ItemBasic {
 		{
 			Registerer.registerRender(item, i, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(i));
 		}
-	}
-	
-	public static void preRegisteryModelBakeryStuff(Item item)
-	{
-		ModelBakery.registerItemVariants
-		(
-				item,
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(0)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(1)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(2)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(3)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(4)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(5)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(6)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(7)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(8)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(9)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(10)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(11)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(12)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(13)),
-				new ResourceLocation(Reference.MOD_ID, item.getUnlocalizedName().substring(5) + "_" + getNameFromMeta(14))
-		);
 	}
 }

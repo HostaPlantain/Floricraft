@@ -3,7 +3,7 @@
   "modid": "floricraft",
   "name": "Floricraft",
   "description": "Ornamental Horticulture mod.",
-  "version": "4.0.1",
+  "version": "beta-4.2.0",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",

@@ -6,7 +6,7 @@ import com.hosta.Floricraft.block.BlockFlowerLycoris;
 import com.hosta.Floricraft.helper.EntityHelper;
 import com.hosta.Floricraft.helper.PotionHelper;
 import com.hosta.Floricraft.init.FloricraftInit;
-import com.hosta.Floricraft.item.ItemMetaSachet;
+import com.hosta.Floricraft.item.ToolSachet;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -35,6 +35,7 @@ public class TileEntityDoll extends TileEntityBasicWithRender implements ITickab
             	player.setHeldItem(hand, null);
             }
             this.setDisplayedItem(stackIn);
+    		this.markDirty();
         }
         else if (this.getDisplayedItem() != null && stackIn == null)
         {
@@ -43,6 +44,7 @@ public class TileEntityDoll extends TileEntityBasicWithRender implements ITickab
         		ItemHandlerHelper.giveItemToPlayer(player, this.inventory);
         	}
             this.setDisplayedItem(stackIn);
+    		this.markDirty();
         }
     }
     
@@ -76,7 +78,7 @@ public class TileEntityDoll extends TileEntityBasicWithRender implements ITickab
 		if (!this.worldObj.isRemote && inventory != null)
 		{
 			Item item = inventory.getItem();
-			if (item instanceof ItemMetaSachet)
+			if (item instanceof ToolSachet)
 			{
 	    		if(inventory.getItemDamage() < inventory.getMaxDamage())
 	    		{
@@ -96,7 +98,7 @@ public class TileEntityDoll extends TileEntityBasicWithRender implements ITickab
 	    		else
 	    		{
 	    			this.setDisplayedItem(new ItemStack(FloricraftInit.SACHET));
-	    			//Need to Send a Packet to Players
+	    			this.markDirty();
 	    		}
 			}
 			else if (item instanceof ItemBlock)
@@ -121,13 +123,13 @@ public class TileEntityDoll extends TileEntityBasicWithRender implements ITickab
 			list.forEach(entity -> PotionHelper.addEffectToPlayerOnly(entity, potion, amplifier));
 		}
 	}
-	
+
 	public ItemStack getDisplayedItem()
 	{
 		return inventory;
 	}
 
-    public void setDisplayedItem(ItemStack stack)
+    private void setDisplayedItem(ItemStack stack)
 	{
 		inventory = stack;
 	}

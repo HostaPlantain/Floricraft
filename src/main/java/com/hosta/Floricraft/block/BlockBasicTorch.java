@@ -9,7 +9,7 @@ public class BlockBasicTorch extends BlockTorch {
 	public BlockBasicTorch(String name)
 	{
 		super();
-		this.setUnlocalizedName(name).setRegistryName(name).setCreativeTab(FloricraftTabs.tabFloricraft);
+		this.setUnlocalizedName(name).setCreativeTab(FloricraftTabs.tabFloricraft);
 		this.setLightLevel(1.0f);
 	}
 }

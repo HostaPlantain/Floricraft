@@ -1,7 +1,7 @@
 package com.hosta.Floricraft.mod.baubles;
 
 import com.hosta.Floricraft.init.FloricraftInit;
-import com.hosta.Floricraft.item.ItemMetaSachet;
+import com.hosta.Floricraft.item.ToolSachet;
 
 import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
@@ -13,7 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class BaublesItemMetaAmuletSachet extends ItemMetaSachet implements IBauble{
+public class BaublesItemMetaAmuletSachet extends ToolSachet implements IBauble{
 
 	public BaublesItemMetaAmuletSachet(String unlocalizedName)
 	{

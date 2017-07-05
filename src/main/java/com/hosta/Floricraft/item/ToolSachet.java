@@ -10,15 +10,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.world.World;
 
-public class ItemMetaSachet extends ToolBasic {
+public class ToolSachet extends ToolBasic {
 	
-	//ItemStack itemStack;
-	
-	public ItemMetaSachet(String unlocalizedName/*, ItemStack repair*/)
+	public ToolSachet(String unlocalizedName)
 	{
 		super(unlocalizedName);
 		this.setMaxDamage(7200);
-		//this.itemStack = repair; 
 	}
 	
 	@Override
@@ -26,14 +23,6 @@ public class ItemMetaSachet extends ToolBasic {
 	{
 		return true;
 	}
-	
-	/*
-	@Override
-	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
-	{
-		return repair.isItemEqual(itemStack) || super.getIsRepairable(toRepair, repair);
-	}
-	*/
 	
 	@Override
     public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) 

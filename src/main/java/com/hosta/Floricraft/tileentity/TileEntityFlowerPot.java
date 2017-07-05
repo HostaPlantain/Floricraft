@@ -36,7 +36,8 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
            			if (!this.worldObj.isRemote)
                 	{
                 		player.setHeldItem(hand, stackIn.stackSize == 0 ? null : stackIn);
-            		}
+                	}
+            		this.markDirty();
             	}
             }
         }
@@ -47,6 +48,7 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
         		ItemHandlerHelper.giveItemToPlayer(player, this.inventory);
         	}
             this.setDisplayedItem(stackIn);
+    		this.markDirty();
         }
     }
 
@@ -110,9 +112,8 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
 		return null;
 	}
 
-    public void setDisplayedItem(ItemStack stack)
+    private void setDisplayedItem(ItemStack stack)
 	{
 		inventory = stack;
 	}
-	
 }

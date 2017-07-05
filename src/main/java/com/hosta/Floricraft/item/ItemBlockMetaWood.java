@@ -1,15 +1,11 @@
 package com.hosta.Floricraft.item;
 
-import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.init.Registerer;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.block.model.ModelBakery;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 
 public class ItemBlockMetaWood extends ItemBlock {
 
@@ -67,17 +63,5 @@ public class ItemBlockMetaWood extends ItemBlock {
 		{
 			Registerer.registerRender(block, i, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(block, i % 4));
 		}
-	}
-	
-	public static void preRegisteryModelBakeryStuff(Block block)
-	{
-		ModelBakery.registerItemVariants
-		(
-			Item.getItemFromBlock(block),
-			new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(block, 0)),
-			new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(block, 1)),
-			new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(block, 2)),
-			new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(block, 3))
-		);
 	}
 }
