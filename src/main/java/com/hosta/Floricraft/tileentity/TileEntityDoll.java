@@ -135,6 +135,5 @@ public class TileEntityDoll extends TileEntityBasicWithRender implements ITickab
     public void setDisplayedItem(ItemStack stack)
 	{
 		inventory = stack;
-		this.markDirty();
 	}
 }

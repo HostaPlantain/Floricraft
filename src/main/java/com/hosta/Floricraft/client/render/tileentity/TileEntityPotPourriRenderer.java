@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 public class TileEntityPotPourriRenderer extends TileEntitySpecialRenderer<TileEntityPotPourri> {
 
 	@Override
-	public void renderTileEntityFast(TileEntityPotPourri te, double x, double y, double z, float partialTicks, int destroyStage, float partial, BufferBuilder buffer)
+	public void func_192841_a(TileEntityPotPourri te, double x, double y, double z, float partialTicks, int destroyStage, float partial)
 	{
 		for (int i = 0; i < te.getSizeInventory(); i++)
 		{
@@ -25,7 +25,7 @@ public class TileEntityPotPourriRenderer extends TileEntitySpecialRenderer<TileE
 				renderPetals(te, x, 0.0625F * i + y, z, ItemMetaFlower.getColorIDFromMeta(te.getStackInSlot(i).getItemDamage()), te.getStackInSlot(i).getItem() == FloricraftInit.PETALS_SALTY ? 1 : 0);
 			}
 		}
-		super.renderTileEntityFast(te, x, y, z, partialTicks, destroyStage, partial, buffer);
+		super.func_192841_a(te, x, y, z, partialTicks, destroyStage, partial);
 	}
 	
 	private void renderPetals(TileEntityPotPourri te, double x, double y, double z, int meta, int isSalty)
