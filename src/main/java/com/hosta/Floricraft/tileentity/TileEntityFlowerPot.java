@@ -119,7 +119,6 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
     public void setDisplayedItem(ItemStack stack)
 	{
 		inventory = stack;
-		this.markDirty();
 	}
 	
 }
