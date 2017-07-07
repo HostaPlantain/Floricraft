@@ -12,7 +12,6 @@ import com.hosta.Floricraft.helper.PotionHelper;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.packet.PacketNBTGui;
 import com.hosta.Floricraft.world.biome.BiomeBasicWithPath;
-import com.hosta.Floricraft.world.gen.feature.WorldGenSchematic;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -41,7 +40,7 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 public class EventHandler {
 
 	//Stracture
-	public static final WorldGenSchematic HOUSE_HOSTA = new WorldGenSchematic("house_hosta");
+	//private static final WorldGenSchematic HOUSE_HOSTA = new WorldGenSchematic("house_hosta");
 	
 	@SubscribeEvent
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)
