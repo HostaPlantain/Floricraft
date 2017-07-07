@@ -301,6 +301,25 @@ item.bottle_brown_flower.rose.name=Rose Essential Oil
 item.bottle_brown_flower.peony.name=Peony Essential Oil
 item.bottle_brown_flower.sakura.name=Sakura Essential Oil
 
+item.ballon.black.name=Black Ballon
+item.ballon.red.name=Red Ballon
+item.ballon.green.name=Green Ballon
+item.ballon.brown.name=Brown Ballon
+item.ballon.blue.name=Blue Ballon
+item.ballon.purple.name=Purple Ballon
+item.ballon.cyan.name=Cyan Ballon
+item.ballon.light_gray.name=Light Gray Ballon
+item.ballon.gray.name=Gray Ballon
+item.ballon.pink.name=Pink Ballon
+item.ballon.lime.name=Lime Ballon
+item.ballon.yellow.name=Yellow Ballon
+item.ballon.light_blue.name=Light Blue Ballon
+item.ballon.magenta.name=Magenta Ballon
+item.ballon.orange.name=Orange Ballon
+item.ballon.white.name=White Ballon
+
+entity.entity_ballon.name=Ballon
+
 item.confection_event.type0.name=Gingerbread Men
 item.confection_event.type1.name=Candy Cane
 item.confection_event.type2.name=Christmas Tree Cookie

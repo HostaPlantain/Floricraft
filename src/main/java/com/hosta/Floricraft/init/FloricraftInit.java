@@ -23,12 +23,10 @@ import com.hosta.Floricraft.block.BlockWeatherCock;
 import com.hosta.Floricraft.block.BlockWreath;
 import com.hosta.Floricraft.config.ConfigChecker;
 import com.hosta.Floricraft.enchantment.EnchantmentFloric;
-import com.hosta.Floricraft.handler.EnumHandler.EnumDamaged;
-import com.hosta.Floricraft.handler.EnumHandler.EnumDrying;
-import com.hosta.Floricraft.handler.EnumHandler.EnumVariant;
-import com.hosta.Floricraft.handler.EnumHandler.EnumWeatherCock;
+import com.hosta.Floricraft.entity.EntityBallon;
 import com.hosta.Floricraft.handler.GuiHandler;
 import com.hosta.Floricraft.item.ItemArmorCloth;
+import com.hosta.Floricraft.item.ItemBallon;
 import com.hosta.Floricraft.item.ItemBasic;
 import com.hosta.Floricraft.item.ItemBlockMeta;
 import com.hosta.Floricraft.item.ItemBlockMetaWood;
@@ -38,9 +36,9 @@ import com.hosta.Floricraft.item.ItemFoodSugared;
 import com.hosta.Floricraft.item.ItemHolderBasket;
 import com.hosta.Floricraft.item.ItemHolderSachet;
 import com.hosta.Floricraft.item.ItemMetaFlower;
-import com.hosta.Floricraft.item.ItemMetaSachet;
 import com.hosta.Floricraft.item.ItemSeedsHemp;
-import com.hosta.Floricraft.item.ItemToolPurner;
+import com.hosta.Floricraft.item.ToolPurner;
+import com.hosta.Floricraft.item.ToolSachet;
 import com.hosta.Floricraft.packet.PacketNBTGui;
 import com.hosta.Floricraft.packet.PacketNBTGuiHandler;
 import com.hosta.Floricraft.potion.EffectBasic;
@@ -106,13 +104,13 @@ public class FloricraftInit{
 	
 	//Sachet
 	public static final Item SACHET = new ItemBasic("sachet");
-	public static final Item SACHET_FLOWER = new ItemMetaSachet("sachet_flower"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
-	public static final Item SACHET_TEMPTATION = new ItemMetaSachet("sachet_temptation"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
-	public static final Item SACHET_ANTI_ZOMBIE = new ItemMetaSachet("sachet_anti_zombie"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
-	public static final Item SACHET_ANTI_SKELETON = new ItemMetaSachet("sachet_anti_skeleton"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
-	public static final Item SACHET_ANTI_CREEPER = new ItemMetaSachet("sachet_anti_creeper"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
-	public static final Item SACHET_ANTI_SPIDER = new ItemMetaSachet("sachet_anti_spider"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
-	public static final Item SACHET_ANTI_ENDERMAN = new ItemMetaSachet("sachet_anti_enderman"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
+	public static final Item SACHET_FLOWER = new ToolSachet("sachet_flower"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
+	public static final Item SACHET_TEMPTATION = new ToolSachet("sachet_temptation"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
+	public static final Item SACHET_ANTI_ZOMBIE = new ToolSachet("sachet_anti_zombie"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
+	public static final Item SACHET_ANTI_SKELETON = new ToolSachet("sachet_anti_skeleton"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
+	public static final Item SACHET_ANTI_CREEPER = new ToolSachet("sachet_anti_creeper"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
+	public static final Item SACHET_ANTI_SPIDER = new ToolSachet("sachet_anti_spider"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
+	public static final Item SACHET_ANTI_ENDERMAN = new ToolSachet("sachet_anti_enderman"/*, new ItemStack(FloricraftInit.essential_oil, 1, 0)*/);
 	public static final Item SACHET_HOLDER = new ItemHolderSachet("sachet_holder");
 	
 	//Basket
@@ -182,12 +180,15 @@ public class FloricraftInit{
 	public static final Block BLOCK_SALT = new BlockSalt("block_salt", Material.SAND);
 	
 	//Tool
-	public static final Item PURNER = new ItemToolPurner("purner");
+	public static final Item PURNER = new ToolPurner("purner");
 	
 	//PotionItem
 	public static final Item BOTTLE_BROWN_EMPTY = new ItemBottleBrown("bottle_brown_empty").setMaxStackSize(1);
 	public static final Item BOTTLE_BROWN_WATER = new ItemBasic("bottle_brown_water").setMaxStackSize(1);
 	public static final Item BOTTLE_BROWN_FLOWER = new ItemMetaFlower("bottle_brown_flower").setMaxStackSize(1);
+
+	//Ballon
+	public static final Item ITEM_BALLON = new ItemBallon("ballon");
 	
 	//Event
 	public static final Item CONFECTION_EVENT = new ItemFoodConfection("confection_event", 1, 0.5F);
@@ -342,6 +343,10 @@ public class FloricraftInit{
 		Registerer.register(BOTTLE_BROWN_EMPTY);
 		Registerer.register(BOTTLE_BROWN_WATER);
 		Registerer.register(BOTTLE_BROWN_FLOWER);
+
+		//Ballon
+		Registerer.register(ITEM_BALLON);
+		Registerer.register(EntityBallon.class, "entity_ballon", 0);
 		
 		//Events
 		Registerer.register(CONFECTION_EVENT);
@@ -369,8 +374,8 @@ public class FloricraftInit{
 
 		//Biome
 		int genBiomeWeight = ConfigChecker.getGenBiomeWeight();
-		Registerer.register(BIOME_TULIP_LAND);
-		Registerer.register(BIOME_ROSE_LAND);
+		Registerer.register(BIOME_TULIP_LAND, "Tulip Land");
+		Registerer.register(BIOME_ROSE_LAND, "Rose Land");
 		BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(BIOME_TULIP_LAND, genBiomeWeight));
 		BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(BIOME_ROSE_LAND, genBiomeWeight));
 		
@@ -393,21 +398,21 @@ public class FloricraftInit{
 		ItemMetaFlower.preRegisterRender(PETALS_SALTY);
 		ItemMetaFlower.preRegisterRender(PETALS_SUGARED);
 		
-		ItemBlockMeta.preRegisterRender(STACK_DANDELION);
-		ItemBlockMeta.preRegisterRender(STACK_POPPY);
-		ItemBlockMeta.preRegisterRender(STACK_BLUE_ORCHID);
-		ItemBlockMeta.preRegisterRender(STACK_ALLIUM);
-		ItemBlockMeta.preRegisterRender(STACK_AZURE_BLUET);
-		ItemBlockMeta.preRegisterRender(STACK_RED_TULIP);
-		ItemBlockMeta.preRegisterRender(STACK_ORANGE_TULIP);
-		ItemBlockMeta.preRegisterRender(STACK_WHITE_TULIP);
-		ItemBlockMeta.preRegisterRender(STACK_PINK_TULIP);
-		ItemBlockMeta.preRegisterRender(STACK_OXEYE_DAISY);
-		ItemBlockMeta.preRegisterRender(STACK_SUNFLOWER);
-		ItemBlockMeta.preRegisterRender(STACK_LILAC);
-		ItemBlockMeta.preRegisterRender(STACK_ROSE);
-		ItemBlockMeta.preRegisterRender(STACK_PEONY);
-		ItemBlockMeta.preRegisterRender(STACK_SAKURA);
+		BlockStackMeta.preRegisterRender(STACK_DANDELION);
+		BlockStackMeta.preRegisterRender(STACK_POPPY);
+		BlockStackMeta.preRegisterRender(STACK_BLUE_ORCHID);
+		BlockStackMeta.preRegisterRender(STACK_ALLIUM);
+		BlockStackMeta.preRegisterRender(STACK_AZURE_BLUET);
+		BlockStackMeta.preRegisterRender(STACK_RED_TULIP);
+		BlockStackMeta.preRegisterRender(STACK_ORANGE_TULIP);
+		BlockStackMeta.preRegisterRender(STACK_WHITE_TULIP);
+		BlockStackMeta.preRegisterRender(STACK_PINK_TULIP);
+		BlockStackMeta.preRegisterRender(STACK_OXEYE_DAISY);
+		BlockStackMeta.preRegisterRender(STACK_SUNFLOWER);
+		BlockStackMeta.preRegisterRender(STACK_LILAC);
+		BlockStackMeta.preRegisterRender(STACK_ROSE);
+		BlockStackMeta.preRegisterRender(STACK_PEONY);
+		BlockStackMeta.preRegisterRender(STACK_SAKURA);
 
 		Registerer.registerRender(STACK_DEAD);
 		
@@ -492,6 +497,9 @@ public class FloricraftInit{
 		Registerer.registerRender(BOTTLE_BROWN_EMPTY);
 		Registerer.registerRender(BOTTLE_BROWN_WATER);
 		ItemMetaFlower.preRegisterRender(BOTTLE_BROWN_FLOWER);
+
+		//Ballon
+		ItemBallon.preRegisterRender(ITEM_BALLON);
 		
 		//Event
 		ItemFoodConfection.preRegisterRender(CONFECTION_EVENT);
@@ -520,61 +528,5 @@ public class FloricraftInit{
 		OreDictionary.registerOre("dustSalt", DUST_SALT);
 		OreDictionary.registerOre("itemSalt", DUST_SALT);
 		OreDictionary.registerOre("blockSalt", BLOCK_SALT);
-	}
-	
-	public static void registeryModelBakeryStuffs()
-	{
-		//Flower
-		ItemMetaFlower.preRegisteryModelBakeryStuff(FLOWER_CUT);
-		//ItemMetaFlower.preRegisteryModelBakeryStuff(flower_bouquet);
-		ItemMetaFlower.preRegisteryModelBakeryStuff(PETAL_RAW);
-		ItemMetaFlower.preRegisteryModelBakeryStuff(PETAL_DRY);
-		ItemMetaFlower.preRegisteryModelBakeryStuff(PETAL_SALTY);
-		ItemMetaFlower.preRegisteryModelBakeryStuff(PETAL_SUGARED);
-		ItemMetaFlower.preRegisteryModelBakeryStuff(PETALS_RAW);
-		ItemMetaFlower.preRegisteryModelBakeryStuff(PETALS_DRY);
-		ItemMetaFlower.preRegisteryModelBakeryStuff(PETALS_SALTY);
-		ItemMetaFlower.preRegisteryModelBakeryStuff(PETALS_SUGARED);
-		
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_DANDELION);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_POPPY);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_BLUE_ORCHID);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_ALLIUM);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_AZURE_BLUET);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_RED_TULIP);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_ORANGE_TULIP);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_WHITE_TULIP);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_PINK_TULIP);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_OXEYE_DAISY);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_SUNFLOWER);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_LILAC);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_ROSE);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_PEONY);
-		EnumDrying.preRegisteryModelBakeryStuff(STACK_SAKURA);
-
-		//Basket
-		ItemHolderBasket.preRegisteryModelBakeryStuff(BASKET_FLOWER);
-		ItemHolderBasket.preRegisteryModelBakeryStuff(BASKET_LUNCH);
-		
-		//Weather
-		EnumWeatherCock.preRegisteryModelBakeryStuff(WEATHER_COCK);
-		
-		//Silage
-		EnumDamaged.preRegisteryModelBakeryStuff(ROUND_BALE_SILAGE);
-
-		//Sakure
-		ItemBlockMetaWood.preRegisteryModelBakeryStuff(LEAVES_FLORIC_TYPE0);
-		ItemBlockMetaWood.preRegisteryModelBakeryStuff(SAPLING_FLORIC_TYPE0);
-		
-		//PotionItem
-		ItemMetaFlower.preRegisteryModelBakeryStuff(BOTTLE_BROWN_FLOWER);
-		
-		//Event
-		ItemFoodConfection.preRegisteryModelBakeryStuff(CONFECTION_EVENT);
-		
-		//Christmas
-		EnumVariant.preRegisteryModelBakeryStuff(LEAVES_CHRISTMAS);
-		EnumVariant.preRegisteryModelBakeryStuff(ORNAMENT_CHRISTMAS);
-		EnumVariant.preRegisteryModelBakeryStuff(SAPLING_CHRISTMAS);
 	}
 }

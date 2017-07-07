@@ -1,0 +1,7 @@
+{
+    "parent": "floricraft:item/ballon",
+    "textures": {
+		"ballon": "floricraft:items/ballon_light_gray",
+		"string": "floricraft:items/basket"
+	}
+}

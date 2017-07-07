@@ -6,9 +6,9 @@ import com.hosta.Floricraft.init.FloricraftTabs;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
 
-public class ItemToolPurner extends ItemShears{
+public class ToolPurner extends ItemShears{
 	
-	public ItemToolPurner(String unlocalizedName)
+	public ToolPurner(String unlocalizedName)
 	{
 		this.setUnlocalizedName(unlocalizedName).setCreativeTab(FloricraftTabs.tabFloricraft);
 	}

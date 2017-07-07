@@ -1,7 +1,7 @@
 package com.hosta.Floricraft.client.handler;
 
 import com.hosta.Floricraft.client.gui.GuiImage;
-import com.hosta.Floricraft.client.render.color.ColorRegisterer;
+import com.hosta.Floricraft.client.render.block.ColorRegisterer;
 import com.hosta.Floricraft.init.FloricraftInit;
 
 import net.minecraftforge.client.event.GuiScreenEvent;

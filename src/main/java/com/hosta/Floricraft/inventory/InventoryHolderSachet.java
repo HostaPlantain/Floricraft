@@ -1,6 +1,6 @@
 package com.hosta.Floricraft.inventory;
 
-import com.hosta.Floricraft.item.ItemMetaSachet;
+import com.hosta.Floricraft.item.ToolSachet;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -15,6 +15,6 @@ public class InventoryHolderSachet extends InventoryHondler {
 	@Override
 	public boolean isWhiteList(Item item)
 	{
-		return item instanceof ItemMetaSachet;
+		return item instanceof ToolSachet;
 	}
 }

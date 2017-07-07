@@ -301,6 +301,25 @@ item.bottle_brown_flower.rose.name=バラのエッセンシャルオイル
 item.bottle_brown_flower.peony.name=ボタンのエッセンシャルオイル
 item.bottle_brown_flower.sakura.name=サクラのエッセンシャルオイル
 
+item.ballon.black.name=黒色の風船
+item.ballon.red.name=赤色の風船
+item.ballon.green.name=緑色の風船
+item.ballon.brown.name=茶色の風船
+item.ballon.blue.name=青色の風船
+item.ballon.purple.name=紫色の風船
+item.ballon.cyan.name=水色の風船
+item.ballon.light_gray.name=薄灰色の風船
+item.ballon.gray.name=灰色の風船
+item.ballon.pink.name=桃色の風船
+item.ballon.lime.name=黄緑色の風船
+item.ballon.yellow.name=黄色の風船
+item.ballon.light_blue.name=空色の風船
+item.ballon.magenta.name=赤紫色の風船
+item.ballon.orange.name=橙色の風船
+item.ballon.white.name=白色の風船
+
+entity.entity_ballon.name=風船
+
 item.confection_event.type0.name=ジンジャーブレッド マン
 item.confection_event.type1.name=キャンディー　ケイン
 item.confection_event.type2.name=クリスマス クッキー

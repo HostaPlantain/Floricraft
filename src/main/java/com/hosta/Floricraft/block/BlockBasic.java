@@ -10,6 +10,6 @@ public class BlockBasic extends Block{
 	public BlockBasic(String name, Material materialIn)
 	{
 		super(materialIn);
-		this.setUnlocalizedName(name).setRegistryName(name).setCreativeTab(FloricraftTabs.tabFloricraft);
+		this.setUnlocalizedName(name).setCreativeTab(FloricraftTabs.tabFloricraft);
 	}
 }

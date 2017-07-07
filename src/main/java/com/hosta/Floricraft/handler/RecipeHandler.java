@@ -63,6 +63,8 @@ public class RecipeHandler {
 	
 	public static void registerCraftingRecipes()
 	{
+		String group = null;
+		
 		//flower
 		for (flowerRecipes flowerRecipes : flowerRecipes.META_LOOKUP)
 		{
@@ -72,98 +74,115 @@ public class RecipeHandler {
 			Block stack = flowerRecipes.stack;
 			Block torch = flowerRecipes.torch;
 			
-			registerShapelessRecipes("flower_cut_" + name, new ItemStack(FloricraftInit.FLOWER_CUT, 1, i), new Object[] {flower, new ItemStack(FloricraftInit.PURNER, 1, OreDictionary.WILDCARD_VALUE)});
-			registerShapedRecipes("flower_stack_" + name, new ItemStack(stack, 1, 0), new Object[] {"ccc", "ccc", "hch", 'c', new ItemStack(FloricraftInit.FLOWER_CUT, 1, i), 'h', FloricraftInit.HEMP_TWINE});
+			registerShapelessRecipes("flower_cut", "flower_cut_" + name, new ItemStack(FloricraftInit.FLOWER_CUT, 1, i), new Object[] {flower, new ItemStack(FloricraftInit.PURNER, 1, OreDictionary.WILDCARD_VALUE)});
+			registerShapedRecipes("flower_stack", "flower_stack_" + name, new ItemStack(stack, 1, 0), new Object[] {"ccc", "ccc", "hch", 'c', new ItemStack(FloricraftInit.FLOWER_CUT, 1, i), 'h', FloricraftInit.HEMP_TWINE});
 			
-			registerShapelessRecipes("petal_raw_" + name, new ItemStack(FloricraftInit.PETAL_RAW, 1, i), new Object[] {new ItemStack(FloricraftInit.FLOWER_CUT, 1, i)});
-			registerShapelessRecipes("petal_dry_" + name, new ItemStack(FloricraftInit.PETAL_DRY, 6, i), new Object[] {new ItemStack(stack, 1, 3)});
-			registerShapelessRecipes("petal_salty_" + name, new ItemStack(FloricraftInit.PETAL_SALTY, 1, i), new Object[] {new ItemStack(FloricraftInit.PETAL_RAW, 1, i), "dustSalt", "dustSalt"});
-			registerShapelessRecipes("petal_sugared_" + name, new ItemStack(FloricraftInit.PETAL_SUGARED, 1, i), new Object[] {new ItemStack(FloricraftInit.PETAL_RAW, 1, i), "dustSugar", "dustSugar"});
+			registerShapelessRecipes("petal_raw", "petal_raw_" + name, new ItemStack(FloricraftInit.PETAL_RAW, 1, i), new Object[] {new ItemStack(FloricraftInit.FLOWER_CUT, 1, i)});
+			registerShapelessRecipes("petal_dry", "petal_dry_" + name, new ItemStack(FloricraftInit.PETAL_DRY, 6, i), new Object[] {new ItemStack(stack, 1, 3)});
+			registerShapelessRecipes("petal_salty", "petal_salty_" + name, new ItemStack(FloricraftInit.PETAL_SALTY, 1, i), new Object[] {new ItemStack(FloricraftInit.PETAL_RAW, 1, i), "dustSalt", "dustSalt"});
+			registerShapelessRecipes("petal_sugared", "petal_sugared_" + name, new ItemStack(FloricraftInit.PETAL_SUGARED, 1, i), new Object[] {new ItemStack(FloricraftInit.PETAL_RAW, 1, i), "dustSugar", "dustSugar"});
 			
-			registerCompressRecipes("petals_raw_" + name, new ItemStack(FloricraftInit.PETALS_RAW, 1, i), new ItemStack(FloricraftInit.PETAL_RAW, 1, i));
-			registerCompressRecipes("petals_dry_" + name, new ItemStack(FloricraftInit.PETALS_DRY, 1, i), new ItemStack(FloricraftInit.PETAL_DRY, 1, i));
-			registerCompressRecipes("petals_salty_" + name, new ItemStack(FloricraftInit.PETALS_SALTY, 1, i), new ItemStack(FloricraftInit.PETAL_SALTY, 1, i));
-			registerCompressRecipes("petals_sugared_" + name, new ItemStack(FloricraftInit.PETALS_SUGARED, 1, i), new ItemStack(FloricraftInit.PETAL_SUGARED, 1, i));
+			registerCompressRecipes("petals_raw", "petals_raw_" + name, new ItemStack(FloricraftInit.PETALS_RAW, 1, i), new ItemStack(FloricraftInit.PETAL_RAW, 1, i));
+			registerCompressRecipes("petals_dry", "petals_dry_" + name, new ItemStack(FloricraftInit.PETALS_DRY, 1, i), new ItemStack(FloricraftInit.PETAL_DRY, 1, i));
+			registerCompressRecipes("petals_salty", "petals_salty_" + name, new ItemStack(FloricraftInit.PETALS_SALTY, 1, i), new ItemStack(FloricraftInit.PETAL_SALTY, 1, i));
+			registerCompressRecipes("petals_sugared", "petals_sugared_" + name, new ItemStack(FloricraftInit.PETALS_SUGARED, 1, i), new ItemStack(FloricraftInit.PETAL_SUGARED, 1, i));
 			
-			registerShapedRecipes("floric_torch_" + name, new ItemStack(torch), new Object[] {"c", "p", "s", 'c', Items.COAL, 'p', new ItemStack(FloricraftInit.PETALS_RAW, 1, i), 's', Items.STICK});
+			registerShapedRecipes("floric_torch", "floric_torch_" + name, new ItemStack(torch), new Object[] {"c", "p", "s", 'c', Items.COAL, 'p', new ItemStack(FloricraftInit.PETALS_RAW, 1, i), 's', Items.STICK});
 		}
 		
 		//Sachet
-		registerShapedRecipes("sachet_sac", new ItemStack(FloricraftInit.SACHET, 1), new Object[] {"ttt", "c c", " c ", 't', FloricraftInit.HEMP_TWINE, 'c', FloricraftInit.HEMP_CLOTH});
+		registerShapedRecipes("sachet_sac", "sachet_sac", new ItemStack(FloricraftInit.SACHET, 1), new Object[] {"ttt", "c c", " c ", 't', FloricraftInit.HEMP_TWINE, 'c', FloricraftInit.HEMP_CLOTH});
+
+		group = "sachet";
 		ItemStack petalsDry = new ItemStack(FloricraftInit.PETALS_DRY, 1, OreDictionary.WILDCARD_VALUE);
-		registerShapedRecipes("sachet_flower", new ItemStack(FloricraftInit.SACHET_FLOWER, 1), new Object[] {"ddd", "ddd", " s ", 'd', petalsDry, 's', FloricraftInit.SACHET});
+		registerShapedRecipes(group, "sachet_flower", new ItemStack(FloricraftInit.SACHET_FLOWER, 1), new Object[] {"ddd", "ddd", " s ", 'd', petalsDry, 's', FloricraftInit.SACHET});
 
-		registerEncloseRecipes("sachet_temptation", new ItemStack(FloricraftInit.SACHET_TEMPTATION, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(FloricraftInit.PETALS_RAW, 1, 13));
-		registerEncloseRecipes("sachet_anti_zombie", new ItemStack(FloricraftInit.SACHET_ANTI_ZOMBIE, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.ROTTEN_FLESH));
-		registerEncloseRecipes("sachet_anti_skeleton", new ItemStack(FloricraftInit.SACHET_ANTI_SKELETON, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.BONE));
-		registerEncloseRecipes("sachet_anti_creeper", new ItemStack(FloricraftInit.SACHET_ANTI_CREEPER, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.GUNPOWDER));
-		registerEncloseRecipes("sachet_anti_spider", new ItemStack(FloricraftInit.SACHET_ANTI_SPIDER, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.SPIDER_EYE));
-		registerEncloseRecipes("sachet_anti_enderman", new ItemStack(FloricraftInit.SACHET_ANTI_ENDERMAN, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.ENDER_PEARL));
+		registerEncloseRecipes(group, "sachet_temptation", new ItemStack(FloricraftInit.SACHET_TEMPTATION, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(FloricraftInit.PETALS_RAW, 1, 13));
+		registerEncloseRecipes(group, "sachet_anti_zombie", new ItemStack(FloricraftInit.SACHET_ANTI_ZOMBIE, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.ROTTEN_FLESH));
+		registerEncloseRecipes(group, "sachet_anti_skeleton", new ItemStack(FloricraftInit.SACHET_ANTI_SKELETON, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.BONE));
+		registerEncloseRecipes(group, "sachet_anti_creeper", new ItemStack(FloricraftInit.SACHET_ANTI_CREEPER, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.GUNPOWDER));
+		registerEncloseRecipes(group, "sachet_anti_spider", new ItemStack(FloricraftInit.SACHET_ANTI_SPIDER, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.SPIDER_EYE));
+		registerEncloseRecipes(group, "sachet_anti_enderman", new ItemStack(FloricraftInit.SACHET_ANTI_ENDERMAN, 1), new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.ENDER_PEARL));
 
-		registerShapelessRecipes("repair_sachet_flower", new ItemStack(FloricraftInit.SACHET_FLOWER, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
-		registerShapelessRecipes("repair_sachet_temptation", new ItemStack(FloricraftInit.SACHET_TEMPTATION, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_TEMPTATION, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
-		registerShapelessRecipes("repair_sachet_anti_zombie", new ItemStack(FloricraftInit.SACHET_ANTI_ZOMBIE, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_ANTI_ZOMBIE, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
-		registerShapelessRecipes("repair_sachet_anti_skeleton", new ItemStack(FloricraftInit.SACHET_ANTI_SKELETON, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_ANTI_SKELETON, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
-		registerShapelessRecipes("repair_sachet_anti_creeper", new ItemStack(FloricraftInit.SACHET_ANTI_CREEPER, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_ANTI_CREEPER, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
-		registerShapelessRecipes("repair_sachet_anti_spider", new ItemStack(FloricraftInit.SACHET_ANTI_SPIDER, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_ANTI_SPIDER, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
-		registerShapelessRecipes("repair_sachet_anti_enderman", new ItemStack(FloricraftInit.SACHET_ANTI_ENDERMAN, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_ANTI_ENDERMAN, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
+		group = "repair_sachet";
+		registerShapelessRecipes(group, "repair_sachet_flower", new ItemStack(FloricraftInit.SACHET_FLOWER, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
+		registerShapelessRecipes(group, "repair_sachet_temptation", new ItemStack(FloricraftInit.SACHET_TEMPTATION, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_TEMPTATION, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
+		registerShapelessRecipes(group, "repair_sachet_anti_zombie", new ItemStack(FloricraftInit.SACHET_ANTI_ZOMBIE, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_ANTI_ZOMBIE, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
+		registerShapelessRecipes(group, "repair_sachet_anti_skeleton", new ItemStack(FloricraftInit.SACHET_ANTI_SKELETON, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_ANTI_SKELETON, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
+		registerShapelessRecipes(group, "repair_sachet_anti_creeper", new ItemStack(FloricraftInit.SACHET_ANTI_CREEPER, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_ANTI_CREEPER, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
+		registerShapelessRecipes(group, "repair_sachet_anti_spider", new ItemStack(FloricraftInit.SACHET_ANTI_SPIDER, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_ANTI_SPIDER, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
+		registerShapelessRecipes(group, "repair_sachet_anti_enderman", new ItemStack(FloricraftInit.SACHET_ANTI_ENDERMAN, 1), new Object[] {new ItemStack(FloricraftInit.SACHET_ANTI_ENDERMAN, 1, OreDictionary.WILDCARD_VALUE), petalsDry});
 		
-		registerShapedRecipes("sachet_holder", new ItemStack(FloricraftInit.SACHET_HOLDER, 1), new Object[] {"ttt", "t t", "sss", 't', FloricraftInit.HEMP_TWINE, 's', FloricraftInit.SACHET});
+		registerShapedRecipes("sachet_holder", "sachet_holder", new ItemStack(FloricraftInit.SACHET_HOLDER, 1), new Object[] {"ttt", "t t", "sss", 't', FloricraftInit.HEMP_TWINE, 's', FloricraftInit.SACHET});
 		
 		//Basket
-		registerShapedRecipes("basket_flower", new ItemStack(FloricraftInit.BASKET_FLOWER, 1), new Object[] {"tct", "cfc", "tct", 't', FloricraftInit.HEMP_TWINE, 'c', FloricraftInit.HEMP_CLOTH, 'f', new ItemStack(Blocks.RED_FLOWER, 1, OreDictionary.WILDCARD_VALUE)});
-		registerShapedRecipes("basket_lunch", new ItemStack(FloricraftInit.BASKET_LUNCH, 1), new Object[] {"tct", "cfc", "tct", 't', FloricraftInit.HEMP_TWINE, 'c', FloricraftInit.HEMP_CLOTH, 'f', Items.BREAD});
+		group = "basket";
+		registerShapedRecipes(group, "basket_flower", new ItemStack(FloricraftInit.BASKET_FLOWER, 1), new Object[] {"tct", "cfc", "tct", 't', FloricraftInit.HEMP_TWINE, 'c', FloricraftInit.HEMP_CLOTH, 'f', new ItemStack(Blocks.RED_FLOWER, 1, OreDictionary.WILDCARD_VALUE)});
+		registerShapedRecipes(group, "basket_lunch", new ItemStack(FloricraftInit.BASKET_LUNCH, 1), new Object[] {"tct", "cfc", "tct", 't', FloricraftInit.HEMP_TWINE, 'c', FloricraftInit.HEMP_CLOTH, 'f', Items.BREAD});
 		
 		//Hemp
-		registerShapelessRecipes("string", new ItemStack(Items.STRING, 1), new Object[] {FloricraftInit.HEMP_YARN});
-		registerShapelessRecipes("hemp_twine", new ItemStack(FloricraftInit.HEMP_TWINE, 1), new Object[] {"fiberHemp", "fiberHemp"});
-		registerShapedRecipes("hemp_cloth", new ItemStack(FloricraftInit.HEMP_CLOTH, 1), new Object[] {"YYY", "YYY", 'Y', "fiberHemp"});
+		registerShapelessRecipes("string", "string", new ItemStack(Items.STRING, 1), new Object[] {FloricraftInit.HEMP_YARN});
+		
+		group = "hemp";
+		registerShapelessRecipes(group, "hemp_twine", new ItemStack(FloricraftInit.HEMP_TWINE, 1), new Object[] {"fiberHemp", "fiberHemp"});
+		registerShapedRecipes(group, "hemp_cloth", new ItemStack(FloricraftInit.HEMP_CLOTH, 1), new Object[] {"YYY", "YYY", 'Y', "fiberHemp"});
 
 		//Cloth_Armor
-		registerShapedRecipes("cloth_helmet", new ItemStack(FloricraftInit.CLOTH_HELMET, 1), new Object[] {"ccc", "t t", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
-		registerShapedRecipes("cloth_chestplate", new ItemStack(FloricraftInit.CLOTH_CHESTPLATE, 1), new Object[] {"t t", "ccc", "ccc", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
-		registerShapedRecipes("cloth_leggings", new ItemStack(FloricraftInit.CLOTH_LEGGINGS, 1), new Object[] {"ttt", "c c", "c c", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
-		registerShapedRecipes("cloth_boots", new ItemStack(FloricraftInit.CLOTH_BOOTS, 1), new Object[] {"t t", "c c", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
-		registerShapedRecipes("apron_chestplate", new ItemStack(FloricraftInit.APRON_CHESTPLATE, 1), new Object[] {"t t", "tct", "tct", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
+		group = "cloth_armor";
+		registerShapedRecipes(group, "cloth_helmet", new ItemStack(FloricraftInit.CLOTH_HELMET, 1), new Object[] {"ccc", "t t", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
+		registerShapedRecipes(group, "cloth_chestplate", new ItemStack(FloricraftInit.CLOTH_CHESTPLATE, 1), new Object[] {"t t", "ccc", "ccc", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
+		registerShapedRecipes(group, "cloth_leggings", new ItemStack(FloricraftInit.CLOTH_LEGGINGS, 1), new Object[] {"ttt", "c c", "c c", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
+		registerShapedRecipes(group, "cloth_boots", new ItemStack(FloricraftInit.CLOTH_BOOTS, 1), new Object[] {"t t", "c c", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
+		
+		registerShapedRecipes("apron_chestplate", "apron_chestplate", new ItemStack(FloricraftInit.APRON_CHESTPLATE, 1), new Object[] {"t t", "tct", "tct", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
 
 		//PotPourri
-		registerShapedRecipes("potpourri", new ItemStack(FloricraftInit.POTPOURRI, 1), new Object[] {"ppp", "gsg", "ggg", 'p', Blocks.GLASS_PANE, 'g', Blocks.GLASS, 's', "itemSalt"});
+		group = "potpourri";
+		registerShapedRecipes(group, "potpourri", new ItemStack(FloricraftInit.POTPOURRI, 1), new Object[] {"ppp", "gsg", "ggg", 'p', Blocks.GLASS_PANE, 'g', Blocks.GLASS, 's', "itemSalt"});
 
 		//Doll
-		registerShapedRecipes("doll_iron_sit", new ItemStack(FloricraftInit.DOLL_IRON_SIT, 1), new Object[] {" p ", "iii", " i ", 'p', Blocks.PUMPKIN, 'i', "ingotIron"});
+		group = "doll";
+		registerShapedRecipes(group, "doll_iron_sit", new ItemStack(FloricraftInit.DOLL_IRON_SIT, 1), new Object[] {" p ", "iii", " i ", 'p', Blocks.PUMPKIN, 'i', "ingotIron"});
 
 		//Wether
-		registerShapedRecipes("weather_cock", new ItemStack(FloricraftInit.WEATHER_COCK, 1), new Object[] {" a ", " i ", "iii", 'a', Items.ARROW, 'i', "ingotIron"});
-		registerShapelessRecipes("weather_cock_cock", new ItemStack(FloricraftInit.WEATHER_COCK, 1, 0), new Object[] {new ItemStack(FloricraftInit.WEATHER_COCK, 1, 1)});
-		registerShapelessRecipes("weather_cock_dog", new ItemStack(FloricraftInit.WEATHER_COCK, 1, 1), new Object[] {new ItemStack(FloricraftInit.WEATHER_COCK, 1, 0)});
+		group = "weather_cock";
+		registerShapedRecipes(group, "weather_cock", new ItemStack(FloricraftInit.WEATHER_COCK, 1), new Object[] {" a ", " i ", "iii", 'a', Items.ARROW, 'i', "ingotIron"});
+		registerShapelessRecipes(group, "weather_cock_cock", new ItemStack(FloricraftInit.WEATHER_COCK, 1, 0), new Object[] {new ItemStack(FloricraftInit.WEATHER_COCK, 1, 1)});
+		registerShapelessRecipes(group, "weather_cock_dog", new ItemStack(FloricraftInit.WEATHER_COCK, 1, 1), new Object[] {new ItemStack(FloricraftInit.WEATHER_COCK, 1, 0)});
 		
 		//Planter
-		registerShapelessRecipes("flower_pot", new ItemStack(FloricraftInit.FLOWER_POT, 1), new Object[] {Items.FLOWER_POT});
+		group = "flower_pot";
+		registerShapelessRecipes(group, "flower_pot", new ItemStack(FloricraftInit.FLOWER_POT, 1), new Object[] {Items.FLOWER_POT});
 		
 		//Silage
-		registerShapedRecipes("round_bale_hay", new ItemStack(FloricraftInit.ROUND_BALE_HAY, 1), new Object[] {"tpt", "php", "tpt", 'h', Blocks.HAY_BLOCK, 't', FloricraftInit.HEMP_TWINE, 'p', Items.PAPER});
+		group = "silage";
+		registerShapedRecipes(group, "round_bale_hay", new ItemStack(FloricraftInit.ROUND_BALE_HAY, 1), new Object[] {"tpt", "php", "tpt", 'h', Blocks.HAY_BLOCK, 't', FloricraftInit.HEMP_TWINE, 'p', Items.PAPER});
 		
 		//Salt
-		registerCompressRecipes("block_salt", new ItemStack(FloricraftInit.BLOCK_SALT), new ItemStack(FloricraftInit.DUST_SALT));
-		registerShapelessRecipes("dust_salt", new ItemStack(FloricraftInit.DUST_SALT, 9), new Object[] {FloricraftInit.BLOCK_SALT});
+		registerCompressRecipes("block_salt", "block_salt", new ItemStack(FloricraftInit.BLOCK_SALT), new ItemStack(FloricraftInit.DUST_SALT));
+		registerShapelessRecipes("dust_salt", "dust_salt", new ItemStack(FloricraftInit.DUST_SALT, 9), new Object[] {FloricraftInit.BLOCK_SALT});
 		
 		//Tool
-		registerShapedRecipes("purner", new ItemStack(FloricraftInit.PURNER, 1, 0), new Object[] {" I", " I", "I ", 'I', "ingotIron"});
+		group = "purner";
+		registerShapedRecipes(group, "purner", new ItemStack(FloricraftInit.PURNER, 1, 0), new Object[] {" I", " I", "I ", 'I', "ingotIron"});
 		
 		//Christmas
-		registerShapedRecipes("sapling_christmas_normal_1", new ItemStack(FloricraftInit.SAPLING_CHRISTMAS, 1, 0), new Object[] {"rtg", "tst", 't', Blocks.TORCH, 's', new ItemStack(Blocks.SAPLING, 1, 1),  'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
-		registerShapedRecipes("sapling_christmas_normal_2", new ItemStack(FloricraftInit.SAPLING_CHRISTMAS, 1, 0), new Object[] {"gtr", "tst", 't', Blocks.TORCH, 's', new ItemStack(Blocks.SAPLING, 1, 1),  'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
-		registerShapedRecipes("sapling_christmas_twinkling_1", new ItemStack(FloricraftInit.SAPLING_CHRISTMAS, 1, 1), new Object[] {"rtg", "tst", 't', Blocks.REDSTONE_TORCH, 's', new ItemStack(Blocks.SAPLING, 1, 1),  'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
-		registerShapedRecipes("sapling_christmas_twinkling_2", new ItemStack(FloricraftInit.SAPLING_CHRISTMAS, 1, 1), new Object[] {"gtr", "tst", 't', Blocks.REDSTONE_TORCH, 's', new ItemStack(Blocks.SAPLING, 1, 1),  'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
-		
+		group = "sapling_christmas";
+		registerShapedRecipes(group, "sapling_christmas_normal_1", new ItemStack(FloricraftInit.SAPLING_CHRISTMAS, 1, 0), new Object[] {"rtg", "tst", 't', Blocks.TORCH, 's', new ItemStack(Blocks.SAPLING, 1, 1),  'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
+		registerShapedRecipes(group, "sapling_christmas_normal_2", new ItemStack(FloricraftInit.SAPLING_CHRISTMAS, 1, 0), new Object[] {"gtr", "tst", 't', Blocks.TORCH, 's', new ItemStack(Blocks.SAPLING, 1, 1),  'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
+		registerShapedRecipes(group, "sapling_christmas_twinkling_1", new ItemStack(FloricraftInit.SAPLING_CHRISTMAS, 1, 1), new Object[] {"rtg", "tst", 't', Blocks.REDSTONE_TORCH, 's', new ItemStack(Blocks.SAPLING, 1, 1),  'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
+		registerShapedRecipes(group, "sapling_christmas_twinkling_2", new ItemStack(FloricraftInit.SAPLING_CHRISTMAS, 1, 1), new Object[] {"gtr", "tst", 't', Blocks.REDSTONE_TORCH, 's', new ItemStack(Blocks.SAPLING, 1, 1),  'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
+
+		group = "ornament_christmas";
 		ItemStack leavesChristmas = new ItemStack(FloricraftInit.LEAVES_CHRISTMAS, 1, OreDictionary.WILDCARD_VALUE);
-		registerShapedRecipes("christmas_wreath", new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 1, 0), new Object[] {"lll", "l l", "lll", 'l', leavesChristmas});
-		registerShapedRecipes("christmas_sox", new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 1, 1), new Object[] {"wt", "rc", "cc", 't', FloricraftInit.HEMP_TWINE, 'c', FloricraftInit.HEMP_CLOTH, 'w', new ItemStack(Items.DYE, 1, 15), 'r', new ItemStack(Items.DYE, 1, 1)});
+		registerShapedRecipes(group, "christmas_wreath", new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 1, 0), new Object[] {"lll", "l l", "lll", 'l', leavesChristmas});
+		registerShapedRecipes(group, "christmas_sox", new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 1, 1), new Object[] {"wt", "rc", "cc", 't', FloricraftInit.HEMP_TWINE, 'c', FloricraftInit.HEMP_CLOTH, 'w', new ItemStack(Items.DYE, 1, 15), 'r', new ItemStack(Items.DYE, 1, 1)});
 		
-		registerShapedRecipes("flag_garland_christmas_1", new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 16, 2), new Object[] {"ttt", "rgr", 't', FloricraftInit.HEMP_TWINE, 'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
-		registerShapedRecipes("flag_garland_christmas_2", new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 16, 2), new Object[] {"ttt", "grg", 't', FloricraftInit.HEMP_TWINE, 'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
+		group = "flag_garland";
+		registerShapedRecipes(group, "flag_garland_christmas_1", new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 16, 2), new Object[] {"ttt", "rgr", 't', FloricraftInit.HEMP_TWINE, 'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
+		registerShapedRecipes(group, "flag_garland_christmas_2", new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 16, 2), new Object[] {"ttt", "grg", 't', FloricraftInit.HEMP_TWINE, 'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
 		ItemStack dye = new ItemStack(Items.DYE, 1, OreDictionary.WILDCARD_VALUE);
-		registerShapedRecipes("flag_garland_colorful", new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 16, 3), new Object[] {"ttt", "ddd", 't', FloricraftInit.HEMP_TWINE, 'd', dye});
+		registerShapedRecipes(group, "flag_garland_colorful", new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 16, 3), new Object[] {"ttt", "ddd", 't', FloricraftInit.HEMP_TWINE, 'd', dye});
 	}
 	
 	public static void registerFurnaceRecipes()
@@ -181,26 +200,28 @@ public class RecipeHandler {
 
 	private static void registerRecipes(String ID, IRecipe recipe)
 	{
-		Registerer.register(recipe.setRegistryName(new ResourceLocation(Reference.MOD_ID, ID)));
+		Registerer.register(recipe, ID);
 	}
 
-	private static void registerShapedRecipes(String ID, ItemStack resalt, Object[] recipe)
+	private static void registerShapedRecipes(String group, String ID, ItemStack resalt, Object[] recipe)
 	{
-		registerRecipes(ID, new ShapedOreRecipe(new ResourceLocation(Reference.MOD_ID, ID), resalt, recipe));
+		group = group == null ? "floricraft" : group;
+		registerRecipes(ID, new ShapedOreRecipe(new ResourceLocation(Reference.MOD_ID, group), resalt, recipe));
 	}
 
-	private static void registerShapelessRecipes(String ID, ItemStack resalt, Object[] recipe)
+	private static void registerShapelessRecipes(String group, String ID, ItemStack resalt, Object[] recipe)
 	{
-		registerRecipes(ID, new ShapelessOreRecipe(new ResourceLocation(Reference.MOD_ID, ID), resalt, recipe));
+		group = group == null ? "floricraft" : group;
+		registerRecipes(ID, new ShapelessOreRecipe(new ResourceLocation(Reference.MOD_ID, group), resalt, recipe));
 	}
 	
-	private static void registerCompressRecipes(String ID, ItemStack resalt, ItemStack item)
+	private static void registerCompressRecipes(String group, String ID, ItemStack resalt, ItemStack item)
 	{
-		registerShapedRecipes(ID, resalt, new Object[] {"iii", "iii", "iii", 'i', item});
+		registerShapedRecipes(group, ID, resalt, new Object[] {"iii", "iii", "iii", 'i', item});
 	}
 	
-	private static void registerEncloseRecipes(String ID, ItemStack resalt, ItemStack center, ItemStack item)
+	private static void registerEncloseRecipes(String group, String ID, ItemStack resalt, ItemStack center, ItemStack item)
 	{
-		registerShapedRecipes(ID, resalt, new Object[] {"iii", "ici", "iii", 'c', center, 'i', item});
+		registerShapedRecipes(group, ID, resalt, new Object[] {"iii", "ici", "iii", 'c', center, 'i', item});
 	}
 }

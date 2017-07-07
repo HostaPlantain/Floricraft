@@ -1,7 +1,6 @@
 package com.hosta.Floricraft;
 
 import com.hosta.Floricraft.config.ConfigChecker;
-import com.hosta.Floricraft.handler.GuiHandler;
 import com.hosta.Floricraft.handler.RecipeHandler;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.mod.ModChecker;
@@ -16,7 +15,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
@@ -53,24 +51,23 @@ public class Floricraft {
 		proxy.registerEvents();
 		
 		RecipeHandler.registerCraftingRecipes();
+		
+		proxy.registerRenders();
+		proxy.registerModsRenders();
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		RecipeHandler.registerFurnaceRecipes();
+		//RecipeHandler.registerFurnaceRecipes();
 		RecipeHandler.registerBrewingRecipes();
 		
 		if (ModChecker.isBaublesLoaded)
 		{
 			BaublesFloricraftInit.registerCraftingRecipes();
 		}
-
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 		
-		proxy.registerRenders();
-		proxy.registerModsRenders();
-		proxy.registeryModelBakeryStuff();
+		proxy.registerLeaveRenders();
 	}
 	
 	@EventHandler
