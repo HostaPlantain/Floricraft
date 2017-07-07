@@ -17,7 +17,7 @@ public abstract class BlockBasicCrops extends BlockCrops {
 	public BlockBasicCrops(String name)
 	{
 		super();
-		this.setUnlocalizedName(name).setRegistryName(name);
+		this.setUnlocalizedName(name);
 	}
 	
 	@Override

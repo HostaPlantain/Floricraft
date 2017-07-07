@@ -33,7 +33,7 @@ public class BlockBasicLeaves extends BlockLeaves{
 	
     public BlockBasicLeaves(String name)
     {
-		this.setUnlocalizedName(name).setRegistryName(name).setCreativeTab(FloricraftTabs.tabFloricraft);
+		this.setUnlocalizedName(name).setCreativeTab(FloricraftTabs.tabFloricraft);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumVariant.TYPE0).withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
     }
 

@@ -33,19 +33,12 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
            		else if (block instanceof IPlantable || block instanceof IShearable)
            		{
            			this.setDisplayedItem(stackIn.splitStack(1));
-           			
            			if (!this.world.isRemote)
                 	{
-                		if (stackIn.getCount() == 0)
-                		{
-                			player.setHeldItem(hand, ItemStack.EMPTY);
-                		}
-                		else
-                		{
-                			player.setHeldItem(hand, stackIn);
-                		}
+            			player.setHeldItem(hand, stackIn.getCount() == 0 ? ItemStack.EMPTY : stackIn);
             		}
-            	}
+            		this.markDirty();
+           		}
             }
         }
         else if (this.getDisplayedItem() != null && (stackIn == null || stackIn.isEmpty()))
@@ -55,6 +48,7 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
         		ItemHandlerHelper.giveItemToPlayer(player, this.inventory);
         	}
             this.setDisplayedItem(stackIn);
+    		this.markDirty();
         }
     }
 
@@ -125,6 +119,7 @@ public class TileEntityFlowerPot extends TileEntityPlanter {
     public void setDisplayedItem(ItemStack stack)
 	{
 		inventory = stack;
+		this.markDirty();
 	}
 	
 }

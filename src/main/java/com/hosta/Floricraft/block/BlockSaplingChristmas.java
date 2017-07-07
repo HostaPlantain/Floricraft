@@ -2,7 +2,6 @@ package com.hosta.Floricraft.block;
 
 import java.util.Random;
 
-import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.handler.EnumHandler;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.init.Registerer;
@@ -10,10 +9,7 @@ import com.hosta.Floricraft.world.gen.feature.WorldGenTreeChristmas;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.block.model.ModelBakery;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -111,17 +107,5 @@ public class BlockSaplingChristmas extends BlockBasicSapling implements IMetaBlo
 				break;
 			}
 		}
-	}
-	
-	public static void preRegisteryModelBakeryStuff(Block block)
-	{
-		ModelBakery.registerItemVariants
-		(
-				Item.getItemFromBlock(block),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + "type0"),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + "type1"),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + "type2"),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + "type3")
-		);
 	}
 }

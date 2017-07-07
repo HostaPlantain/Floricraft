@@ -11,7 +11,7 @@ public class BlockBasicBush extends BlockBush {
 	public BlockBasicBush(String name)
 	{
 		super(Material.PLANTS);
-		this.setUnlocalizedName(name).setRegistryName(name).setCreativeTab(FloricraftTabs.tabFloricraft);
+		this.setUnlocalizedName(name).setCreativeTab(FloricraftTabs.tabFloricraft);
 		this.setSoundType(SoundType.PLANT);
 	}
 }

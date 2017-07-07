@@ -21,7 +21,7 @@ public class BlockRoundBale extends BlockHay{
 	public BlockRoundBale(String name)
 	{
 		super();
-		this.setUnlocalizedName(name).setRegistryName(name).setCreativeTab(FloricraftTabs.tabFloricraft);
+		this.setUnlocalizedName(name).setCreativeTab(FloricraftTabs.tabFloricraft);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(DAMAGE, EnumDamaged.DAMAGED2));
 		this.setTickRandomly(true);
 	}

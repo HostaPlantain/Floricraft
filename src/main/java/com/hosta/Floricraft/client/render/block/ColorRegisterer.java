@@ -1,4 +1,4 @@
-package com.hosta.Floricraft.client.render.color;
+package com.hosta.Floricraft.client.render.block;
 
 import javax.annotation.Nullable;
 

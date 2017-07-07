@@ -1,12 +1,6 @@
 package com.hosta.Floricraft.handler;
 
-import com.hosta.Floricraft.Reference;
-
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelBakery;
-import net.minecraft.item.Item;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.ResourceLocation;
 
 public class EnumHandler {
 	
@@ -61,16 +55,6 @@ public class EnumHandler {
 	    {
 	        return getEnumByMeta(meta).getName();
 	    }
-		
-		public static void preRegisteryModelBakeryStuff(Block block)
-		{
-			ModelBakery.registerItemVariants
-			(
-				Item.getItemFromBlock(block),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(0)),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(3))
-			);
-		}
 
 		static
 		{
@@ -119,16 +103,6 @@ public class EnumHandler {
 	    {
 	        return getEnumByMeta(meta).getName();
 	    }
-		
-		public static void preRegisteryModelBakeryStuff(Block block)
-		{
-			ModelBakery.registerItemVariants
-			(
-				Item.getItemFromBlock(block),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(0)),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(1))
-			);
-		}
 
 		static
 		{
@@ -179,18 +153,6 @@ public class EnumHandler {
 	    {
 	        return getEnumByMeta(meta).getName();
 	    }
-		
-		public static void preRegisteryModelBakeryStuff(Block block)
-		{
-			ModelBakery.registerItemVariants
-			(
-				Item.getItemFromBlock(block),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(0)),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(1)),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(2)),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(3))
-			);
-		}
 
 		static
 		{
@@ -241,18 +203,6 @@ public class EnumHandler {
 	    {
 	        return getEnumByMeta(meta).getName();
 	    }
-		
-		public static void preRegisteryModelBakeryStuff(Block block)
-		{
-			ModelBakery.registerItemVariants
-			(
-				Item.getItemFromBlock(block),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(0)),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(1)),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(2)),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(3))
-			);
-		}
 
 		static
 		{
@@ -362,15 +312,6 @@ public class EnumHandler {
 	    {
 	        return getEnumByMeta(meta).getName();
 	    }
-		
-		public static void preRegisteryModelBakeryStuff(Block block)
-		{
-			ModelBakery.registerItemVariants
-			(
-				Item.getItemFromBlock(block),
-				new ResourceLocation(Reference.MOD_ID, block.getUnlocalizedName().substring(5) + "_" + getSpecialName(0))
-			);
-		}
 
 		static
 		{

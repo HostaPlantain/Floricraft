@@ -1,12 +1,12 @@
 package com.hosta.Floricraft.mod.baubles;
 
-import com.hosta.Floricraft.item.ItemMetaSachet;
+import com.hosta.Floricraft.item.ToolSachet;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class NonBaublesItemMetaAmuletSachet extends ItemMetaSachet{
+public class NonBaublesItemMetaAmuletSachet extends ToolSachet{
 
 	public NonBaublesItemMetaAmuletSachet(String unlocalizedName)
 	{

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
@@ -94,24 +93,6 @@ public abstract class TileEntityInventoryWithRender extends TileEntityBasicWithR
 	        }
 			this.items[items.length - 1] = ItemStack.EMPTY;
 		}
-	}
-	
-	private void sendPacket()
-	{
-		if (!this.getWorld().isRemote)
-		{
-			for (EntityPlayer player : this.getWorld().playerEntities)
-	        {
-				((EntityPlayerMP) player).connection.sendPacket(this.getUpdatePacket());
-	        }
-		}
-	}
-
-	@Override
-	public void markDirty()
-	{
-		super.markDirty();
-		this.sendPacket();
 	}
 	
 	@Override
