@@ -2,12 +2,14 @@ package com.hosta.Floricraft.client.render;
 
 import com.hosta.Floricraft.client.render.entity.EntityBallonRender;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityDollIronSitRenderer;
+import com.hosta.Floricraft.client.render.tileentity.TileEntityDollPlayerRenderer;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityFlowerPotRenderer;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityPotPourriRenderer;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityWeatherCockRenderer;
 import com.hosta.Floricraft.entity.EntityBallon;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.tileentity.TileEntityDollIronSit;
+import com.hosta.Floricraft.tileentity.TileEntityDollPlayer;
 import com.hosta.Floricraft.tileentity.TileEntityFlowerPot;
 import com.hosta.Floricraft.tileentity.TileEntityPotPourri;
 import com.hosta.Floricraft.tileentity.TileEntityWeatherCock;
@@ -46,6 +48,7 @@ public class RenderInit {
 	{
 		RenderRegisterer.registerRender(TileEntityPotPourri.class, new TileEntityPotPourriRenderer());
 		RenderRegisterer.registerRender(TileEntityDollIronSit.class, new TileEntityDollIronSitRenderer());
+		RenderRegisterer.registerRender(TileEntityDollPlayer.class, new TileEntityDollPlayerRenderer());
 		RenderRegisterer.registerRender(TileEntityWeatherCock.class, new TileEntityWeatherCockRenderer());
 		RenderRegisterer.registerRender(TileEntityFlowerPot.class, new TileEntityFlowerPotRenderer());
 	}

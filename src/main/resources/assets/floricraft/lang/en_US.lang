@@ -236,6 +236,7 @@ item.apron_chestplate.name=Apron
 tile.potpourri.name=Potpourri
 
 tile.doll_iron_sit.name=Iron Golem Doll
+tile.doll_player.name=Player Doll
 
 tile.weather_cock.cock.name=Weather Cock
 tile.weather_cock.dog.name=Weather Dog

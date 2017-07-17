@@ -12,6 +12,7 @@ import com.hosta.Floricraft.helper.PotionHelper;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.packet.PacketNBTGui;
 import com.hosta.Floricraft.world.biome.BiomeBasicWithPath;
+import com.hosta.Floricraft.world.gen.feature.WorldGenSchematic;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,6 +24,7 @@ import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -31,6 +33,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
@@ -39,9 +42,6 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 public class EventHandler {
 
-	//Stracture
-	//private static final WorldGenSchematic HOUSE_HOSTA = new WorldGenSchematic("house_hosta");
-	
 	@SubscribeEvent
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)
 	{
@@ -215,6 +215,9 @@ public class EventHandler {
 		}
 	}
 
+	//Stracture
+	private static final WorldGenSchematic HOUSE_HOSTA = new WorldGenSchematic("house_hosta");
+	
 	@SubscribeEvent
 	public void onChunkPopulate(PopulateChunkEvent.Post event)
 	{
@@ -222,20 +225,16 @@ public class EventHandler {
 		{
 			BiomeBasicWithPath.genPath(event.getWorld(), event.getChunkX() * 16, event.getChunkZ() * 16);
 		}
-		/*
-		if (event.getChunkX() % 8 == 0 && event.getChunkZ() % 8 == 0 && event.getWorld().rand.nextInt(32) == 1)
+
+		if (event.getChunkX() % 16 == 0 && event.getChunkZ() % 16 == 0 && event.getWorld().rand.nextInt(8) == 1)
 		{
 			BlockPos pos = new BlockPos (event.getChunkX() * 16, 0, event.getChunkZ() * 16);
 			Biome biome = event.getWorld().getBiomeGenForCoords(pos);
 			
-			if (biome.getHeightVariation() < 1.0f && biome.getBaseHeight() > 0.0f)
+			if (biome == Biomes.FOREST)
 			{
-				if (HOUSE_HOSTA.generate(event.getWorld(), event.getWorld().rand, event.getWorld().getTopSolidOrLiquidBlock(pos).down(5)))
-				{
-					
-				}
+				HOUSE_HOSTA.generate(event.getWorld(), event.getWorld().rand, event.getWorld().getTopSolidOrLiquidBlock(pos).down(5));
 			}
 		}
-		*/
 	}
 }

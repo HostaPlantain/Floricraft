@@ -2,7 +2,9 @@ package com.hosta.Floricraft.world.gen.feature;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 import com.hosta.Floricraft.Reference;
@@ -10,9 +12,12 @@ import com.hosta.Floricraft.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagDouble;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
@@ -24,14 +29,17 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 public class WorldGenSchematic extends WorldGenerator{
 
 	private final HashMap<BlockPos, Integer> MAP_POS = new HashMap<BlockPos, Integer>();
-	private final HashMap<BlockPos, NBTTagCompound> MAP_NBT = new HashMap<BlockPos, NBTTagCompound>();
 	private final HashMap<Integer, IBlockState> MAP_STATE = new HashMap<Integer, IBlockState>();
+	private final HashMap<BlockPos, NBTTagCompound> MAP_NBT = new HashMap<BlockPos, NBTTagCompound>();
+	private final List<NBTTagCompound> LIST_ENTITY = new ArrayList<NBTTagCompound>();
 	
 	public WorldGenSchematic(String name)
 	{
 		super(true);
 		InputStream stream = MinecraftServer.class.getResourceAsStream("/assets/" + Reference.MOD_ID + "/structures/" + name + ".nbt");
 		NBTTagCompound nbt = initNBT(stream);
+		
+		setListEntity(nbt);
 		setMapPos(nbt);
 		setMapState(nbt);
 	}
@@ -112,11 +120,27 @@ public class WorldGenSchematic extends WorldGenerator{
 		}
 	}
 
+	private void setListEntity(NBTTagCompound nbt)
+	{
+		NBTTagList entities = (NBTTagList) nbt.getTag("entities");
+		
+		for (int i = 0; i < entities.tagCount(); i++)
+		{
+			NBTTagCompound tag = ((NBTTagCompound) entities.get(i)).getCompoundTag("nbt");
+			
+			tag.removeTag("UUIDLeast");
+			tag.removeTag("UUIDMost");
+			
+			LIST_ENTITY.add(tag);
+		}
+	}
+
 	@Override
 	public boolean generate(World worldIn, Random rand, BlockPos posStart)
 	{
 		MAP_POS.forEach((pos, state) -> setBlock(worldIn, pos.add(posStart), MAP_STATE.get(state)));
 		MAP_NBT.forEach((pos, nbt) -> setNBT(worldIn.getTileEntity(pos.add(posStart)), nbt));
+		LIST_ENTITY.forEach((nbt) -> setEntity(worldIn, posStart, nbt.copy()));
 		
 		return true;
 	}
@@ -147,5 +171,40 @@ public class WorldGenSchematic extends WorldGenerator{
 			
 			te.readFromNBT(nbt);
 		}
+	}
+
+	private void setEntity(World worldIn, BlockPos posStart, NBTTagCompound nbt)
+	{
+		int[] start = new int[]{posStart.getX(), posStart.getY(), posStart.getZ()};
+		NBTTagList pos = (NBTTagList) nbt.getTag("pos");
+		nbt.removeTag("pos");
+		NBTTagList newPos = new NBTTagList();
+		for (int i = 0; i < 3; i++)
+		{
+			newPos.appendTag(new NBTTagDouble(pos.getDoubleAt(i) + start[i]));
+		}
+		nbt.setTag("Pos", newPos);
+		
+		if (nbt.hasKey("TileX"))
+		{
+			int x = nbt.getInteger("TileX") + posStart.getX();
+			nbt.removeTag("TileX");
+			nbt.setInteger("TileX", x);
+		}
+		if (nbt.hasKey("TileY"))
+		{
+			int y = nbt.getInteger("TileY") + posStart.getY();
+			nbt.removeTag("TileY");
+			nbt.setInteger("TileY", y);
+		}
+		if (nbt.hasKey("TileZ"))
+		{
+			int z = nbt.getInteger("TileZ") + posStart.getZ();
+			nbt.removeTag("TileZ");
+			nbt.setInteger("TileZ", z);
+		}
+		
+		Entity entity = EntityList.createEntityFromNBT(nbt, worldIn);
+		worldIn.spawnEntityInWorld(entity);
 	}
 }

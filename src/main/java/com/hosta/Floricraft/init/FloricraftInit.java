@@ -4,6 +4,7 @@ import com.hosta.Floricraft.Floricraft;
 import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.block.BlockCropHemp;
 import com.hosta.Floricraft.block.BlockDollIronSit;
+import com.hosta.Floricraft.block.BlockDollPlayer;
 import com.hosta.Floricraft.block.BlockFlowerLycoris;
 import com.hosta.Floricraft.block.BlockFlowerPot;
 import com.hosta.Floricraft.block.BlockLeavesChristmasDynamic;
@@ -43,6 +44,7 @@ import com.hosta.Floricraft.packet.PacketNBTGui;
 import com.hosta.Floricraft.packet.PacketNBTGuiHandler;
 import com.hosta.Floricraft.potion.EffectBasic;
 import com.hosta.Floricraft.tileentity.TileEntityDollIronSit;
+import com.hosta.Floricraft.tileentity.TileEntityDollPlayer;
 import com.hosta.Floricraft.tileentity.TileEntityFlowerPot;
 import com.hosta.Floricraft.tileentity.TileEntityPotPourri;
 import com.hosta.Floricraft.tileentity.TileEntityWeatherCock;
@@ -138,6 +140,7 @@ public class FloricraftInit{
 	
 	//Doll
 	public static final Block DOLL_IRON_SIT = new BlockDollIronSit("doll_iron_sit");
+	public static final Block DOLL_PLAYER = new BlockDollPlayer("doll_player");
 	
 	//Wether
 	public static final Block WEATHER_COCK = new BlockWeatherCock("weather_cock");
@@ -294,6 +297,7 @@ public class FloricraftInit{
 		
 		//Doll
 		Registerer.registerWithTileEntity(DOLL_IRON_SIT, TileEntityDollIronSit.class);
+		Registerer.registerWithTileEntity(DOLL_PLAYER, TileEntityDollPlayer.class);
 		
 		//Wether
 		Registerer.registerWithTileEntityWithMeta(WEATHER_COCK, TileEntityWeatherCock.class);
@@ -448,6 +452,7 @@ public class FloricraftInit{
 		
 		//Doll
 		Registerer.registerRender(DOLL_IRON_SIT);
+		Registerer.registerRender(DOLL_PLAYER);
 		
 		//Weather
 		ItemBlockMeta.preRegisterRender(WEATHER_COCK);
