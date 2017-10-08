@@ -238,7 +238,7 @@ tile.potpourri.name=Potpourri
 tile.doll_iron_sit.name=Iron Golem Doll
 tile.doll_player.name=Player Doll
 
-tile.weather_cock.cock.name=Weather Cock
+tile.weather_cock.cock.name=Weather Rooster
 tile.weather_cock.dog.name=Weather Dog
 
 tile.flower_pot.name=Better Flower Pot
@@ -302,26 +302,26 @@ item.bottle_brown_flower.rose.name=Rose Essential Oil
 item.bottle_brown_flower.peony.name=Peony Essential Oil
 item.bottle_brown_flower.sakura.name=Sakura Essential Oil
 
-item.ballon.black.name=Black Ballon
-item.ballon.red.name=Red Ballon
-item.ballon.green.name=Green Ballon
-item.ballon.brown.name=Brown Ballon
-item.ballon.blue.name=Blue Ballon
-item.ballon.purple.name=Purple Ballon
-item.ballon.cyan.name=Cyan Ballon
-item.ballon.light_gray.name=Light Gray Ballon
-item.ballon.gray.name=Gray Ballon
-item.ballon.pink.name=Pink Ballon
-item.ballon.lime.name=Lime Ballon
-item.ballon.yellow.name=Yellow Ballon
-item.ballon.light_blue.name=Light Blue Ballon
-item.ballon.magenta.name=Magenta Ballon
-item.ballon.orange.name=Orange Ballon
-item.ballon.white.name=White Ballon
+item.ballon.black.name=Black Balloon
+item.ballon.red.name=Red Balloon
+item.ballon.green.name=Green Balloon
+item.ballon.brown.name=Brown Balloon
+item.ballon.blue.name=Blue Balloon
+item.ballon.purple.name=Purple Balloon
+item.ballon.cyan.name=Cyan Balloon
+item.ballon.light_gray.name=Light Gray Balloon
+item.ballon.gray.name=Gray Balloon
+item.ballon.pink.name=Pink Balloon
+item.ballon.lime.name=Lime Balloon
+item.ballon.yellow.name=Yellow Balloon
+item.ballon.light_blue.name=Light Blue Balloon
+item.ballon.magenta.name=Magenta Balloon
+item.ballon.orange.name=Orange Balloon
+item.ballon.white.name=White Balloon
 
 entity.entity_ballon.name=Ballon
 
-item.confection_event.type0.name=Gingerbread Men
+item.confection_event.type0.name=Gingerbread Man
 item.confection_event.type1.name=Candy Cane
 item.confection_event.type2.name=Christmas Tree Cookie
 
