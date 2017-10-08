@@ -11,8 +11,6 @@ import com.hosta.Floricraft.helper.MineHelper;
 import com.hosta.Floricraft.helper.PotionHelper;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.packet.PacketNBTGui;
-import com.hosta.Floricraft.world.biome.BiomeBasicWithPath;
-import com.hosta.Floricraft.world.gen.feature.WorldGenSchematic;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,7 +22,6 @@ import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -33,10 +30,8 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
@@ -214,7 +209,8 @@ public class EventHandler {
 			EntityHelper.antiEntityFrom(entity, EntityEnderman.class, amplifier);
 		}
 	}
-
+	
+	/*
 	//Stracture
 	private static final WorldGenSchematic HOUSE_HOSTA = new WorldGenSchematic("house_hosta");
 	
@@ -237,4 +233,5 @@ public class EventHandler {
 			}
 		}
 	}
+	*/
 }
