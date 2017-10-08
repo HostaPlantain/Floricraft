@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 
 public class TileEntityDollIronSitRenderer extends TileEntitySpecialRenderer<TileEntityDollIronSit>{
 
-	static final double R = Math.PI / 8;
+	private static final double R = Math.PI / 8;
 
 	@Override
 	public void renderTileEntityAt(TileEntityDollIronSit te, double x, double y, double z, float partialTicks,	int destroyStage)

@@ -126,6 +126,7 @@ public class RecipeHandler {
 
 		//Doll
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(FloricraftInit.DOLL_IRON_SIT, 1), new Object[] {" p ", "iii", " i ", 'p', Blocks.PUMPKIN, 'i', "ingotIron"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(FloricraftInit.DOLL_PLAYER, 1), new Object[] {" s ", "iii", " i ", 's', "itemSkull", 'i', "ingotIron"}));
 
 		//Wether
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(FloricraftInit.WEATHER_COCK, 1), new Object[] {" a ", " i ", "iii", 'a', Items.ARROW, 'i', "ingotIron"}));
@@ -143,6 +144,13 @@ public class RecipeHandler {
 		
 		//Tool
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(FloricraftInit.PURNER, 1, 0), new Object[] {" I", " I", "I ", 'I', "ingotIron"}));
+
+		//Ballon
+		GameRegistry.addShapedRecipe(new ItemStack(FloricraftInit.ITEM_BALLON, 1), new Object[] {"c", "t", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
+		for (int i = 0; i < 16; i++)
+		{
+			GameRegistry.addShapelessRecipe(new ItemStack(FloricraftInit.ITEM_BALLON, 1, i), new Object[] {new ItemStack(FloricraftInit.ITEM_BALLON, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.DYE, 1, i)});
+		}
 		
 		//Christmas
 		GameRegistry.addShapedRecipe(new ItemStack(FloricraftInit.SAPLING_CHRISTMAS, 1, 0), new Object[] {"rtg", "tst", 't', Blocks.TORCH, 's', new ItemStack(Blocks.SAPLING, 1, 1),  'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
@@ -158,7 +166,7 @@ public class RecipeHandler {
 		GameRegistry.addShapedRecipe(new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 16, 2), new Object[] {"ttt", "grg", 't', FloricraftInit.HEMP_TWINE, 'r', new ItemStack(Items.DYE, 1, 1), 'g', new ItemStack(Items.DYE, 1, 2)});
 		ItemStack dye = new ItemStack(Items.DYE, 1, OreDictionary.WILDCARD_VALUE);
 		GameRegistry.addShapedRecipe(new ItemStack(FloricraftInit.ORNAMENT_CHRISTMAS, 16, 3), new Object[] {"ttt", "ddd", 't', FloricraftInit.HEMP_TWINE, 'd', dye});
-		}
+	}
 	
 	public static void registerFurnaceRecipes()
 	{

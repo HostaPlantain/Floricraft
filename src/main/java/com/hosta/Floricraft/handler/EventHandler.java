@@ -11,7 +11,6 @@ import com.hosta.Floricraft.helper.MineHelper;
 import com.hosta.Floricraft.helper.PotionHelper;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.packet.PacketNBTGui;
-import com.hosta.Floricraft.world.biome.BiomeBasicWithPath;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -33,7 +32,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
@@ -212,6 +210,10 @@ public class EventHandler {
 		}
 	}
 
+	/*
+	//Stracture
+	private static final WorldGenSchematic HOUSE_HOSTA = new WorldGenSchematic("house_hosta");
+	
 	@SubscribeEvent
 	public void onChunkPopulate(PopulateChunkEvent.Post event)
 	{
@@ -219,5 +221,17 @@ public class EventHandler {
 		{
 			BiomeBasicWithPath.genPath(event.getWorld(), event.getChunkX() * 16, event.getChunkZ() * 16);
 		}
+
+		if (event.getChunkX() % 16 == 0 && event.getChunkZ() % 16 == 0 && event.getWorld().rand.nextInt(8) == 1)
+		{
+			BlockPos pos = new BlockPos (event.getChunkX() * 16, 0, event.getChunkZ() * 16);
+			Biome biome = event.getWorld().getBiomeForCoordsBody(pos);
+			
+			if (biome == Biomes.FOREST)
+			{
+				HOUSE_HOSTA.generate(event.getWorld(), event.getWorld().rand, event.getWorld().getTopSolidOrLiquidBlock(pos).down(5));
+			}
+		}
 	}
+	*/
 }

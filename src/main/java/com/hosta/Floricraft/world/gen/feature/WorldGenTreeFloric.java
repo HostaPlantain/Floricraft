@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.hosta.Floricraft.item.ItemBlockMetaWood;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -22,7 +23,7 @@ public class WorldGenTreeFloric extends WorldGenAbstractTree {
 	private final int[] NORMAL_TREE6B = new int[] {0, 0, 5, 3, 5, 3, 1};
 	private final int[] BIG_TREE7 = new int[] {0, 0, 3, 9, 9, 6, 3, 1};
 
-	public WorldGenTreeFloric(boolean notify, Random rand, IBlockState log, IBlockState leaves)
+	public WorldGenTreeFloric(boolean notify, IBlockState log, IBlockState leaves)
 	{
 		super(notify);
 		this.log = log;
@@ -62,6 +63,11 @@ public class WorldGenTreeFloric extends WorldGenAbstractTree {
 
 	private boolean canGrow(World worldIn, BlockPos position, int[] hight)
 	{
+		if (worldIn.getBlockState(position.down()).getMaterial() != Material.GRASS && worldIn.getBlockState(position.down()).getMaterial() != Material.GROUND)
+		{
+			return false;
+		}
+			
 		for (int i = 1; i < hight.length; i++)
 		{
 			if (!worldIn.isAirBlock(position.up(i)))

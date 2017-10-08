@@ -301,6 +301,25 @@ item.bottle_brown_flower.rose.name=玫瑰香精油
 item.bottle_brown_flower.peony.name=牡丹香精油
 item.bottle_brown_flower.sakura.name=樱花香精油
 
+item.ballon.black.name=黑色气球
+item.ballon.red.name=红色气球
+item.ballon.green.name=绿色气球
+item.ballon.brown.name=棕色气球
+item.ballon.blue.name=蓝色气球
+item.ballon.purple.name=紫色气球
+item.ballon.cyan.name=青色气球
+item.ballon.light_gray.name=淡灰色气球
+item.ballon.gray.name=灰色气球
+item.ballon.pink.name=粉色气球
+item.ballon.lime.name=黄绿色气球
+item.ballon.yellow.name=黄色气球
+item.ballon.light_blue.name=淡蓝色气球
+item.ballon.magenta.name=品红色气球
+item.ballon.orange.name=橙色气球
+item.ballon.white.name=白色气球
+
+entity.entity_ballon.name=气球
+
 item.confection_event.type0.name=姜饼人
 item.confection_event.type1.name=拐杖糖
 item.confection_event.type2.name=圣诞树曲奇饼
