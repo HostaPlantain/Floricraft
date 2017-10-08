@@ -27,8 +27,8 @@ public class GuiHolder extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int x, int y)
     {
-        this.fontRendererObj.drawString(((ContainerHolder) this.inventorySlots).getDisplayName().getFormattedText(), 8, 6, 4210752);
-        this.fontRendererObj.drawString(this.mc.player.inventory.getDisplayName().getUnformattedText(), 8, this.ySize - 92, 4210752);
+        this.fontRenderer.drawString(((ContainerHolder) this.inventorySlots).getDisplayName().getFormattedText(), 8, 6, 4210752);
+        this.fontRenderer.drawString(this.mc.player.inventory.getDisplayName().getUnformattedText(), 8, this.ySize - 92, 4210752);
     }
  
     @Override

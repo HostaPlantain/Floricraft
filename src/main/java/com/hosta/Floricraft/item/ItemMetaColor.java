@@ -37,7 +37,7 @@ public class ItemMetaColor extends ItemBasic {
 		return this.getUnlocalizedName() + "." + getNameFromMeta(stack.getItemDamage());
 	}
 
-    protected static String getNameFromMeta(int meta)
+    public static String getNameFromMeta(int meta)
     {
     	switch (meta)
     	{

@@ -20,13 +20,13 @@ HashMap<BlockPos, int[]> hightMap = new HashMap<BlockPos, int[]>();
 	public BiomeBasicWithPath(BiomeProperties properties)
 	{
 		super(properties.setBaseHeight(0.125F).setHeightVariation(0.0F));
-		theBiomeDecorator.generateLakes = false;
-		theBiomeDecorator.clayPerChunk = -999;
-		theBiomeDecorator.sandPerChunk = -999;
-		theBiomeDecorator.sandPerChunk2 = -999;
-		theBiomeDecorator.grassPerChunk = -999;
-		theBiomeDecorator.flowersPerChunk = -999;
-		theBiomeDecorator.treesPerChunk = -999;
+		decorator.generateFalls = false;
+		decorator.clayPerChunk = -999;
+		decorator.gravelPatchesPerChunk = -999;
+		decorator.sandPatchesPerChunk = -999;
+		decorator.grassPerChunk = -999;
+		decorator.flowersPerChunk = -999;
+		decorator.treesPerChunk = -999;
 	}
 	
 	@Override

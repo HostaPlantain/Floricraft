@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 public class TileEntityWeatherCockRenderer extends TileEntitySpecialRenderer<TileEntityWeatherCock> {
 
 	@Override
-	public void func_192841_a(TileEntityWeatherCock te, double x, double y, double z, float partialTicks, int destroyStage, float partial)
+	public void render(TileEntityWeatherCock te, double x, double y, double z, float partialTicks, int destroyStage, float partial)
 	{
 		ItemStack itemstack = new ItemStack(te.getBlock(), 1, te.getBlockMetadata());
         
@@ -37,6 +37,6 @@ public class TileEntityWeatherCockRenderer extends TileEntitySpecialRenderer<Til
         GlStateManager.enableLighting();
         GlStateManager.popMatrix();
         
-		super.func_192841_a(te, x, y, z, partialTicks, destroyStage, partial);
+		super.render(te, x, y, z, partialTicks, destroyStage, partial);
 	}
 }

@@ -3,6 +3,7 @@ package com.hosta.Floricraft.handler;
 import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.init.Registerer;
+import com.hosta.Floricraft.item.ItemMetaColor;
 import com.hosta.Floricraft.item.ItemMetaFlower;
 
 import net.minecraft.block.Block;
@@ -143,6 +144,7 @@ public class RecipeHandler {
 		//Doll
 		group = "doll";
 		registerShapedRecipes(group, "doll_iron_sit", new ItemStack(FloricraftInit.DOLL_IRON_SIT, 1), new Object[] {" p ", "iii", " i ", 'p', Blocks.PUMPKIN, 'i', "ingotIron"});
+		registerShapedRecipes(group, "doll_player", new ItemStack(FloricraftInit.DOLL_PLAYER, 1), new Object[] {" s ", "iii", " i ", 's', "itemSkull", 'i', "ingotIron"});
 
 		//Wether
 		group = "weather_cock";
@@ -165,6 +167,14 @@ public class RecipeHandler {
 		//Tool
 		group = "purner";
 		registerShapedRecipes(group, "purner", new ItemStack(FloricraftInit.PURNER, 1, 0), new Object[] {" I", " I", "I ", 'I', "ingotIron"});
+
+		//Ballon
+		group = "ballon";
+		registerShapedRecipes(group, "ballon", new ItemStack(FloricraftInit.ITEM_BALLON, 1), new Object[] {"c", "t", 'c', FloricraftInit.HEMP_CLOTH, 't', FloricraftInit.HEMP_TWINE});
+		for (int i = 0; i < 16; i++)
+		{
+			registerShapelessRecipes(group, "ballon_" + ItemMetaColor.getNameFromMeta(i), new ItemStack(FloricraftInit.ITEM_BALLON, 1, i), new Object[] {new ItemStack(FloricraftInit.ITEM_BALLON, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.DYE, 1, i)});
+		}
 		
 		//Christmas
 		group = "sapling_christmas";

@@ -20,7 +20,7 @@ public class ItemBallon extends ItemMetaColor {
 	{
 		if (!worldIn.isRemote)
 		{
-			worldIn.spawnEntity(new EntityBallon(worldIn, (byte) playerIn.getHeldItem(hand).getMetadata(), playerIn.posX + playerIn.getLookVec().xCoord, playerIn.posY + playerIn.getLookVec().yCoord + 1.0D, playerIn.posZ + playerIn.getLookVec().zCoord));
+			worldIn.spawnEntity(new EntityBallon(worldIn, (byte) playerIn.getHeldItem(hand).getMetadata(), playerIn.posX + playerIn.getLookVec().x, playerIn.posY + playerIn.getLookVec().y + 1.0D, playerIn.posZ + playerIn.getLookVec().z));
 		}
 		
 		return super.onItemRightClick(worldIn, playerIn, hand);

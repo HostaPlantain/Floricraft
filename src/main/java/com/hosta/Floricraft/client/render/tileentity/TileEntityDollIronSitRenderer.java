@@ -11,14 +11,14 @@ import net.minecraft.item.ItemStack;
 
 public class TileEntityDollIronSitRenderer extends TileEntitySpecialRenderer<TileEntityDollIronSit>{
 
-	static final double R = Math.PI / 8;
+	private static final double R = Math.PI / 8;
 
 	@Override
-	public void func_192841_a(TileEntityDollIronSit te, double x, double y, double z, float partialTicks, int destroyStage, float partial)
+	public void render(TileEntityDollIronSit te, double x, double y, double z, float partialTicks, int destroyStage, float partial)
 	{
 		renderItem(te, x, y, z);
 
-		super.func_192841_a(te, x, y, z, partialTicks, destroyStage, partial);
+		super.render(te, x, y, z, partialTicks, destroyStage, partial);
 	}
 
 	private void renderItem(TileEntityDollIronSit entityDoll, double x, double y, double z)
