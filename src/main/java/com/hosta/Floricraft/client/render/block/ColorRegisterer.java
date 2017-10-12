@@ -14,6 +14,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ColorizerFoliage;
+import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -54,6 +55,18 @@ public class ColorRegisterer {
 			
 			setGraphicsLevel(leaves);
 		}
+	}
+	
+	public static void registerGrass(Block block)
+	{
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler
+		(new IBlockColor()
+	    {
+	    	public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex)
+	    	{
+	    		return worldIn != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(worldIn, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D);
+	    	}
+	    }, new Block[] {block});
 	}
 	
 	public static void setGraphicsLevel(Block leaves)

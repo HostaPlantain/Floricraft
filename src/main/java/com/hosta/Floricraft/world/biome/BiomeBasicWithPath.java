@@ -78,11 +78,11 @@ public class BiomeBasicWithPath extends BiomeBasic {
 		
 		if (ConfigChecker.getGenBiomeFast())
 		{
-			genPath(worldIn, pos.getX(), pos.getZ());
+			decorate(worldIn, pos.getX(), pos.getZ());
 		}
 	}
 	
-	public static void genPath(World world, int posX, int posZ)
+	public static void decorate(World world, int posX, int posZ)
 	{
 		for (int x = 0; x < 16; x++)
 		{
