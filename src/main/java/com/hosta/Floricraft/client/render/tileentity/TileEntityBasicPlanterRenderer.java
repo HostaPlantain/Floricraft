@@ -22,18 +22,18 @@ import net.minecraft.world.World;
 
 public abstract class TileEntityBasicPlanterRenderer<T extends TileEntityBasicWithRender> extends TileEntitySpecialRenderer<T> {
 	
-	public void renderPlant(TileEntityPlanter planter, double x, double y, double z, IBlockState iblockstate)
+	public void renderPlant(TileEntityPlanter planter, double x, double y, double z, IBlockState iblockstate, float scale)
 	{
 		if (iblockstate != null && iblockstate.getRenderType() == EnumBlockRenderType.MODEL)
         {
 			World world = planter.getWorld();
-			renderPlant(iblockstate,world, planter, x, y, z, 0.6F);
+			renderPlant(iblockstate,world, planter, x, y, z, scale);
 			
 			if(iblockstate.getBlock() instanceof BlockDoublePlant)
 			{
 				iblockstate = iblockstate.withProperty(BlockDoublePlant.HALF, BlockDoublePlant.EnumBlockHalf.UPPER);
 				
-				renderPlant(iblockstate,world, planter, x, y + 0.6, z, 0.6F);
+				renderPlant(iblockstate,world, planter, x, y + scale, z, scale);
 			}
         }
 	}
@@ -49,11 +49,10 @@ public abstract class TileEntityBasicPlanterRenderer<T extends TileEntityBasicWi
 			VertexBuffer vertexbuffer = tessellator.getBuffer();
 
 			BlockPos blockpos = planter.getPos();
-			float scaleR = 1.0F - scale;
-			float scaleR2 = scaleR / 2;
+			float scaleR = (1.0F - scale) / 2;
 			
 			vertexbuffer.begin(7, DefaultVertexFormats.BLOCK);
-			GlStateManager.translate(x - (double)blockpos.getX() + (blockpos.getX() * scaleR) + scaleR2, y - (double)blockpos.getY() + (blockpos.getY() * scaleR) + 0.3, z - (double)blockpos.getZ() + (blockpos.getZ() * scaleR) + scaleR2);
+			GlStateManager.translate(x - ((double)blockpos.getX() * scale) + scaleR, y - ((double)blockpos.getY() * scale), z - ((double)blockpos.getZ() * scale) + scaleR);
             GlStateManager.scale(scale, scale, scale);
             
             Block block = iblockstate.getBlock();
