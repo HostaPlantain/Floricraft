@@ -135,6 +135,7 @@ public class RecipeHandler {
 		
 		//Planter
 		GameRegistry.addShapelessRecipe(new ItemStack(FloricraftInit.FLOWER_POT, 1), new Object[] {Items.FLOWER_POT});
+		GameRegistry.addRecipe(new ItemStack(FloricraftInit.FLOWER_BED, 8), new Object[] {"bbb", "bgb", "bbb", 'b', Items.BRICK, 'g', Blocks.GRASS});
 		
 		//Silage
 		GameRegistry.addRecipe(new ItemStack(FloricraftInit.ROUND_BALE_HAY, 1), new Object[] {"tpt", "php", "tpt", 'h', Blocks.HAY_BLOCK, 't', FloricraftInit.HEMP_TWINE, 'p', Items.PAPER});
