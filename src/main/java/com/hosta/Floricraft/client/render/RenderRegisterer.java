@@ -23,6 +23,11 @@ public class RenderRegisterer {
 	{
 		ColorRegisterer.registerLeaves(block);
 	}
+
+	public static void registerGrass(Block block)
+	{
+		ColorRegisterer.registerGrass(block);
+	}
 	
 	public static <T extends TileEntity> void registerRender(Class<T> tileEntity, TileEntitySpecialRenderer<T> renderer)
 	{

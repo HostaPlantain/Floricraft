@@ -155,6 +155,7 @@ public class RecipeHandler {
 		//Planter
 		group = "flower_pot";
 		registerShapelessRecipes(group, "flower_pot", new ItemStack(FloricraftInit.FLOWER_POT, 1), new Object[] {Items.FLOWER_POT});
+		registerShapedRecipes(group, "flower_bed", new ItemStack(FloricraftInit.FLOWER_BED, 8), new Object[] {"bbb", "bgb", "bbb", 'b', Items.BRICK, 'g', Blocks.GRASS});
 		
 		//Silage
 		group = "silage";

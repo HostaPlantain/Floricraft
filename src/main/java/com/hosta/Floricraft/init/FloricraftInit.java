@@ -5,6 +5,7 @@ import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.block.BlockCropHemp;
 import com.hosta.Floricraft.block.BlockDollIronSit;
 import com.hosta.Floricraft.block.BlockDollPlayer;
+import com.hosta.Floricraft.block.BlockFlowerBed;
 import com.hosta.Floricraft.block.BlockFlowerLycoris;
 import com.hosta.Floricraft.block.BlockFlowerPot;
 import com.hosta.Floricraft.block.BlockLeavesChristmasDynamic;
@@ -45,6 +46,7 @@ import com.hosta.Floricraft.packet.PacketNBTGuiHandler;
 import com.hosta.Floricraft.potion.EffectBasic;
 import com.hosta.Floricraft.tileentity.TileEntityDollIronSit;
 import com.hosta.Floricraft.tileentity.TileEntityDollPlayer;
+import com.hosta.Floricraft.tileentity.TileEntityFlowerBed;
 import com.hosta.Floricraft.tileentity.TileEntityFlowerPot;
 import com.hosta.Floricraft.tileentity.TileEntityPotPourri;
 import com.hosta.Floricraft.tileentity.TileEntityWeatherCock;
@@ -148,7 +150,8 @@ public class FloricraftInit{
 	
 	//Plater
 	public static final Block FLOWER_POT = new BlockFlowerPot("flower_pot");
-	
+	public static final Block FLOWER_BED = new BlockFlowerBed("flower_bed");
+
 	//Torch
 	public static final Block FLORIC_TORCH_DANDELION = new BlockTorchFloric("floric_torch_dandelion");
 	public static final Block FLORIC_TORCH_POPPY = new BlockTorchFloric("floric_torch_poppy");
@@ -306,6 +309,7 @@ public class FloricraftInit{
 		
 		//Plater
 		Registerer.registerWithTileEntity(FLOWER_POT, TileEntityFlowerPot.class);
+		Registerer.registerWithTileEntity(FLOWER_BED, TileEntityFlowerBed.class);
 		
 		//Torch
 		Registerer.register(FLORIC_TORCH_DANDELION);
@@ -461,7 +465,8 @@ public class FloricraftInit{
 		
 		//Planter
 		Registerer.registerRender(FLOWER_POT);
-		
+		Registerer.registerRender(FLOWER_BED);
+
 		//Torch
 		Registerer.registerRender(FLORIC_TORCH_DANDELION);
 		Registerer.registerRender(FLORIC_TORCH_POPPY);

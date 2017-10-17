@@ -3,6 +3,7 @@ package com.hosta.Floricraft.client.render;
 import com.hosta.Floricraft.client.render.entity.EntityBallonRender;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityDollIronSitRenderer;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityDollPlayerRenderer;
+import com.hosta.Floricraft.client.render.tileentity.TileEntityFlowerBedRenderer;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityFlowerPotRenderer;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityPotPourriRenderer;
 import com.hosta.Floricraft.client.render.tileentity.TileEntityWeatherCockRenderer;
@@ -10,6 +11,7 @@ import com.hosta.Floricraft.entity.EntityBallon;
 import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.tileentity.TileEntityDollIronSit;
 import com.hosta.Floricraft.tileentity.TileEntityDollPlayer;
+import com.hosta.Floricraft.tileentity.TileEntityFlowerBed;
 import com.hosta.Floricraft.tileentity.TileEntityFlowerPot;
 import com.hosta.Floricraft.tileentity.TileEntityPotPourri;
 import com.hosta.Floricraft.tileentity.TileEntityWeatherCock;
@@ -42,6 +44,7 @@ public class RenderInit {
 		RenderRegisterer.registerLeaves(FloricraftInit.LEAVES_CHRISTMAS_DYNAMIC);
 		RenderRegisterer.registerLeaves(FloricraftInit.LEAVES_CHRISTMAS_DYNAMIC_UNLIT);
 		RenderRegisterer.registerLeaves(FloricraftInit.LEAVES_CHRISTMAS_UNLIT);
+		RenderRegisterer.registerGrass(FloricraftInit.FLOWER_BED);
 	}
 	
 	public static void registerTileEntityRenders()
@@ -51,5 +54,6 @@ public class RenderInit {
 		RenderRegisterer.registerRender(TileEntityDollPlayer.class, new TileEntityDollPlayerRenderer());
 		RenderRegisterer.registerRender(TileEntityWeatherCock.class, new TileEntityWeatherCockRenderer());
 		RenderRegisterer.registerRender(TileEntityFlowerPot.class, new TileEntityFlowerPotRenderer());
+		RenderRegisterer.registerRender(TileEntityFlowerBed.class, new TileEntityFlowerBedRenderer());
 	}
 }

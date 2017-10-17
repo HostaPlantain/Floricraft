@@ -1,0 +1,31 @@
+{
+    "multipart": [
+        {   "apply": { "model": "floricraft:flower_bed_base" }},
+        
+        {   "when": { "OR": [{ "north": "false" }, { "east": "false" }]},
+            "apply": { "model": "floricraft:flower_bed_corner_ne" }
+        },
+        {   "when": { "OR": [{ "east": "false" }, { "south": "false" }]},
+            "apply": { "model": "floricraft:flower_bed_corner_ne", "y": 90 }
+        },
+        {   "when": { "OR": [{ "south": "false" }, { "west": "false" }]},
+            "apply": { "model": "floricraft:flower_bed_corner_ne", "y": 180 }
+        },
+        {   "when": { "OR": [{ "west": "false" }, { "north": "false" }]},
+            "apply": { "model": "floricraft:flower_bed_corner_ne", "y": 270 }
+        },
+        
+        {   "when": { "north": "false" },
+            "apply": { "model": "floricraft:flower_bed_line_n" }
+        },
+        {   "when": { "east": "false" },
+            "apply": { "model": "floricraft:flower_bed_line_n", "y": 90 }
+        },
+        {   "when": { "south": "false" },
+            "apply": { "model": "floricraft:flower_bed_line_n", "y": 180 }
+        },
+        {   "when": { "west": "false" },
+            "apply": { "model": "floricraft:flower_bed_line_n", "y": 270 }
+        }
+    ]
+}
