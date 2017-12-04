@@ -364,6 +364,8 @@ effect.anti_enderman=Anti-Enderman
 
 enchantment.floric=Floric
 
+enchantment.floricraft.enchantment.floric.desc=Applies floric to the wielder, and generates flower particles when attacking
+
 message.event.new_year=Happy New Year!
 message.event.christmas=Merry Christmas!
 message.event.welcome=Welcome Back!
