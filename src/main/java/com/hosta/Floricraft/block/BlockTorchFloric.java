@@ -17,7 +17,6 @@ public class BlockTorchFloric extends BlockBasicTorch {
 	public BlockTorchFloric(String name)
 	{
 		super(name);
-        this.isBlockContainer = true;
 	}
 
     @SideOnly(Side.CLIENT)

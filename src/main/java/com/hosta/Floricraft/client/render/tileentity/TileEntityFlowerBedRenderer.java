@@ -28,8 +28,8 @@ public class TileEntityFlowerBedRenderer extends TileEntityBasicPlanterRenderer<
 		}
 		else if (states[1] != null)
 		{
-			this.renderPlant(te, x - 0.25D, y, z - 0.25D, states[0], 0.8F);
-			this.renderPlant(te, x + 0.25D, y, z + 0.25D, states[1], 0.8F);
+			this.renderPlant(te, x - 0.23D, y, z - 0.26D, states[0], 0.8F);
+			this.renderPlant(te, x + 0.25D, y, z + 0.27D, states[1], 0.8F);
 		}
 		else if (states[0] != null)
 		{

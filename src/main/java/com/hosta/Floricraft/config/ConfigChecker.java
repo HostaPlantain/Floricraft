@@ -12,7 +12,8 @@ public class ConfigChecker {
 	private static Boolean windEnabled;	
 	private static int genBiomeWeight;	
 	private static Boolean genBiomeFast;	
-	private static Boolean canSpawn;	
+	private static Boolean canSpawn;
+	private static Boolean genSalt;
 	
 	public static void lordConfig(File file)
 	{
@@ -26,6 +27,7 @@ public class ConfigChecker {
 			genBiomeWeight = config.getInt("genBiomeWeight", "World", 10, 0, 1000, "Weight for Flower Land Biome Gen");
 			genBiomeFast = config.getBoolean("genBiomeFast", "World", false, "Generate Flower Land Biome Faster? true is NOT Recommended"/*", but it will support RTG"*/);
 			canSpawn = config.getBoolean("canSpawn", "World", false, "Can Hostile Mobs Spawn In Flower Lands?");
+			genSalt = config.getBoolean("genSalt", "World", true, "Generate Salt Ore?");
         }
 		finally
 		{
@@ -56,5 +58,10 @@ public class ConfigChecker {
 	public static Boolean getCanSpawn()
 	{
 		return canSpawn;
+	}
+	
+	public static Boolean getGenSalt()
+	{
+		return genSalt;
 	}
 }

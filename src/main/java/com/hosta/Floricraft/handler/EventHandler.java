@@ -5,12 +5,9 @@ import java.util.List;
 
 import com.google.common.collect.Ordering;
 import com.hosta.Floricraft.config.ConfigChecker;
-import com.hosta.Floricraft.helper.DateHelper;
 import com.hosta.Floricraft.helper.EntityHelper;
-import com.hosta.Floricraft.helper.MineHelper;
 import com.hosta.Floricraft.helper.PotionHelper;
 import com.hosta.Floricraft.init.FloricraftInit;
-import com.hosta.Floricraft.packet.PacketNBTGui;
 import com.hosta.Floricraft.world.biome.BiomeBasicWithPath;
 
 import net.minecraft.entity.EntityLiving;
@@ -22,15 +19,12 @@ import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
@@ -39,14 +33,14 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 public class EventHandler {
 
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)
 	{
 		String text = null;
 		
 		if (DateHelper.isNewYear())			{text = "new_year";	}
 		else if (DateHelper.isChristmas())	{text = "christmas";}
-		/*else								{text = "welcome";}*/
+		//else								{text = "welcome";}
 		
 		if (text != null)
 		{
@@ -60,7 +54,7 @@ public class EventHandler {
 			
 			MineHelper.spawnFireworksAround(player.getEntityWorld(), player.getPosition(), 3, 8);
 		}
-	}
+	}*/
 
 	@SubscribeEvent
 	public void onCrafting(PlayerEvent.ItemCraftedEvent event)

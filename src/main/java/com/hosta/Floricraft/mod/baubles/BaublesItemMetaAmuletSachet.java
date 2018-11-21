@@ -1,18 +1,25 @@
 package com.hosta.Floricraft.mod.baubles;
 
+import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.item.ToolSachet;
 
+import baubles.api.BaubleType;
+import baubles.api.BaublesApi;
+import baubles.api.IBauble;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class BaublesItemMetaAmuletSachet extends ToolSachet/* implements IBauble*/{
+public class BaublesItemMetaAmuletSachet extends ToolSachet implements IBauble{
 
 	public BaublesItemMetaAmuletSachet(String unlocalizedName)
 	{
 		super(unlocalizedName);
 	}
-	/*
+	
 	@Override
 	public BaubleType getBaubleType(ItemStack itemstack)
 	{
@@ -40,13 +47,13 @@ public class BaublesItemMetaAmuletSachet extends ToolSachet/* implements IBauble
 			IBauble.super.onWornTick(itemstack, player);
 		}
 	}
-	*/
+	
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected)
 	{
 		
 	}
-	/*
+	
 	@SuppressWarnings("deprecation")
 	private void damageItem(ItemStack stack, EntityPlayer player, int itemSlot)
 	{
@@ -69,5 +76,5 @@ public class BaublesItemMetaAmuletSachet extends ToolSachet/* implements IBauble
 				player.world.spawnEntity(entityItem);
 			}
 		}
-	}*/
+	}
 }

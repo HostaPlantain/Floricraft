@@ -46,11 +46,19 @@ public class Floricraft {
 			NonBaublesFloricraftInit.registers();
 		}
 
-	    GameRegistry.registerWorldGenerator(new WorldGenOreOverWorld(), 0);
+	    if (ConfigChecker.getGenSalt())
+	    {
+	    	GameRegistry.registerWorldGenerator(new WorldGenOreOverWorld(), 0);
+	    }
 		
 		proxy.registerEvents();
 		
 		RecipeHandler.registerCraftingRecipes();
+
+		if (ModChecker.isBaublesLoaded)
+		{
+			BaublesFloricraftInit.registerCraftingRecipes();
+		}
 		
 		proxy.registerRenders();
 		proxy.registerModsRenders();
@@ -61,11 +69,6 @@ public class Floricraft {
 	{
 		//RecipeHandler.registerFurnaceRecipes();
 		RecipeHandler.registerBrewingRecipes();
-		
-		if (ModChecker.isBaublesLoaded)
-		{
-			BaublesFloricraftInit.registerCraftingRecipes();
-		}
 		
 		proxy.registerLeaveRenders();
 	}

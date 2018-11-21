@@ -42,7 +42,8 @@ public class ColorRegisterer {
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler
 			(new IItemColor()
 			{
-				public int getColorFromItemstack(ItemStack stack, int tintIndex)
+				@Override
+				public int colorMultiplier(ItemStack stack, int tintIndex)
 				{
 					@SuppressWarnings("deprecation")
 					IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
@@ -70,7 +71,8 @@ public class ColorRegisterer {
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler
 		(new IItemColor()
 		{
-			public int getColorFromItemstack(ItemStack stack, int tintIndex)
+			@Override
+			public int colorMultiplier(ItemStack stack, int tintIndex)
 			{
 				@SuppressWarnings("deprecation")
 				IBlockState iblockstate = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());

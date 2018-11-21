@@ -1,8 +1,15 @@
 package com.hosta.Floricraft.mod.baubles;
 
+import com.hosta.Floricraft.Reference;
+import com.hosta.Floricraft.init.FloricraftInit;
 import com.hosta.Floricraft.init.Registerer;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class BaublesFloricraftInit {
 
@@ -45,13 +52,18 @@ public class BaublesFloricraftInit {
 	}
 	
 	public static void registerCraftingRecipes()
-	{/*
-		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_FLOWER, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_FLOWER, 1, OreDictionary.WILDCARD_VALUE)});
-		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_TEMPTATION, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_TEMPTATION, 1, OreDictionary.WILDCARD_VALUE)});
-		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_ANTI_ZOMBIE, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_ANTI_ZOMBIE, 1, OreDictionary.WILDCARD_VALUE)});
-		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_ANTI_SKELETON, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_ANTI_SKELETON, 1, OreDictionary.WILDCARD_VALUE)});
-		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_ANTI_CREEPER, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_ANTI_CREEPER, 1, OreDictionary.WILDCARD_VALUE)});
-		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_ANTI_SPIDER, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_ANTI_SPIDER, 1, OreDictionary.WILDCARD_VALUE)});
-		GameRegistry.addRecipe(new ItemStack(BaublesFloricraftInit.AMULET_SACHET_ANTI_ENDERMAN, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(FloricraftInit.SACHET_ANTI_ENDERMAN, 1, OreDictionary.WILDCARD_VALUE)});
-	*/}
+	{
+		Registerer.register(amuletRecipe(BaublesFloricraftInit.AMULET_SACHET_FLOWER, FloricraftInit.SACHET_FLOWER), "amulet_sachet_flower");
+		Registerer.register(amuletRecipe(BaublesFloricraftInit.AMULET_SACHET_TEMPTATION, FloricraftInit.SACHET_TEMPTATION), "amulet_sachet_temptation");
+		Registerer.register(amuletRecipe(BaublesFloricraftInit.AMULET_SACHET_ANTI_ZOMBIE, FloricraftInit.SACHET_ANTI_ZOMBIE), "amulet_sachet_anti_zombie");
+		Registerer.register(amuletRecipe(BaublesFloricraftInit.AMULET_SACHET_ANTI_SKELETON, FloricraftInit.SACHET_ANTI_SKELETON), "amulet_sachet_anti_skeleton");
+		Registerer.register(amuletRecipe(BaublesFloricraftInit.AMULET_SACHET_ANTI_CREEPER, FloricraftInit.SACHET_ANTI_CREEPER), "amulet_sachet_anti_creeper");
+		Registerer.register(amuletRecipe(BaublesFloricraftInit.AMULET_SACHET_ANTI_SPIDER, FloricraftInit.SACHET_ANTI_SPIDER), "amulet_sachet_anti_spider");
+		Registerer.register(amuletRecipe(BaublesFloricraftInit.AMULET_SACHET_ANTI_ENDERMAN, FloricraftInit.SACHET_ANTI_ENDERMAN), "amulet_sachet_anti_enderman");
+	}
+	
+	private static IRecipe amuletRecipe(Item output, Item itemIn)
+	{
+		return new ShapedOreRecipe(new ResourceLocation(Reference.MOD_ID, "amulet_sachet"), new ItemStack(output, 1), new Object[] {" t ", "t t", " s ", 't', FloricraftInit.HEMP_TWINE, 's', new ItemStack(itemIn, 1, OreDictionary.WILDCARD_VALUE)});
+	}
 }

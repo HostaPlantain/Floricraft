@@ -1,6 +1,5 @@
 package com.hosta.Floricraft.init;
 
-import com.hosta.Floricraft.Floricraft;
 import com.hosta.Floricraft.Reference;
 import com.hosta.Floricraft.block.BlockCropHemp;
 import com.hosta.Floricraft.block.BlockDollIronSit;
@@ -26,7 +25,6 @@ import com.hosta.Floricraft.block.BlockWreath;
 import com.hosta.Floricraft.config.ConfigChecker;
 import com.hosta.Floricraft.enchantment.EnchantmentFloric;
 import com.hosta.Floricraft.entity.EntityBallon;
-import com.hosta.Floricraft.handler.GuiHandler;
 import com.hosta.Floricraft.item.ItemArmorCloth;
 import com.hosta.Floricraft.item.ItemBallon;
 import com.hosta.Floricraft.item.ItemBasic;
@@ -41,8 +39,6 @@ import com.hosta.Floricraft.item.ItemMetaFlower;
 import com.hosta.Floricraft.item.ItemSeedsHemp;
 import com.hosta.Floricraft.item.ToolPurner;
 import com.hosta.Floricraft.item.ToolSachet;
-import com.hosta.Floricraft.packet.PacketNBTGui;
-import com.hosta.Floricraft.packet.PacketNBTGuiHandler;
 import com.hosta.Floricraft.potion.EffectBasic;
 import com.hosta.Floricraft.tileentity.TileEntityDollIronSit;
 import com.hosta.Floricraft.tileentity.TileEntityDollPlayer;
@@ -69,9 +65,6 @@ import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class FloricraftInit{
@@ -225,7 +218,7 @@ public class FloricraftInit{
 	public static final Biome BIOME_TULIP_LAND = new BiomeFlowerLand("Tulip Land").setCropsbyTypes(1);
 	
 	//Network
-	public static final SimpleNetworkWrapper NETWORK_GUI = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MOD_ID + "." + "gui");
+	//public static final SimpleNetworkWrapper NETWORK_GUI = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MOD_ID + "." + "gui");
 	
 	
 	public static void init()
@@ -388,8 +381,8 @@ public class FloricraftInit{
 		BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(BIOME_ROSE_LAND, genBiomeWeight));
 		
 		//Network
-		NETWORK_GUI.registerMessage(PacketNBTGuiHandler.class, PacketNBTGui.class, 0, Side.CLIENT);
-		NetworkRegistry.INSTANCE.registerGuiHandler(Floricraft.instance, new GuiHandler());
+		/*NETWORK_GUI.registerMessage(PacketNBTGuiHandler.class, PacketNBTGui.class, 0, Side.CLIENT);
+		NetworkRegistry.INSTANCE.registerGuiHandler(Floricraft.instance, new GuiHandler());*/
 	}
 
 	public static void registerRenders()
