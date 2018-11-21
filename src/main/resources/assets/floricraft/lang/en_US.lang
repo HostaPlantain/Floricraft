@@ -336,7 +336,7 @@ tile.leaves_christmas_dynamic_unlit.name=Unlit Dynamic Christmas Leaves
 tile.leaves_christmas_unlit.name=Unlit Christmas Leaves
 
 tile.ornament_christmas.type0.name=Christmas Wreath
-tile.ornament_christmas.type1.name=Christmas Sox
+tile.ornament_christmas.type1.name=Christmas Stocking
 tile.ornament_christmas.type2.name=Christmas Flag Garland
 tile.ornament_christmas.type3.name=Colorful Flag Garland
 
@@ -363,6 +363,8 @@ effect.anti_spider=Anti-Spider
 effect.anti_enderman=Anti-Enderman
 
 enchantment.floric=Floric
+
+enchantment.floricraft.enchantment.floric.desc=Applies floric to the wielder, and generates flower particles when attacking
 
 message.event.new_year=Happy New Year!
 message.event.christmas=Merry Christmas!
