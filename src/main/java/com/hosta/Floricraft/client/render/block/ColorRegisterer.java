@@ -42,7 +42,6 @@ public class ColorRegisterer {
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler
 			(new IItemColor()
 			{
-				@Override
 				public int colorMultiplier(ItemStack stack, int tintIndex)
 				{
 					@SuppressWarnings("deprecation")
@@ -71,7 +70,6 @@ public class ColorRegisterer {
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler
 		(new IItemColor()
 		{
-			@Override
 			public int colorMultiplier(ItemStack stack, int tintIndex)
 			{
 				@SuppressWarnings("deprecation")
